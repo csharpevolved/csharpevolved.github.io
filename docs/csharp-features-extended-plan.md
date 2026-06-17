@@ -14,20 +14,20 @@
 
 ---
 
-## Priority 3 (P3) — High-Impact Essentials (Next 8 features)
+## Priority 3 (P3) — High-Impact Essentials (Next 6 features)
 
-Foundational features used in 90%+ of C# projects. Should be covered next.
+Foundational features from C# 3.0+ used in 90%+ of projects. Should be covered next.
+
+**Note:** Delegates, Events, Generics/Constraints, and Named Parameters predate C# 3.0 and are out of scope per project guidelines.
 
 | Priority | Era | Feature | Why include it | Microsoft Learn reference |
 |---|---|---|---|---|
-| P3 | C# 2.0 | Generic Methods and Type Constraints | Foundational for type-safe reusable code; enables modern algorithms and libraries. | https://learn.microsoft.com/dotnet/csharp/fundamentals/types/generics |
-| P3 | C# 4.0 | Named and Optional Parameters | Ubiquitous in modern APIs; reduces method overload bloat; improves clarity. | https://learn.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments |
-| P3 | C# 1.0 | Delegates and Events | Core event-driven architecture pattern; fundamental pub-sub model. | https://learn.microsoft.com/dotnet/csharp/events-overview |
-| P3 | C# 3.0 | Func<T> and Action<T> | Generic delegates; essential for functional programming and LINQ. | https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/reference-types#the-delegate-type |
+| P3 | C# 3.0 | Func<T> and Action<T> | Generic delegates; essential for functional programming and LINQ complement. | https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/reference-types#the-delegate-type |
 | P3 | C# 8.0 | Default Interface Members | Enables interface evolution without breaking implementations; modern interface pattern. | https://learn.microsoft.com/dotnet/csharp/tutorialsdefault-interface-members-versions |
 | P3 | C# 8.0 | Using Declarations (IDisposable) | Modern resource management; automatic disposal with cleaner syntax than try-finally. | https://learn.microsoft.com/dotnet/csharp/fundamentals/resource-management/disposable |
-| P3 | C# 7.0+ | Out/Ref/In Parameters | Pass-by-reference semantics; essential for performance patterns and safe interop. | https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/method-parameters |
+| P3 | C# 7.0+ | Out/Ref/In Parameters | Pass-by-reference semantics; enhanced in C# 7.0; essential for performance patterns. | https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/method-parameters |
 | P3 | C# 7.2 | Span<T> and ReadOnlySpan<T> | Zero-allocation memory patterns; performance critical; increasingly essential for modern C#. | https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/span |
+| P3 | C# 11 | Static Abstract Members in Interfaces | Enables generic algorithms with constraints; generic math pattern (INumber<T>). | https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/static |
 
 ---
 
@@ -103,15 +103,15 @@ Important for specific domains or advanced scenarios. Cover as time/resources al
    - Core language evolution from C# 3.0 → 12.0
    - Modern syntax and type safety patterns
 
-2. **Build P3** (8 features) — ~1-2 weeks
-   - Fill foundational gaps (generics, delegates, span)
-   - Cover 95% of typical C# development scenarios
-   - Total: ~28 features
+2. **Build P3** (6 features) — ~1 week
+   - Fill foundational gaps (Func<T>/Action<T>, Span<T>, using declarations, ref/out/in)
+   - Cover 95% of typical C# development scenarios (C# 3.0+)
+   - Total: ~26 features
 
 3. **Layer P4** (~20+ features) — ~3-4 weeks
-   - Advanced and specialized patterns
+   - Advanced and specialized patterns (C# 3.0+)
    - Domain-specific deep dives
-   - Total: ~48+ features
+   - Total: ~46+ features
 
 4. **Ongoing** — Maintenance & updates
    - Monitor new C# releases (annually)
@@ -122,7 +122,8 @@ Important for specific domains or advanced scenarios. Cover as time/resources al
 
 ## Notes
 
+- **Coverage floor:** C# 3.0 (.NET 3.5, 2007) and forward only. Pre-C# 3.0 features out of scope.
 - **P3 is critical** for comprehensive coverage and practical value
 - **P4 is optional** but provides depth for specialists
-- This roadmap covers ~95% of production C# usage (P0+P1+P2+P3)
+- This roadmap covers ~95% of production C# usage (P0+P1+P2+P3) from C# 3.0 onward
 - Remaining 5% (P4 niche features) useful for specific domains (systems programming, reflection-heavy patterns, etc.)
