@@ -1,0 +1,104 @@
+---
+layout: layout.njk
+pagination:
+  data: features
+  size: 1
+  alias: feature
+permalink: "/features/{{ feature.slug }}/"
+eleventyComputed:
+  title: "{{ feature.title }}"
+---
+
+<nav aria-label="Breadcrumb">
+  <p><a href="/features/">← Back to all features</a></p>
+</nav>
+
+<article>
+  <h1>{{ feature.title }}</h1>
+  <p>
+    <strong>{{ feature.versions.csharp.label }}</strong>
+    ·
+    <strong>{{ feature.versions.dotnet.label }}</strong>
+  </p>
+  <p class="lead">{{ feature.summary | renderMarkdownInline | safe }}</p>
+
+  {% if feature.introMarkdown %}
+    {{ feature.introMarkdown | renderMarkdown | safe }}
+  {% endif %}
+
+  {% if feature.articleMarkdown %}
+    {{ feature.articleMarkdown | renderMarkdown | safe }}
+  {% endif %}
+
+  {% if feature.sections and feature.sections.length %}
+    {% for section in feature.sections %}
+      <section>
+        {% if section.title %}
+          <h2>{{ section.title }}</h2>
+        {% endif %}
+        {{ section.markdown | renderMarkdown | safe }}
+      </section>
+    {% endfor %}
+  {% endif %}
+
+  {% if feature.callouts and feature.callouts.length %}
+    {% for callout in feature.callouts %}
+      <aside class="card" role="note">
+        {% if callout.title %}
+          <h2>{{ callout.title }}</h2>
+        {% endif %}
+        {{ callout.markdown | renderMarkdown | safe }}
+      </aside>
+    {% endfor %}
+  {% endif %}
+
+  {% for example in feature.examples %}
+    <section>
+      <h2>{{ example.title }}</h2>
+      <p>{{ example.description }}</p>
+      {% if example.sampleLanguageVersion %}
+        <p>
+          <strong>Valid since C# {{ example.sampleLanguageVersion }}</strong>
+          {% if example.newerCapabilityNote %}
+            · {{ example.newerCapabilityNote }}
+          {% endif %}
+        </p>
+      {% endif %}
+
+      {% if example.beforeCode and example.afterCode %}
+        <h3>Without <code>var</code></h3>
+        {{ example.beforeCode | highlightCode("csharp") | safe }}
+        <h3>With <code>var</code></h3>
+        {{ example.afterCode | highlightCode("csharp") | safe }}
+      {% elseif example.code %}
+        {{ example.code | highlightCode("csharp") | safe }}
+      {% endif %}
+    </section>
+  {% endfor %}
+
+  <h2>Learn more</h2>
+  <p>
+    <a href="{{ feature.learnMoreUrl }}" target="_blank" rel="noopener noreferrer">
+      {{ (feature.learnMore and feature.learnMore.label) or ("Microsoft Learn reference for " + feature.title) }}
+    </a>
+  </p>
+
+  {% if feature.newerCapabilities and feature.newerCapabilities.length %}
+    <section aria-labelledby="newer-capabilities-heading">
+      <h2 id="newer-capabilities-heading">Newer capabilities</h2>
+      <ol>
+        {% for capability in feature.newerCapabilities %}
+          <li>
+            <article class="card">
+              {% if capability.title %}
+                <h3>{{ capability.title }}</h3>
+              {% endif %}
+              <p><strong>Introduced in C# {{ capability.csharpVersion }}</strong></p>
+              {{ capability.markdown | renderMarkdown | safe }}
+            </article>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endif %}
+</article>

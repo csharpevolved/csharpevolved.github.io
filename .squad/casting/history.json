@@ -1,0 +1,22 @@
+{
+  "universe_usage_history": [
+    {
+      "universe": "DC Universe",
+      "assignment_id": "csharp-evolved-initial-cast-2026-06-17",
+      "used_at": "2026-06-17T09:30:25.737-04:00"
+    }
+  ],
+  "assignment_cast_snapshots": {
+    "csharp-evolved-initial-cast-2026-06-17": {
+      "universe": "DC Universe",
+      "agents": {
+        "lead": "Perry White",
+        "frontend": "Lois Lane",
+        "backend": "Clark Kent",
+        "tester": "Jimmy Olsen",
+        "devrel": "Cat Grant"
+      },
+      "created_at": "2026-06-17T09:30:25.737-04:00"
+    }
+  }
+}

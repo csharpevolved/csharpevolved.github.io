@@ -1,0 +1,3 @@
+- `var` reduces repetition when the initializer already makes the type clear.
+- `var` is required for anonymous types.
+- The compiler still enforces a concrete inferred type.

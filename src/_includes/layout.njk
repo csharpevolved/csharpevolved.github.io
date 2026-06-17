@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title }} | C# Evolved</title>
+    <meta
+      name="description"
+      content="A practical C# reference site for modern language features and examples."
+    />
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="/">C# Evolved</a>
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/snippets/">Snippets</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      {{ content | safe }}
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p>Built for developers tracking C# language evolution.</p>
+      </div>
+    </footer>
+  </body>
+</html>

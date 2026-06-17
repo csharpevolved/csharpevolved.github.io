@@ -1,0 +1,3 @@
+- Escape literal braces with `{{` and `}}`.
+- Keep interpolated expressions simple; move complex logic outside the string.
+- For localization-heavy UI text, prefer resource files over hard-coded interpolated strings.

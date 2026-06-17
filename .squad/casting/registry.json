@@ -1,0 +1,39 @@
+{
+  "agents": {
+    "lead": {
+      "persistent_name": "Perry White",
+      "universe": "DC Universe",
+      "created_at": "2026-06-17T09:30:25.737-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "frontend": {
+      "persistent_name": "Lois Lane",
+      "universe": "DC Universe",
+      "created_at": "2026-06-17T09:30:25.737-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "backend": {
+      "persistent_name": "Clark Kent",
+      "universe": "DC Universe",
+      "created_at": "2026-06-17T09:30:25.737-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "tester": {
+      "persistent_name": "Jimmy Olsen",
+      "universe": "DC Universe",
+      "created_at": "2026-06-17T09:30:25.737-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "devrel": {
+      "persistent_name": "Cat Grant",
+      "universe": "DC Universe",
+      "created_at": "2026-06-17T09:30:25.737-04:00",
+      "legacy_named": false,
+      "status": "active"
+    }
+  }
+}

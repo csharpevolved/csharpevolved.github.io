@@ -1,0 +1,1 @@
+String interpolation was introduced in C# 6.0. It lets you embed expressions directly in a string with `{...}` placeholders, which is usually clearer than `+` concatenation or long `string.Format` calls.

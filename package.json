@@ -1,0 +1,17 @@
+{
+  "name": "csharp-evolved",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static site for exploring modern C# features and snippets.",
+  "scripts": {
+    "build": "eleventy && npm run --silent check:var",
+    "check:var": "node scripts/check-var-feature.mjs",
+    "dev": "eleventy --serve",
+    "serve": "eleventy --serve --quiet"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^14.1.0"
+  }
+}

@@ -1,0 +1,2 @@
+- Avoid `var` when it hides an important type detail.
+- Keep explicit types for public members and method signatures.

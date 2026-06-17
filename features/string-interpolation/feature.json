@@ -1,0 +1,59 @@
+{
+  "slug": "string-interpolation",
+  "title": "String interpolation",
+  "shortTitle": "String interpolation",
+  "versions": {
+    "csharp": "6.0",
+    "dotnet": "4.6"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Baseline usage",
+      "path": "content/sections/baseline-usage.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "newerCapabilities": [
+    {
+      "title": "Interpolated string handlers and raw interpolated strings",
+      "csharpVersion": "10.0",
+      "path": "content/newer-capabilities/handlers-and-raw-strings.md"
+    }
+  ],
+  "learnMore": {
+    "label": "String interpolation (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/tokens/interpolated"
+  },
+  "examples": [
+    {
+      "id": "string-format-to-interpolation",
+      "title": "From string.Format to interpolation",
+      "description": "C# 6.0 interpolation replaces positional placeholders with inline expressions for clearer templates.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "before": "string-interpolation/string-format-before.cs",
+        "after": "string-interpolation/string-interpolation-after.cs"
+      }
+    },
+    {
+      "id": "format-and-alignment",
+      "title": "Formatting and alignment in interpolated strings",
+      "description": "Interpolation supports the same numeric/date format and alignment components used with composite formatting.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "code": "string-interpolation/format-and-alignment.cs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+- Interpolation keeps the output template and values in one place.
+- It improves readability for logs, messages, and diagnostics.
+- Expressions inside `{...}` are compile-time checked.
