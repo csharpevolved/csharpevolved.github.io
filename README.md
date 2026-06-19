@@ -57,3 +57,5 @@ Build output is generated to `_site/`:
 ```bash
 npm run build
 ```
+
+This site is built and maintained by Jeffrey T. Fritz
