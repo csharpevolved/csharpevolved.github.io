@@ -1,0 +1,9 @@
+{
+  "String Interpolation": {
+    "prefix": "csinterp",
+    "body": [
+      "var message = $\"${1:Hello}, {${2:name}}!\";"
+    ],
+    "description": "Embed expressions in a string using $ prefix (C# 6.0+)"
+  }
+}

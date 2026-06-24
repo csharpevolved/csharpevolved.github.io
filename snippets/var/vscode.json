@@ -1,0 +1,9 @@
+{
+  "Implicit Typed Variable (var)": {
+    "prefix": "csvar",
+    "body": [
+      "var ${1:name} = ${2:value};"
+    ],
+    "description": "Declare a local variable using type inference (C# 3.0+)"
+  }
+}

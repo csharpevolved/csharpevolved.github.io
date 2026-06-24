@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Tuples and Deconstruction</Title>
+      <Shortcut>cstuple</Shortcut>
+      <Description>Return and deconstruct a named tuple (C# 7.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>MethodName</ID>
+          <ToolTip>Method name</ToolTip>
+          <Default>GetCoordinates</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[(double Latitude, double Longitude) $MethodName$()
+{
+    return (51.5074, -0.1278);
+}
+
+var (lat, lon) = $MethodName$();$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

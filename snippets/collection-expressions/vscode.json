@@ -1,0 +1,9 @@
+{
+  "Collection Expressions": {
+    "prefix": "cscollexpr",
+    "body": [
+      "${1:int}[] ${2:values} = [${3:1, 2, 3}];"
+    ],
+    "description": "Initialize a collection using the bracket syntax (C# 12.0+)"
+  }
+}

@@ -1,0 +1,391 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - heading "C# Evolved" [level=1] [ref=e4]
+      - paragraph [ref=e5]: A reference site for developers who want to do more with the C# language, with practical examples and version-aware guidance.
+      - navigation "Primary" [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "Home" [ref=e9] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e10]:
+            - link "Explore features" [ref=e11] [cursor=pointer]:
+              - /url: /features/
+          - listitem [ref=e12]:
+            - link "Browse snippets" [ref=e13] [cursor=pointer]:
+              - /url: /snippets/
+    - region "Content sections" [ref=e14]:
+      - article [ref=e15]:
+        - heading "Language Features" [level=2] [ref=e16]
+        - paragraph [ref=e17]: Track updates by C# version and understand what changed with concise examples.
+        - link "Explore features →" [ref=e18] [cursor=pointer]:
+          - /url: /features/
+      - article [ref=e19]:
+        - heading "Snippet Library" [level=2] [ref=e20]
+        - paragraph [ref=e21]: Reusable examples for pattern matching, required members, records, and more.
+        - link "Browse snippets →" [ref=e22] [cursor=pointer]:
+          - /url: /snippets/
+      - article [ref=e23]:
+        - heading "Ready for Expansion" [level=2] [ref=e24]
+        - paragraph [ref=e25]: Structured layout and navigation prepared for additional guides and release notes.
+    - heading "Feature snippets" [level=2] [ref=e26]
+    - paragraph [ref=e27]: Browse every feature at a glance in deterministic shuffled order.
+    - region "Feature snippets" [ref=e28]:
+      - article [ref=e29]:
+        - 'heading "Implicitly typed locals (`var`)" [level=3] [ref=e30]':
+          - 'link "Implicitly typed locals (`var`)" [ref=e31] [cursor=pointer]':
+            - /url: /features/var/
+        - paragraph [ref=e32]: When the right side already shows the concrete type, var removes duplication while keeping compile-time typing.
+        - code [ref=e34]: var ordersByCustomer = new Dictionary<string, List<decimal>>();
+      - article [ref=e35]:
+        - heading "LINQ" [level=3] [ref=e36]:
+          - link "LINQ" [ref=e37] [cursor=pointer]:
+            - /url: /features/linq/
+        - paragraph [ref=e38]: LINQ turns sequence processing into a readable pipeline instead of nested loops and temp variables.
+        - code [ref=e40]: var adults = people .Where(person => person.Age >= 18) .OrderBy(person => person.LastName) .Select(person => person.FullName);
+      - article [ref=e41]:
+        - heading "Nullable reference types" [level=3] [ref=e42]:
+          - link "Nullable reference types" [ref=e43] [cursor=pointer]:
+            - /url: /features/nullable-reference-types/
+        - paragraph [ref=e44]: Nullable annotations force you to model absence explicitly instead of assuming every reference is populated.
+        - code [ref=e46]: "string? displayName = FindDisplayName(); if (displayName is null) { return; } Console.WriteLine(displayName.Length);"
+      - article [ref=e47]:
+        - heading "Init accessors" [level=3] [ref=e48]:
+          - link "Init accessors" [ref=e49] [cursor=pointer]:
+            - /url: /features/init-accessors/
+        - paragraph [ref=e50]: Init-only setters keep object construction flexible while preventing mutation after the initializer finishes.
+        - code [ref=e52]: "public sealed class Customer { public string Name { get; init; } = string.Empty; public int LoyaltyPoints { get; init; } }"
+      - article [ref=e53]:
+        - heading "Records" [level=3] [ref=e54]:
+          - link "Records" [ref=e55] [cursor=pointer]:
+            - /url: /features/records/
+        - paragraph [ref=e56]: Records are concise reference types with value-based equality and built-in support for non-destructive updates.
+        - code [ref=e58]:
+          - generic [ref=e59]:
+            - text: public record WeatherReading(
+            - generic [ref=e60]: string City, decimal TemperatureC
+            - text: )
+          - text: ; var today = new WeatherReading("Seattle",
+          - generic [ref=e61]: "9.5"
+          - text: "m); var warmer = today with { TemperatureC ="
+          - generic [ref=e62]: "12.0"
+          - text: "m };"
+      - article [ref=e63]:
+        - heading "Using Declarations" [level=3] [ref=e64]:
+          - link "Using Declarations" [ref=e65] [cursor=pointer]:
+            - /url: /features/using-declarations/
+        - paragraph [ref=e66]: Using declarations keep disposal guarantees while reducing block nesting.
+        - code [ref=e68]:
+          - text: "using System; public sealed class ScopeLogger : IDisposable { private readonly string _name;"
+          - generic [ref=e69]:
+            - text: public ScopeLogger(
+            - generic [ref=e70]: string name
+            - text: )
+          - text: "{ _name = name; Console.WriteLine(\"Opened \" + _name); }"
+          - generic [ref=e71]: public void Dispose()
+          - text: "{ Console.WriteLine(\"Disposed \" + _name); } } { using var logger = new ScopeLogger(\"outer\"); Console.WriteLine(\"Working with flatter structure\"); }"
+      - article [ref=e72]:
+        - heading "Tuples and Deconstruction" [level=3] [ref=e73]:
+          - link "Tuples and Deconstruction" [ref=e74] [cursor=pointer]:
+            - /url: /features/tuples-and-deconstruction/
+        - paragraph [ref=e75]: Tuples allow you to group multiple values together and deconstruct them into individual variables with a single expression.
+        - code [ref=e77]:
+          - text: // Create a tuple (string city, decimal temperature) reading = ("Seattle",
+          - generic [ref=e78]: "9.5"
+          - text: m); // Deconstruct the tuple var (city, temp) = reading; Console.WriteLine(
+          - generic [ref=e79]:
+            - text: $"
+            - generic [ref=e80]: "{city}"
+            - text: ":"
+            - generic [ref=e81]: "{temp}"
+            - text: °C"
+          - text: "); // Tuples with named elements var person = (name: \"Alice\", age: 30, city: \"NYC\"); var (personName, personAge, personCity) = person; // Tuple without named elements var coordinates = (x: 10, y: 20); var (x, y) = coordinates;"
+      - article [ref=e82]:
+        - heading "Top-level statements" [level=3] [ref=e83]:
+          - link "Top-level statements" [ref=e84] [cursor=pointer]:
+            - /url: /features/top-level-statements/
+        - paragraph [ref=e85]: Top-level statements eliminate boilerplate for simple console applications, making the code more direct.
+        - code [ref=e87]:
+          - text: Console.WriteLine(
+          - generic [ref=e88]: "\"Hello, World!\""
+          - text: );
+      - article [ref=e89]:
+        - heading "Extension methods" [level=3] [ref=e90]:
+          - link "Extension methods" [ref=e91] [cursor=pointer]:
+            - /url: /features/extension-methods/
+        - paragraph [ref=e92]: Extension methods let you add reusable helpers without changing the original type.
+        - code [ref=e94]:
+          - text: "public static class StringExtensions {"
+          - generic [ref=e95]:
+            - text: public static bool IsNullOrEmptyTrimmed(
+            - generic [ref=e96]: this string value
+            - text: )
+          - text: "=> string.IsNullOrWhiteSpace(value?.Trim()); }"
+      - article [ref=e97]:
+        - heading "Pattern matching" [level=3] [ref=e98]:
+          - link "Pattern matching" [ref=e99] [cursor=pointer]:
+            - /url: /features/pattern-matching/
+        - paragraph [ref=e100]: Modern pattern matching lets you describe ranges and combinations directly in the branch expression.
+        - code [ref=e102]:
+          - generic [ref=e103]:
+            - text: string DescribeTemperature(
+            - generic [ref=e104]: int celsius
+            - text: )
+          - text: "=> celsius switch { < 0 => \"freezing\", >= 0 and <= 10 => \"cold\", > 10 and < 25 => \"mild\", _ => \"warm\" };"
+      - article [ref=e105]:
+        - heading "Collection expressions" [level=3] [ref=e106]:
+          - link "Collection expressions" [ref=e107] [cursor=pointer]:
+            - /url: /features/collection-expressions/
+        - paragraph [ref=e108]: Collection expressions provide a consistent syntax for creating arrays, lists, and other collections, making initialization cleaner and less verbose.
+        - code [ref=e110]: // Array int[] numbers = [1, 2, 3, 4, 5]; // List List<string> names = ["Alice", "Bob", "Charlie"]; // Span Span<int> values = [10, 20, 30];
+      - article [ref=e111]:
+        - heading "Primary constructors" [level=3] [ref=e112]:
+          - link "Primary constructors" [ref=e113] [cursor=pointer]:
+            - /url: /features/primary-constructors/
+        - paragraph [ref=e114]: Primary constructors let you declare constructor parameters directly in the class declaration, automatically creating and initializing backing fields.
+        - code [ref=e116]:
+          - generic [ref=e117]:
+            - text: public class Person(
+            - generic [ref=e118]: string name, int age
+            - text: )
+          - text: "{ private string Name => name; private int Age => age;"
+          - generic [ref=e119]: public string GetName()
+          - text: "=> Name; }"
+      - article [ref=e120]:
+        - heading "Func<T> and Action<T>" [level=3] [ref=e121]:
+          - link "Func<T> and Action<T>" [ref=e122] [cursor=pointer]:
+            - /url: /features/func-and-action-delegates/
+        - paragraph [ref=e123]: Func delegates are ideal when behavior should be injected and a value returned.
+        - code [ref=e125]:
+          - text: "using System; class Program {"
+          - generic [ref=e126]:
+            - text: static int Apply(
+            - generic [ref=e127]: int left, int right, Func<int, int, int> operation
+            - text: )
+          - text: "{ return operation(left, right); }"
+          - generic [ref=e128]: static void Main()
+          - text: "{ int sum = Apply(10, 5, (x, y) => x + y); int product = Apply(10, 5, (x, y) => x * y); Console.WriteLine(sum); // 15 Console.WriteLine(product); // 50 } }"
+      - article [ref=e129]:
+        - heading "Async and await" [level=3] [ref=e130]:
+          - link "Async and await" [ref=e131] [cursor=pointer]:
+            - /url: /features/async-await/
+        - paragraph [ref=e132]: Async methods let you keep the thread free while waiting on I/O-heavy work like HTTP calls or file access.
+        - code [ref=e134]:
+          - generic [ref=e135]:
+            - text: public async Task<string> LoadProfileAsync(
+            - generic [ref=e136]: HttpClient client, string id
+            - text: )
+          - text: "{ var response = await client.GetAsync("
+          - generic [ref=e137]:
+            - text: $"/profiles/
+            - generic [ref=e138]: "{id}"
+            - text: "\""
+          - text: "); response.EnsureSuccessStatusCode(); return await response.Content.ReadAsStringAsync(); }"
+      - article [ref=e139]:
+        - heading "Switch Expressions" [level=3] [ref=e140]:
+          - link "Switch Expressions" [ref=e141] [cursor=pointer]:
+            - /url: /features/switch-expressions/
+        - paragraph [ref=e142]: Switch expressions provide a concise, expression-based alternative to traditional switch statements, reducing boilerplate and improving readability.
+        - code [ref=e144]:
+          - text: // Traditional switch statement
+          - generic [ref=e145]: string GetDayTypeOld(DayOfWeek day)
+          - text: "{ switch (day) { case DayOfWeek.Saturday: case DayOfWeek.Sunday: return \"Weekend\"; default: return \"Weekday\"; } }"
+          - generic [ref=e146]: // Switch expression (C# 8.0)
+          - generic [ref=e147]: string GetDayType(DayOfWeek day)
+          - text: "=> day switch { DayOfWeek.Saturday or DayOfWeek.Sunday => \"Weekend\", _ => \"Weekday\" }; Console.WriteLine(GetDayType(DayOfWeek.Monday)); // \"Weekday\" Console.WriteLine(GetDayType(DayOfWeek.Saturday)); // \"Weekend\""
+      - article [ref=e148]:
+        - heading "Global Using Directives" [level=3] [ref=e149]:
+          - link "Global Using Directives" [ref=e150] [cursor=pointer]:
+            - /url: /features/global-using-directives/
+        - paragraph [ref=e151]: Global using directives apply to all files in your project, eliminating the need to repeat common imports in every file.
+        - code [ref=e153]:
+          - generic [ref=e154]: // Usings.cs (or Program.cs) - define global using statements
+          - text: global using System; global using System.Collections.Generic; global using System.Linq; global using System.Text.Json; global using System.Threading.Tasks; // Now any other file in the project can use these namespaces // without repeating the using statements
+          - generic [ref=e155]: // Example.cs (no using statements needed)
+          - text: "namespace MyApp; public class UserService {"
+          - generic [ref=e156]: public async Task<List<User>> GetUsersAsync()
+          - text: "{"
+          - generic [ref=e157]: // Can use List<T>, Task, etc. without local using statements
+          - text: "return new List<User>(); } }"
+          - generic [ref=e158]:
+            - text: public record User(
+            - generic [ref=e159]: int Id, string Name
+            - text: )
+          - text: ;
+      - article [ref=e160]:
+        - heading "List patterns" [level=3] [ref=e161]:
+          - link "List patterns" [ref=e162] [cursor=pointer]:
+            - /url: /features/list-patterns/
+        - paragraph [ref=e163]: List patterns allow you to match specific positions and values in an array or list, enabling powerful pattern-based control flow.
+        - code [ref=e165]:
+          - text: "string result = numbers switch { ["
+          - generic [ref=e166]: 1, 2, ..
+          - text: "] =>"
+          - generic [ref=e167]: "\"Starts with 1, 2\""
+          - text: ", ["
+          - generic [ref=e168]: 1, _, 3
+          - text: "] =>"
+          - generic [ref=e169]: "\"Pattern: 1, any, 3\""
+          - text: ", _ => \"No match\" }; Console.WriteLine(result);"
+      - article [ref=e170]:
+        - heading "Static Abstract Members in Interfaces" [level=3] [ref=e171]:
+          - link "Static Abstract Members in Interfaces" [ref=e172] [cursor=pointer]:
+            - /url: /features/static-abstract-interface-members/
+        - paragraph [ref=e173]: Call static members through generic constraints for compile-time-safe abstractions.
+        - code [ref=e175]:
+          - text: "using System; public interface ISpanParsableValue<TSelf> where TSelf : ISpanParsableValue<TSelf> {"
+          - generic [ref=e176]:
+            - text: static abstract TSelf Parse(
+            - generic [ref=e177]: ReadOnlySpan<char> value
+            - text: )
+          - text: "; }"
+          - generic [ref=e178]:
+            - text: public readonly record struct ProductCode(
+            - generic [ref=e179]: string Value
+            - text: ") : ISpanParsableValue<ProductCode>"
+          - text: "{"
+          - generic [ref=e180]:
+            - text: public static ProductCode Parse(
+            - generic [ref=e181]: ReadOnlySpan<char> value
+            - text: )
+          - text: "=> new(value.ToString().Trim().ToUpperInvariant()); }"
+          - generic [ref=e182]:
+            - text: static T ParseValue<T>(
+            - generic [ref=e183]: ReadOnlySpan<char> input
+            - text: ") where T : ISpanParsableValue<T>"
+          - text: "{ return T.Parse(input); } var code = ParseValue<ProductCode>(\" abc-42 \"); Console.WriteLine(code.Value); // ABC-42"
+      - article [ref=e184]:
+        - heading "File-Scoped Namespaces" [level=3] [ref=e185]:
+          - link "File-Scoped Namespaces" [ref=e186] [cursor=pointer]:
+            - /url: /features/file-scoped-namespaces/
+        - paragraph [ref=e187]: File-scoped namespaces eliminate indentation and reduce nesting, applying the namespace to the entire file with a single declaration.
+        - code [ref=e189]:
+          - generic [ref=e190]: // UserService.cs - using file-scoped namespace (C# 10.0)
+          - text: namespace
+          - generic [ref=e191]: MyApp.Services
+          - text: "; public class UserService {"
+          - generic [ref=e192]:
+            - text: public void PrintUser(
+            - generic [ref=e193]: string name
+            - text: )
+          - text: "{ Console.WriteLine("
+          - generic [ref=e194]:
+            - text: "$\"User:"
+            - generic [ref=e195]: "{name}"
+            - text: "\""
+          - text: "); } }"
+          - generic [ref=e196]: // Logger.cs - using file-scoped namespace
+          - text: namespace
+          - generic [ref=e197]: MyApp.Services
+          - text: "; public class Logger {"
+          - generic [ref=e198]:
+            - text: public void Log(
+            - generic [ref=e199]: string message
+            - text: )
+          - text: "{ Console.WriteLine("
+          - generic [ref=e200]:
+            - text: $"[LOG]
+            - generic [ref=e201]: "{message}"
+            - text: "\""
+          - text: "); } }"
+      - article [ref=e202]:
+        - heading "String interpolation" [level=3] [ref=e203]:
+          - link "String interpolation" [ref=e204] [cursor=pointer]:
+            - /url: /features/string-interpolation/
+        - paragraph [ref=e205]: C# 6.0 interpolation replaces positional placeholders with inline expressions for clearer templates.
+        - code [ref=e207]:
+          - text: var userName = "Avery"; var orderTotal =
+          - generic [ref=e208]: "27.5"
+          - text: m; var message =
+          - generic [ref=e209]:
+            - text: $"Customer
+            - generic [ref=e210]: "{userName}"
+            - text: placed an order totaling
+            - generic [ref=e211]: "{orderTotal:C}"
+            - text: ."
+          - text: ;
+      - article [ref=e212]:
+        - heading "Default Interface Members" [level=3] [ref=e213]:
+          - link "Default Interface Members" [ref=e214] [cursor=pointer]:
+            - /url: /features/default-interface-members/
+        - paragraph [ref=e215]: Default members let existing implementations keep working when an interface evolves.
+        - code [ref=e217]:
+          - text: "using System; public interface ITemperatureFormatter {"
+          - generic [ref=e218]:
+            - text: string FormatCelsius(
+            - generic [ref=e219]: double celsius
+            - text: )
+          - text: => celsius.ToString(
+          - generic [ref=e220]: "\"0.0\""
+          - text: ") + \" C\"; } public class BasicFormatter : ITemperatureFormatter { } Console.WriteLine(((ITemperatureFormatter)new BasicFormatter()).FormatCelsius("
+          - generic [ref=e221]: "21.34"
+          - text: ));
+      - article [ref=e222]:
+        - heading "Required Members" [level=3] [ref=e223]:
+          - link "Required Members" [ref=e224] [cursor=pointer]:
+            - /url: /features/required-members/
+        - paragraph [ref=e225]: The required keyword ensures that properties must be initialized when creating an instance, with compile-time enforcement.
+        - code [ref=e227]:
+          - text: "// Product class with required members public class Product { public required string Name { get; set; } public required decimal Price { get; set; } public string? Description { get; set; } public int? StockCount { get; set; } } // This compiles - all required properties are set var product1 = new Product { Name = \"Laptop\", Price ="
+          - generic [ref=e228]: "999.99"
+          - text: "m, Description = \"High-performance laptop\" }; // This does NOT compile - missing required property 'Price'"
+          - generic [ref=e229]: // var product2 = new Product
+          - generic [ref=e230]: "// {"
+          - generic [ref=e231]: // Name = "Tablet"
+          - text: "// // Error: Missing required member 'Price'"
+          - generic [ref=e232]: "// };"
+          - text: Console.WriteLine(
+          - generic [ref=e233]:
+            - text: "$\"Product:"
+            - generic [ref=e234]: "{product1.Name}"
+            - text: ", Price:"
+            - generic [ref=e235]: "{product1.Price}"
+            - text: "\""
+          - text: );
+      - article [ref=e236]:
+        - heading "out, ref, and in Parameters" [level=3] [ref=e237]:
+          - link "out, ref, and in Parameters" [ref=e238] [cursor=pointer]:
+            - /url: /features/out-ref-in-parameters/
+        - paragraph [ref=e239]: out parameters return extra values while signaling success or failure.
+        - code [ref=e241]: "using System; if (int.TryParse(\"123\", out int value)) { Console.WriteLine(value + 1); } else { Console.WriteLine(\"Invalid number\"); }"
+      - article [ref=e242]:
+        - heading "Lambda expressions" [level=3] [ref=e243]:
+          - link "Lambda expressions" [ref=e244] [cursor=pointer]:
+            - /url: /features/lambda-expressions/
+        - paragraph [ref=e245]: Lambda expressions let you write compact delegates inline without losing type safety.
+        - code [ref=e247]: Func<int, int> doubleIt = value => value * 2;
+      - article [ref=e248]:
+        - heading "Raw String Literals" [level=3] [ref=e249]:
+          - link "Raw String Literals" [ref=e250] [cursor=pointer]:
+            - /url: /features/raw-string-literals/
+        - paragraph [ref=e251]: Raw strings eliminate escape sequences, allowing you to write JSON, SQL, and multiline text naturally without escaping quotes or backslashes.
+        - code [ref=e253]:
+          - text: // JSON without raw strings - requires escaping quotes string jsonOld =
+          - generic [ref=e254]: "\"{\\\"name\\\": \\\"Alice\\\", \\\"age\\\": 30}\""
+          - text: ; // JSON with raw strings - clean and readable string jsonNew = ""
+          - generic [ref=e255]: "\" { \""
+          - text: "name\": \"Alice"
+          - generic [ref=e256]: "\", \""
+          - text: age
+          - generic [ref=e257]: "\": 30, \""
+          - text: "email\": \"alice@example.com"
+          - generic [ref=e258]: "\" } \""
+          - text: "\"\"; // SQL query with raw strings string sqlQuery = \"\""
+          - generic [ref=e259]: "\" SELECT u.Id, u.Name, u.Email FROM Users u WHERE u.Status = 'Active' ORDER BY u.Name \""
+          - text: "\"\"; // Regex pattern with raw strings string patternOld ="
+          - generic [ref=e260]: "\"^\\\\w+@[\\\\w\\\\.]+\\\\.\\\\w+$\""
+          - text: ; string patternNew =
+          - generic [ref=e261]: "\"\"\"^\\\\w+@[\\w\\.]+\\.\\w+$\"\"\""
+          - text: ; Console.WriteLine(jsonNew); Console.WriteLine(sqlQuery);
+      - article [ref=e262]:
+        - heading "Span<T> and ReadOnlySpan<T>" [level=3] [ref=e263]:
+          - link "Span<T> and ReadOnlySpan<T>" [ref=e264] [cursor=pointer]:
+            - /url: /features/span-and-readonlyspan/
+        - paragraph [ref=e265]: Span slices create lightweight views over existing memory instead of new arrays.
+        - code [ref=e267]:
+          - text: "using System; int[] values = { 5, 10, 15, 20, 25, 30 }; Span<int> window = values.AsSpan(1, 3); for (int i = 0; i < window.Length; i++) { window[i] *= 2; } Console.WriteLine(string.Join("
+          - generic [ref=e268]: "\", \""
+          - text: ", values));"
+          - generic [ref=e269]: // 5, 20, 30, 40, 25, 30
+  - contentinfo [ref=e270]:
+    - paragraph [ref=e272]: Built for developers tracking C# language evolution.

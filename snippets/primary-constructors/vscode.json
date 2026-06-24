@@ -1,0 +1,15 @@
+{
+  "Primary Constructor": {
+    "prefix": "csprimary",
+    "body": [
+      "public class ${1:OrderService}(${2:ILogger} ${3:logger})",
+      "{",
+      "    public void Process()",
+      "    {",
+      "        ${3:logger}.LogInformation(\"Processing...\");",
+      "    }",
+      "}"
+    ],
+    "description": "Declare a class with a primary constructor (C# 12.0+)"
+  }
+}

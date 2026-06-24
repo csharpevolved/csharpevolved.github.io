@@ -1,0 +1,9 @@
+{
+  "Record Type": {
+    "prefix": "csrecord",
+    "body": [
+      "public record ${1:Person}(${2:string} ${3:FirstName}, ${4:string} ${5:LastName});"
+    ],
+    "description": "Declare an immutable record with positional properties (C# 9.0+)"
+  }
+}

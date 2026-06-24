@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Pattern Matching (is)</Title>
+      <Shortcut>cspattern</Shortcut>
+      <Description>Match a value against a type or property pattern (C# 7.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>input</ID>
+          <ToolTip>Object to test</ToolTip>
+          <Default>obj</Default>
+        </Literal>
+        <Literal>
+          <ID>Type</ID>
+          <ToolTip>Type to match</ToolTip>
+          <Default>string</Default>
+        </Literal>
+        <Literal>
+          <ID>local</ID>
+          <ToolTip>Captured variable name</ToolTip>
+          <Default>s</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[if ($input$ is $Type$ $local$)
+{
+    // use $local$
+}$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

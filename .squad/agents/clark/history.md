@@ -37,3 +37,10 @@ Initial backend/sample context seeded.
 - Fix unblocked final verification, which then passed all requirements.
 
 - 2026-06-19: Scribe merged Clark's P1 feature-validation readiness decision into `decisions.md` and cleared processed inbox item.
+
+## 2026-06-24T11:33:20Z
+- Completed full code audit of all 52 `.cs` files under `src/code-samples/` (26 feature folders).
+- Fixed 7 invalid files: missing variable declarations (list-patterns ×2), missing local function stub (nullable-guard), duplicate file-scoped namespace (file-scoped-namespaces/basic-example), incorrect `using` directives (global-static-using), undeclared LINQ source variable (linq/filter-project-sort), top-level public method wrapped in class (async-await/http-call).
+- 45 files verified valid with no changes.
+- Separately scaffolded `analyzers/CSharpEvolved.Analyzers` Roslyn package (CSE001–CSE003); build succeeded.
+- Scribe merged both decisions into `decisions.md` and cleared inbox entries.

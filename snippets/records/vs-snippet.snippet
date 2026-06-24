@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Record Type</Title>
+      <Shortcut>csrecord</Shortcut>
+      <Description>Declare an immutable record with positional properties (C# 9.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Name</ID>
+          <ToolTip>Record type name</ToolTip>
+          <Default>Person</Default>
+        </Literal>
+        <Literal>
+          <ID>Prop1Type</ID>
+          <ToolTip>First property type</ToolTip>
+          <Default>string</Default>
+        </Literal>
+        <Literal>
+          <ID>Prop1Name</ID>
+          <ToolTip>First property name</ToolTip>
+          <Default>FirstName</Default>
+        </Literal>
+        <Literal>
+          <ID>Prop2Type</ID>
+          <ToolTip>Second property type</ToolTip>
+          <Default>string</Default>
+        </Literal>
+        <Literal>
+          <ID>Prop2Name</ID>
+          <ToolTip>Second property name</ToolTip>
+          <Default>LastName</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[public record $Name$($Prop1Type$ $Prop1Name$, $Prop2Type$ $Prop2Name$);$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

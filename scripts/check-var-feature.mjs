@@ -484,7 +484,7 @@ for (const version of renderedStringExampleVersions) {
   }
 }
 
-const expectedPrimaryNavLinks = ["/", "/features/", "/snippets/"];
+const expectedPrimaryNavLinks = ["/", "/features/", "/snippets/", "/analyzers/"];
 
 function extractPrimaryNavLinks(content, file) {
   const navMatch = content.match(

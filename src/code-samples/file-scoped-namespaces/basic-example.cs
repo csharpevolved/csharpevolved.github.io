@@ -9,9 +9,7 @@ public class UserService
     }
 }
 
-// Logger.cs - using file-scoped namespace
-namespace MyApp.Services;
-
+// Logger class in the same file-scoped namespace
 public class Logger
 {
     public void Log(string message)

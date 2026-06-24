@@ -1,0 +1,14 @@
+{
+  "Switch Expression": {
+    "prefix": "csswitchexpr",
+    "body": [
+      "var ${1:result} = ${2:value} switch",
+      "{",
+      "    ${3:1} => \"${4:one}\",",
+      "    ${5:2} => \"${6:two}\",",
+      "    _ => \"${7:other}\"",
+      "};"
+    ],
+    "description": "Concise switch expression returning a value (C# 8.0+)"
+  }
+}

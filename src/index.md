@@ -15,6 +15,7 @@ templateEngineOverride: njk
       <li><a href="/">Home</a></li>
       <li><a href="/features/">Explore features</a></li>
       <li><a href="/snippets/">Browse snippets</a></li>
+      <li><a href="/analyzers/">Analyzers</a></li>
     </ul>
   </nav>
 </section>

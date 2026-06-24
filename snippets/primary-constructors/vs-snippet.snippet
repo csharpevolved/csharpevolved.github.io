@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Primary Constructor</Title>
+      <Shortcut>csprimary</Shortcut>
+      <Description>Declare a class with a primary constructor (C# 12.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>ClassName</ID>
+          <ToolTip>Class name</ToolTip>
+          <Default>OrderService</Default>
+        </Literal>
+        <Literal>
+          <ID>ParamType</ID>
+          <ToolTip>Constructor parameter type</ToolTip>
+          <Default>ILogger</Default>
+        </Literal>
+        <Literal>
+          <ID>paramName</ID>
+          <ToolTip>Constructor parameter name</ToolTip>
+          <Default>logger</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[public class $ClassName$($ParamType$ $paramName$)
+{
+    public void Process()
+    {
+        $paramName$.LogInformation("Processing...");
+    }
+}$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

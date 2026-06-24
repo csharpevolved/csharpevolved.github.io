@@ -69,6 +69,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy({ "snippets": "snippets" });
   eleventyConfig.addFilter("highlightCode", (code, language = "csharp") =>
     renderHighlightedCodeBlock(code, language)
   );

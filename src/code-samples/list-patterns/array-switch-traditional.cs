@@ -1,3 +1,4 @@
+int[] numbers = [1, 2, 3];
 if (numbers.Length >= 2 && numbers[0] == 1 && numbers[1] == 2)
 {
     Console.WriteLine("Starts with 1, 2");

@@ -1,7 +1,7 @@
 // Usings.cs - define global using statements including static usings
 global using System;
-global using System.Console;
-global using System.Math;
+global using static System.Console;
+global using static System.Math;
 
 // Now WriteLine and static Math members are available everywhere
 

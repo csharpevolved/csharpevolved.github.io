@@ -1,0 +1,13 @@
+{
+  "Required Members": {
+    "prefix": "csrequired",
+    "body": [
+      "public class ${1:UserProfile}",
+      "{",
+      "    public required string ${2:Name} { get; init; }",
+      "    public required string ${3:Email} { get; init; }",
+      "}"
+    ],
+    "description": "Class with required init-only properties (C# 11.0+)"
+  }
+}

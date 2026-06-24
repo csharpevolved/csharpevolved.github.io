@@ -80,3 +80,11 @@ Initial frontend context seeded.
 ## 2026-06-19T11:27:43.024-04:00
 - Completed the theme contrast refresh in `src/assets/site.css`, introducing a deeper midnight-blue palette, brighter violet/cyan accents, richer card/hero surfaces, and improved link/focus visibility while keeping page structure intact.
 - Archived the design decision in `decisions.md` and cleared the inbox entry for the refresh work.
+
+## 2026-06-24T11:33:20Z
+- Co-delivered the full snippets system with Cat Grant (lois-cat-snippets agent).
+- Rewrote `src/snippets/index.md` as a full Nunjucks grid with copy-to-clipboard and download links.
+- Appended snippet CSS rules (`.snippet-grid`, `.snippet-card`, `.snippet-download-btn`, `.snippet-copy-btn`) to `src/assets/site.css`.
+- Added passthrough copy in `.eleventy.js` to serve `snippets/` directory at runtime.
+- `npm run build` passed.
+- Scribe merged the snippets decision into `decisions.md` and cleared the inbox entry.

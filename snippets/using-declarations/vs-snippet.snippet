@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Using Declaration</Title>
+      <Shortcut>csusingdecl</Shortcut>
+      <Description>Declare a disposable resource that is automatically disposed at end of scope (C# 8.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>resource</ID>
+          <ToolTip>Resource variable name</ToolTip>
+          <Default>resource</Default>
+        </Literal>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Resource type</ToolTip>
+          <Default>StreamReader</Default>
+        </Literal>
+        <Literal>
+          <ID>args</ID>
+          <ToolTip>Constructor arguments</ToolTip>
+          <Default>"file.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[using var $resource$ = new $type$($args$);$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

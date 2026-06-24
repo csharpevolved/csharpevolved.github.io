@@ -1,0 +1,9 @@
+{
+  "Using Declaration": {
+    "prefix": "csusingdecl",
+    "body": [
+      "using var ${1:resource} = new ${2:StreamReader}(${3:\"file.txt\"});"
+    ],
+    "description": "Declare a disposable resource that is automatically disposed at end of scope (C# 8.0+)"
+  }
+}

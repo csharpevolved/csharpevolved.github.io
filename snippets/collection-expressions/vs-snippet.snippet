@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Collection Expressions</Title>
+      <Shortcut>cscollexpr</Shortcut>
+      <Description>Initialize a collection using the bracket syntax (C# 12.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Element type</ToolTip>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Variable name</ToolTip>
+          <Default>values</Default>
+        </Literal>
+        <Literal>
+          <ID>items</ID>
+          <ToolTip>Initial items</ToolTip>
+          <Default>1, 2, 3</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[$type$[] $name$ = [$items$];$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,14 @@
+{
+  "Tuples and Deconstruction": {
+    "prefix": "cstuple",
+    "body": [
+      "(${1:double} ${2:X}, ${3:double} ${4:Y}) ${5:GetPoint}()",
+      "{",
+      "    return (${6:0.0}, ${7:0.0});",
+      "}",
+      "",
+      "var (${8:x}, ${9:y}) = ${5:GetPoint}();"
+    ],
+    "description": "Return and deconstruct a named tuple (C# 7.0+)"
+  }
+}

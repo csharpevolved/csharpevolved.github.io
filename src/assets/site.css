@@ -450,3 +450,103 @@ pre {
 .hljs-punctuation {
   color: #b8a8e8;
 }
+
+/* ===== Snippets Page ===== */
+.snippets-hero {
+  padding: 2rem 0 1.5rem;
+  border-bottom: 1px solid var(--color-border, #334);
+  margin-bottom: 2rem;
+}
+.snippets-install-hint {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-muted, #8899aa);
+  background: var(--color-surface, #1a1f2e);
+  border: 1px solid var(--color-border, #334);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+.snippet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.snippet-card {
+  background: var(--color-surface, #1a1f2e);
+  border: 1px solid var(--color-border, #334);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.snippet-card-header {
+  padding: 1rem 1.25rem 0.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.snippet-card-title {
+  font-size: 1rem;
+  margin: 0;
+}
+.snippet-card-title a {
+  color: var(--color-accent, #7c6af7);
+  text-decoration: none;
+}
+.snippet-card-title a:hover { text-decoration: underline; }
+.snippet-card-prefix code {
+  font-size: 0.8rem;
+  background: var(--color-bg, #0d1117);
+  border: 1px solid var(--color-border, #334);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  color: var(--color-cyan, #56d4e0);
+}
+.snippet-card-body {
+  padding: 0 1.25rem 0.75rem;
+  flex: 1;
+}
+.snippet-card-description {
+  font-size: 0.85rem;
+  color: var(--color-muted, #8899aa);
+  margin: 0 0 0.5rem;
+}
+.snippet-preview {
+  background: var(--color-bg, #0d1117);
+  border: 1px solid var(--color-border, #223);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.82rem;
+  overflow-x: auto;
+  margin: 0;
+  max-height: 140px;
+}
+.snippet-card-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--color-border, #334);
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.snippet-download-btn,
+.snippet-copy-btn {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 5px;
+  border: 1px solid var(--color-border, #334);
+  background: var(--color-bg, #0d1117);
+  color: var(--color-accent, #7c6af7);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.15s, color 0.15s;
+}
+.snippet-download-btn:hover,
+.snippet-copy-btn:hover {
+  background: var(--color-accent, #7c6af7);
+  color: #fff;
+  border-color: var(--color-accent, #7c6af7);
+}

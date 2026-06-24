@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Required Members</Title>
+      <Shortcut>csrequired</Shortcut>
+      <Description>Class with required init-only properties (C# 11.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>ClassName</ID>
+          <ToolTip>Class name</ToolTip>
+          <Default>UserProfile</Default>
+        </Literal>
+        <Literal>
+          <ID>Prop1</ID>
+          <ToolTip>First required property name</ToolTip>
+          <Default>Name</Default>
+        </Literal>
+        <Literal>
+          <ID>Prop2</ID>
+          <ToolTip>Second required property name</ToolTip>
+          <Default>Email</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[public class $ClassName$
+{
+    public required string $Prop1$ { get; init; }
+    public required string $Prop2$ { get; init; }
+}$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
