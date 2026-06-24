@@ -29,6 +29,11 @@ templateEngineOverride: njk
     <a href="/features/">Explore features →</a>
   </article>
   <article class="card">
+    <h2>Cloud-first Architecture</h2>
+    <p>Learn modern service patterns with Azure Functions, containers, storage, Redis caching, and event-driven design.</p>
+    <a href="/cloud/">Explore cloud guides →</a>
+  </article>
+  <article class="card">
     <h2>Snippet Library</h2>
     <p>Copy-ready snippets for Visual Studio and VS Code. One per feature, available in both formats.</p>
     <a href="/snippets/">Browse snippets →</a>
