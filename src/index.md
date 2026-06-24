@@ -55,6 +55,10 @@ templateEngineOverride: njk
 {% set snippetDescription = (example and example.description) or feature.summary %}
   <article class="card feature-snippet-card home-feature-snippet-card">
     <h3 class="home-feature-snippet-title"><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h3>
+    <p class="feature-version-pills" aria-label="Version support">
+      <span class="feature-pill feature-pill-csharp">{{ feature.versions.csharp.label }}</span>
+      <span class="feature-pill feature-pill-dotnet">{{ feature.versions.dotnet.label }}</span>
+    </p>
 {% if snippetDescription %}
     <p class="home-feature-snippet-description">{{ snippetDescription | renderMarkdownInline | safe }}</p>
 {% endif %}

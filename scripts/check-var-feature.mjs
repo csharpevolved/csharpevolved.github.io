@@ -549,6 +549,16 @@ if (!renderedHomeDemoCards || renderedHomeDemoCards.length !== spotlightFeatures
   );
 }
 
+for (const card of renderedHomeDemoCards) {
+  if (
+    !/class="feature-version-pills"[^>]*>[\s\S]*?class="feature-pill feature-pill-csharp"[\s\S]*?class="feature-pill feature-pill-dotnet"/.test(
+      card
+    )
+  ) {
+    throw new Error("Landing page featured demo card is missing C# and .NET version pills");
+  }
+}
+
 const renderedFeaturesIndex = readFileSync("_site/features/index.html", "utf8");
 if (!renderedFeaturesIndex.includes('<section class="grid feature-demos-grid" aria-label="Feature demos">')) {
   throw new Error("Features page is missing the feature demos section");
