@@ -21,24 +21,25 @@ This repository now uses [Eleventy (11ty)](https://www.11ty.dev/) with a lightwe
 
 Each feature must be fully self-contained under `features/<slug>/`:
 
-- `feature.json` – feature metadata, version tags, examples, and markdown references.
+- `feature.json` – feature metadata, version tags, examples, markdown references, and `learnMore` link info.
   - `versions.dotnet` should remain numeric (`3.5`, `3.0`, `8.0`); the site renders labels as:
     - `NETFx` for .NET Framework versions
     - `NETCore` for .NET Core versions
     - `.NET` for .NET 5+
 - `content/summary.md` – short card summary.
 - `content/intro.md` – opening narrative (optional but recommended).
-- `content/sections/*.md` – primary article sections.
-- `content/callouts/*.md` – note/caution callouts.
+- `content/sections/*.md` – primary article sections (recommended; add at least one for full feature pages).
+- `content/callouts/*.md` – optional note/caution callouts.
 - `content/newer-capabilities/*.md` – optional newer-version capability notes.
 
 ## Adding the next feature
 
-1. Create `features/<new-slug>/feature.json`.
-2. Add markdown files under `features/<new-slug>/content/...` using the contract above.
-3. Add code samples under `src/code-samples/<new-slug>/`.
-4. Reference those snippet paths in `feature.json` examples.
-5. Run `npm run build` to validate generated output and checks.
+1. Create `features/<new-slug>/feature.json` (no shared `features/index.json` is used).
+2. Include core manifest metadata: `slug`, `title`, `shortTitle`, `versions.csharp`, `versions.dotnet`, `summary`, `intro.path` (recommended), `learnMore.label`, and `learnMore.url`.
+3. Add markdown files under `features/<new-slug>/content/...` and wire them in the manifest (`summary`, `intro`, `sections[]`, optional `callouts[]`, optional `newerCapabilities[]`).
+4. Add code samples under `src/code-samples/<new-slug>/`.
+5. Reference snippet files from `examples[].snippets` using paths relative to `src/code-samples` (for example: `<new-slug>/example.cs`).
+6. Run `npm run build` to validate Eleventy output and repository checks (`check:var` runs as part of build).
 
 ## C# highlighting configuration
 

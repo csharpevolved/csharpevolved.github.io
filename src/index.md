@@ -52,7 +52,7 @@ templateEngineOverride: njk
 <section class="grid feature-snippet-grid home-feature-snippet-grid" aria-label="Feature demos">
 {% for feature in spotlightFeatures %}
 {% set example = feature.examples[0] %}
-{% set snippetDescription = (example and example.description) or feature.summary %}
+{% set snippetDescription = feature.spotlightDescription or (example and example.description) or feature.summary %}
   <article class="card feature-snippet-card home-feature-snippet-card">
     <h3 class="home-feature-snippet-title"><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h3>
     <p class="feature-version-pills" aria-label="Version support">
@@ -68,4 +68,16 @@ templateEngineOverride: njk
   </article>
 {% endfor %}
 </section>
+<script>
+  (function () {
+    const grid = document.querySelector(".home-feature-snippet-grid");
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll(".home-feature-snippet-card"));
+    for (let index = cards.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(Math.random() * (index + 1));
+      [cards[index], cards[swapIndex]] = [cards[swapIndex], cards[index]];
+    }
+    cards.forEach((card) => grid.appendChild(card));
+  })();
+</script>
 {% endif %}

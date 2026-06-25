@@ -1,15 +1,57 @@
 const features = require("./features");
 
-const SPOTLIGHT = [
-  { slug: "var",                    description: "Let the compiler infer types at compile time — cleaner code without losing static safety." },
-  { slug: "async-await",            description: "Write asynchronous code that reads like synchronous code, without callbacks or manual threading." },
-  { slug: "string-interpolation",   description: "Embed expressions directly in string literals — goodbye, string.Format." },
-  { slug: "records",                description: "Declare immutable data types in one line, with value equality and non-destructive mutation built in." },
-  { slug: "pattern-matching",       description: "Test and destructure data in a single expression — if/else chains become concise match arms." },
-  { slug: "collection-expressions", description: "Create and combine any collection type with a unified [1, 2, 3] literal syntax." },
-];
+const DEFAULT_SPOTLIGHT_COUNT = 6;
 
-module.exports = SPOTLIGHT.map(({ slug, description }) => {
-  const feature = features.find(f => f.slug === slug);
-  return feature ? { ...feature, spotlightDescription: description } : null;
-}).filter(Boolean);
+function selectSpotlightFeatures(allFeatures, options = {}) {
+  const count = options.count ?? DEFAULT_SPOTLIGHT_COUNT;
+  const random = options.random ?? Math.random;
+  const candidates = [...allFeatures]
+    .filter((feature) => feature?.slug && feature?.versions?.csharp?.label && feature?.versions?.dotnet?.label)
+    .map((feature, index) => ({ feature, index, randomOrder: random() }));
+
+  const selected = [];
+  const seenCsharp = new Set();
+  const seenDotnet = new Set();
+
+  while (selected.length < count && candidates.length > 0) {
+    candidates.sort((left, right) => {
+      const leftCsharp = left.feature.versions.csharp.label;
+      const rightCsharp = right.feature.versions.csharp.label;
+      const leftDotnet = left.feature.versions.dotnet.label;
+      const rightDotnet = right.feature.versions.dotnet.label;
+
+      const leftDiversityBoost =
+        (seenCsharp.has(leftCsharp) ? 0 : 1) +
+        (seenDotnet.has(leftDotnet) ? 0 : 1);
+      const rightDiversityBoost =
+        (seenCsharp.has(rightCsharp) ? 0 : 1) +
+        (seenDotnet.has(rightDotnet) ? 0 : 1);
+
+      if (rightDiversityBoost !== leftDiversityBoost) {
+        return rightDiversityBoost - leftDiversityBoost;
+      }
+
+      if (left.randomOrder !== right.randomOrder) {
+        return left.randomOrder - right.randomOrder;
+      }
+
+      return left.index - right.index;
+    });
+
+    const next = candidates.shift();
+    if (!next) {
+      break;
+    }
+
+    selected.push(next.feature);
+    seenCsharp.add(next.feature.versions.csharp.label);
+    seenDotnet.add(next.feature.versions.dotnet.label);
+  }
+
+  return selected;
+}
+
+const spotlightFeatures = selectSpotlightFeatures(features);
+
+module.exports = spotlightFeatures;
+module.exports.selectSpotlightFeatures = selectSpotlightFeatures;

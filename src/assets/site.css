@@ -109,6 +109,34 @@ a:focus-visible {
   top: 1rem;
 }
 
+.corner-badge {
+  position: fixed;
+  top: calc(0.65rem + env(safe-area-inset-top, 0px));
+  right: calc(0.65rem + env(safe-area-inset-right, 0px));
+  z-index: 900;
+  pointer-events: none;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--accent-secondary);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(36, 214, 255, 0.18), rgba(38, 27, 82, 0.96));
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: 0 10px 20px rgba(2, 8, 23, 0.38);
+}
+
+@media (max-width: 600px) {
+  .corner-badge {
+    top: calc(0.5rem + env(safe-area-inset-top, 0px));
+    right: calc(0.5rem + env(safe-area-inset-right, 0px));
+    font-size: 0.68rem;
+    padding: 0.25rem 0.52rem;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
