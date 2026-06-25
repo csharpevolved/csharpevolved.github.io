@@ -16,9 +16,13 @@ public sealed class ScopeLogger : IDisposable
     }
 }
 
+public static class Program
 {
-    using (var logger = new ScopeLogger("outer"))
+    public static void Main()
     {
-        Console.WriteLine("Working inside using block");
+        using (var logger = new ScopeLogger("outer"))
+        {
+            Console.WriteLine("Working inside using block");
+        }
     }
 }

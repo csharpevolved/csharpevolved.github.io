@@ -16,7 +16,11 @@ public sealed class ScopeLogger : IDisposable
     }
 }
 
+public static class Program
 {
-    using var logger = new ScopeLogger("outer");
-    Console.WriteLine("Working with flatter structure");
+    public static void Main()
+    {
+        using var logger = new ScopeLogger("outer");
+        Console.WriteLine("Working with flatter structure");
+    }
 }

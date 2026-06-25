@@ -1,28 +1,33 @@
-// Immutable record with required init-only properties
-public record User
+using System;
+
+// Product class with required members
+public class Product
 {
-    public required int Id { get; init; }
-    public required string Email { get; init; }
-    public required string FirstName { get; init; }
-    public required string LastName { get; init; }
-    public string? MiddleName { get; init; }
+    public required string Name { get; set; }
+    public required decimal Price { get; set; }
+    public string? Description { get; set; }
+    public int? StockCount { get; set; }
 }
 
-// This compiles - all required properties are initialized
-var user = new User
+public static class Program
 {
-    Id = 1,
-    Email = "alice@example.com",
-    FirstName = "Alice",
-    LastName = "Smith"
-};
+    public static void Main()
+    {
+        // This compiles - all required properties are set
+        var product1 = new Product
+        {
+            Name = "Laptop",
+            Price = 999.99m,
+            Description = "High-performance laptop"
+        };
 
-// This does NOT compile
-// var incomplete = new User
-// {
-//     Id = 2,
-//     Email = "bob@example.com"
-//     // Error: Missing required member 'FirstName' and 'LastName'
-// };
+        // This does NOT compile - missing required property 'Price'
+        // var product2 = new Product
+        // {
+        //     Name = "Tablet"
+        //     // Error: Missing required member 'Price'
+        // };
 
-Console.WriteLine($"User: {user.FirstName} {user.LastName} ({user.Email})");
+        Console.WriteLine($"Product: {product1.Name}, Price: {product1.Price}");
+    }
+}

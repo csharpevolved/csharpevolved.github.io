@@ -9,4 +9,10 @@ public class BasicFormatter : ITemperatureFormatter
 {
 }
 
-Console.WriteLine(((ITemperatureFormatter)new BasicFormatter()).FormatCelsius(21.34));
+public static class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine(((ITemperatureFormatter)new BasicFormatter()).FormatCelsius(21.34));
+    }
+}

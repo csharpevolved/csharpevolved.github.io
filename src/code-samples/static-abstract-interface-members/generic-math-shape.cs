@@ -10,10 +10,16 @@ public readonly record struct Distance(int Meters) : IAddable<Distance>
     public static Distance operator +(Distance left, Distance right) => new(left.Meters + right.Meters);
 }
 
-static T Sum<T>(T left, T right) where T : IAddable<T>
+public static class Program
 {
-    return left + right;
-}
+    private static T Sum<T>(T left, T right) where T : IAddable<T>
+    {
+        return left + right;
+    }
 
-var combined = Sum(new Distance(150), new Distance(275));
-Console.WriteLine(combined.Meters); // 425
+    public static void Main()
+    {
+        var combined = Sum(new Distance(150), new Distance(275));
+        Console.WriteLine(combined.Meters); // 425
+    }
+}

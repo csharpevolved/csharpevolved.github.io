@@ -1,4 +1,4 @@
 - List patterns work with collections implementing `IEnumerable`; performance depends on the collection type (arrays are efficient; linked lists require enumeration).
 - Slice patterns consume remaining elements; ensure your intent matches (do you want to ignore them or process them?).
-- Pattern matching can throw `IndexOutOfRangeException` if list doesn't match the pattern; always handle the fallback case in switch.
+- A non-matching list pattern does not throw; it simply evaluates as no match. Still include a fallback arm in `switch` expressions for clarity and safety.
 - Debugging list patterns can be harder than explicit index checks; test thoroughly.

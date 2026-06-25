@@ -10,10 +10,16 @@ public readonly record struct ProductCode(string Value) : ISpanParsableValue<Pro
     public static ProductCode Parse(ReadOnlySpan<char> value) => new(value.ToString().Trim().ToUpperInvariant());
 }
 
-static T ParseValue<T>(ReadOnlySpan<char> input) where T : ISpanParsableValue<T>
+public static class Program
 {
-    return T.Parse(input);
-}
+    private static T ParseValue<T>(ReadOnlySpan<char> input) where T : ISpanParsableValue<T>
+    {
+        return T.Parse(input);
+    }
 
-var code = ParseValue<ProductCode>(" abc-42 ");
-Console.WriteLine(code.Value); // ABC-42
+    public static void Main()
+    {
+        var code = ParseValue<ProductCode>(" abc-42 ");
+        Console.WriteLine(code.Value); // ABC-42
+    }
+}

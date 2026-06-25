@@ -14,10 +14,16 @@ public readonly struct Vector3
     public double Z { get; }
 }
 
-static double Length(in Vector3 value)
+public static class Program
 {
-    return Math.Sqrt((value.X * value.X) + (value.Y * value.Y) + (value.Z * value.Z));
-}
+    private static double Length(in Vector3 value)
+    {
+        return Math.Sqrt((value.X * value.X) + (value.Y * value.Y) + (value.Z * value.Z));
+    }
 
-var vector = new Vector3(3, 4, 12);
-Console.WriteLine(Length(in vector));
+    public static void Main()
+    {
+        var vector = new Vector3(3, 4, 12);
+        Console.WriteLine(Length(in vector));
+    }
+}

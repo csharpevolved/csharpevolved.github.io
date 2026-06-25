@@ -16,8 +16,12 @@ public sealed class ScopeLogger : IDisposable
     }
 }
 
+public static class Program
 {
-    using var first = new ScopeLogger("first");
-    using var second = new ScopeLogger("second");
-    Console.WriteLine("Do work with two resources");
+    public static void Main()
+    {
+        using var first = new ScopeLogger("first");
+        using var second = new ScopeLogger("second");
+        Console.WriteLine("Do work with two resources");
+    }
 }

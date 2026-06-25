@@ -2,6 +2,7 @@
 title: Snippets
 layout: layout.njk
 description: Editor snippets for Visual Studio and VS Code — one per C# feature. Copy, download, or install directly.
+templateEngineOverride: njk
 ---
 
 <div class="snippets-hero">
@@ -44,15 +45,20 @@ description: Editor snippets for Visual Studio and VS Code — one per C# featur
   </div>
 {% endfor %}
 </div>
+<p id="snippet-copy-status" class="sr-only" role="status" aria-live="polite"></p>
 
 <script>
 document.querySelectorAll('.snippet-copy-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const text = btn.getAttribute('data-copy');
+    const status = document.getElementById('snippet-copy-status');
     navigator.clipboard.writeText(text).then(() => {
       const original = btn.textContent;
       btn.textContent = 'Copied!';
+      if (status) status.textContent = 'Snippet copied to clipboard.';
       setTimeout(() => { btn.textContent = original; }, 2000);
+    }).catch(() => {
+      if (status) status.textContent = 'Copy failed. Select and copy manually.';
     });
   });
 });
