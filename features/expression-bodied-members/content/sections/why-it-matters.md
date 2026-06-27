@@ -1,0 +1,1 @@
+Expression-bodied members make code cleaner and closer to functional style. For properties that compute a value, methods that perform a single operation, or indexers that transform input, arrow syntax eliminates visual noise. Combined with records and immutable patterns, they are foundational to modern C# style.

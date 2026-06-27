@@ -1,0 +1,1 @@
+Range (..) and index (^) operators provide concise syntax for accessing array elements and extracting subsequences. The index operator lets you count from the end; the range operator extracts contiguous slices without manual offset calculations.

@@ -1,0 +1,1 @@
+The null coalescing operator (`??`) and null coalescing assignment operator (`??=`) provide concise ways to handle null values, letting you specify fallback values or conditionally assign without verbose null checks.

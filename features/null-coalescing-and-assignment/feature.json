@@ -1,0 +1,60 @@
+{
+  "slug": "null-coalescing-and-assignment",
+  "title": "Null coalescing & assignment operators",
+  "shortTitle": "Null coalescing & assignment",
+  "versions": {
+    "csharp": "8.0",
+    "dotnet": "3.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Practical examples",
+      "path": "content/sections/practical-examples.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Null-coalescing operator (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/operators/null-coalescing-operator"
+  },
+  "examples": [
+    {
+      "id": "basic-null-coalescing",
+      "title": "Null coalescing operator (??)",
+      "description": "Provide a default value when the left operand is null.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "null-coalescing-and-assignment/basic-coalescing.cs"
+      }
+    },
+    {
+      "id": "null-coalescing-assignment",
+      "title": "Null coalescing assignment (??=)",
+      "description": "Assign a value only if the variable is currently null.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "null-coalescing-and-assignment/assignment-operator.cs"
+      }
+    },
+    {
+      "id": "chaining-coalescing",
+      "title": "Chaining multiple null checks",
+      "description": "Use the null coalescing operator to check multiple fallback values in sequence.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "null-coalescing-and-assignment/chaining-coalescing.cs"
+      }
+    }
+  ]
+}

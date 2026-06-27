@@ -1,0 +1,1 @@
+`??` and `??=` eliminate verbose conditional checks. Instead of `if (value == null) { value = defaultValue; }`, you write `value ??= defaultValue`. This is especially valuable in configuration loading, API responses, and data initialization patterns where null-or-fallback logic is common.

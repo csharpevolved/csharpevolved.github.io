@@ -1,0 +1,1 @@
+Both operators check strictly for null, not for "falsy" values like empty strings or zero. `string.Empty ?? "default"` returns `string.Empty`, not `"default"`. If you need to distinguish null from empty or zero, use explicit checks or nullable-aware patterns.

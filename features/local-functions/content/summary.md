@@ -1,0 +1,1 @@
+Local functions are methods defined inside other methods or properties, letting you encapsulate helper logic at the point of use. They reduce namespace clutter, improve readability by keeping related logic together, and naturally capture variables from their enclosing scope.

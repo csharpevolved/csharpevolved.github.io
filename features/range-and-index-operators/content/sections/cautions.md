@@ -1,0 +1,1 @@
+Range and index operators support arrays, strings, and `Span<T>`, but not all collections (e.g., `List<T>` requires `System.Collections.Generic.CollectionsMarshal.AsSpan()` conversion first). An out-of-bounds index like `array[^100]` throws `IndexOutOfRangeException`. Ranges are exclusive at the end, so `[0..5]` includes indices 0–4 but not 5.

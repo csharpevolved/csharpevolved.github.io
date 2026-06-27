@@ -1,0 +1,1 @@
+Expression-bodied members let you define methods, properties, and accessors using arrow syntax (=>) instead of braces and return statements, reducing boilerplate and improving readability for simple logic.

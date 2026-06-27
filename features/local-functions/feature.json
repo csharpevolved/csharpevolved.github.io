@@ -1,0 +1,60 @@
+{
+  "slug": "local-functions",
+  "title": "Local functions",
+  "shortTitle": "Local functions",
+  "versions": {
+    "csharp": "7.0",
+    "dotnet": "4.7"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Practical examples",
+      "path": "content/sections/practical-examples.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Local functions (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/local-functions"
+  },
+  "examples": [
+    {
+      "id": "local-functions-basics",
+      "title": "Basic local functions",
+      "description": "Define helper functions inside methods to encapsulate logic and reduce pollution of class scope.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "local-functions/basic-local-functions.cs"
+      }
+    },
+    {
+      "id": "local-functions-recursion",
+      "title": "Local functions with recursion and closures",
+      "description": "Use local functions for recursive algorithms and to capture variables from the enclosing scope.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "local-functions/recursion-and-closures.cs"
+      }
+    },
+    {
+      "id": "local-functions-async",
+      "title": "Local async functions and iterators",
+      "description": "Combine local functions with async/await and yield to create powerful iterative and asynchronous patterns.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "local-functions/async-and-iterators.cs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Expression-bodied members arrived in C# 6.0 for methods and read-only properties, expanded in C# 7.0 to include constructors, destructors, accessors, and indexers, and further extended in later versions. They let you replace a multi-line statement body with a single expression using `=>`, making simple getters, validators, and computed properties more concise and declarative.

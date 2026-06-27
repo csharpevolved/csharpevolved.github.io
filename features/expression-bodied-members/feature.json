@@ -1,0 +1,60 @@
+{
+  "slug": "expression-bodied-members",
+  "title": "Expression-bodied members",
+  "shortTitle": "Expression-bodied members",
+  "versions": {
+    "csharp": "6.0",
+    "dotnet": "4.6"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Practical examples",
+      "path": "content/sections/practical-examples.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Expression-bodied members (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members"
+  },
+  "examples": [
+    {
+      "id": "expression-bodied-methods",
+      "title": "Expression-bodied methods and properties",
+      "description": "Replace statement bodies with a single expression using the => syntax.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "code": "expression-bodied-members/methods-and-properties.cs"
+      }
+    },
+    {
+      "id": "expression-bodied-accessors",
+      "title": "Expression-bodied accessors and indexers",
+      "description": "Use arrow syntax with getters, setters, and indexers.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "code": "expression-bodied-members/accessors-and-indexers.cs"
+      }
+    },
+    {
+      "id": "expression-bodied-constructors",
+      "title": "Expression-bodied constructors and operators",
+      "description": "Define constructors and operators concisely with expressions.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "expression-bodied-members/constructors-and-operators.cs"
+      }
+    }
+  ]
+}

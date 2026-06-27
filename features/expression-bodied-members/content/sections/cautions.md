@@ -1,0 +1,1 @@
+Expression-bodied members work best for simple logic. Complex multi-step operations, loops, or error handling belong in statement-body methods. Avoid expressions that are hard to read in one line. They also cannot contain statements like `throw`, assignment, or loop constructs (though some restrictions relaxed in C# 7.0+).

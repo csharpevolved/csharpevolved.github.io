@@ -1,0 +1,1 @@
+These operators eliminate manual offset arithmetic. Before, getting the last element required `array[array.Length - 1]`; now it's simply `array[^1]`. Ranges replace tedious `Array.Copy()` or `Substring()` calls. They make algorithms more expressive and less error-prone, especially when working with sequences, text parsing, or pagination logic.

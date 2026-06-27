@@ -1,0 +1,60 @@
+{
+  "slug": "range-and-index-operators",
+  "title": "Range and index operators",
+  "shortTitle": "Range & index operators",
+  "versions": {
+    "csharp": "8.0",
+    "dotnet": "3.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Practical examples",
+      "path": "content/sections/practical-examples.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Range operator .. (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/operators/range-operator"
+  },
+  "examples": [
+    {
+      "id": "index-operator",
+      "title": "Index operator (^)",
+      "description": "Access array elements from the end using the ^ operator.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "range-and-index-operators/index-operator.cs"
+      }
+    },
+    {
+      "id": "range-operator",
+      "title": "Range operator (..)",
+      "description": "Extract contiguous subsequences from arrays and strings.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "range-and-index-operators/range-operator.cs"
+      }
+    },
+    {
+      "id": "combined-range-index",
+      "title": "Combining range and index operators",
+      "description": "Use range and index operators together for powerful sequence manipulation.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "range-and-index-operators/combined-usage.cs"
+      }
+    }
+  ]
+}

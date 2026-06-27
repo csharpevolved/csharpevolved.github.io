@@ -1,0 +1,1 @@
+The null coalescing operator `??` was introduced in C# 2.0, but the null coalescing assignment operator `??=` arrived in C# 8.0. Together, they streamline nullable handling: `??` returns the left operand if it's not null, otherwise the right operand; `??=` assigns the right operand only if the left is null.
