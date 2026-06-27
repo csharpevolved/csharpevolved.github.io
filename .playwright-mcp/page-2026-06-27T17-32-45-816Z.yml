@@ -1,0 +1,98 @@
+- generic [active] [ref=e1]:
+  - generic: In development
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "C# Evolved" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation "Primary" [ref=e5]:
+        - list [ref=e6]:
+          - listitem [ref=e7]:
+            - link "Home" [ref=e8] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e9]:
+            - link "Features" [ref=e10] [cursor=pointer]:
+              - /url: /features/
+          - listitem [ref=e11]:
+            - link "Cloud" [ref=e12] [cursor=pointer]:
+              - /url: /cloud/
+          - listitem [ref=e13]:
+            - link "Snippets" [ref=e14] [cursor=pointer]:
+              - /url: /snippets/
+          - listitem [ref=e15]:
+            - link "Analyzers" [ref=e16] [cursor=pointer]:
+              - /url: /analyzers/
+  - main [ref=e17]:
+    - navigation "Breadcrumb" [ref=e18]:
+      - paragraph [ref=e19]:
+        - link "← Back to all features" [ref=e20] [cursor=pointer]:
+          - /url: /features/
+    - article [ref=e21]:
+      - 'heading "Implicitly typed locals (`var`)" [level=1] [ref=e22]'
+      - paragraph [ref=e23]:
+        - generic [ref=e24]: C# 3.0
+        - generic [ref=e25]: NETFx 3.5
+      - paragraph [ref=e26]:
+        - text: Use
+        - code [ref=e27]: var
+        - text: for obvious local types and anonymous types while keeping compile-time static typing.
+      - paragraph [ref=e28]:
+        - code [ref=e29]: var
+        - text: was introduced in C# 3.0 (NETFx 3.5). It infers a
+        - strong [ref=e30]: local variable
+        - text: type from the initializer, and that inferred type is still static at compile time.
+      - generic [ref=e31]:
+        - heading "Why it matters" [level=2] [ref=e32]
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - code [ref=e35]: var
+            - text: reduces repetition when the initializer already makes the type clear.
+          - listitem [ref=e36]:
+            - code [ref=e37]: var
+            - text: is required for anonymous types.
+          - listitem [ref=e38]: The compiler still enforces a concrete inferred type.
+      - generic [ref=e39]:
+        - heading "Cautions" [level=2] [ref=e40]
+        - list [ref=e41]:
+          - listitem [ref=e42]:
+            - text: Avoid
+            - code [ref=e43]: var
+            - text: when it hides an important type detail.
+          - listitem [ref=e44]: Keep explicit types for public members and method signatures.
+      - generic [ref=e45]:
+        - heading "Explicit type vs var for obvious locals" [level=2] [ref=e46]
+        - paragraph [ref=e47]: When the right side already shows the concrete type, var removes duplication while keeping compile-time typing.
+        - paragraph [ref=e48]:
+          - strong [ref=e49]: Valid since C# 3.0
+        - heading "Without var" [level=3] [ref=e50]:
+          - text: Without
+          - code [ref=e51]: var
+        - code [ref=e53]: Dictionary<string, List<decimal>> ordersByCustomer = new Dictionary<string, List<decimal>>();
+        - heading "With var" [level=3] [ref=e54]:
+          - text: With
+          - code [ref=e55]: var
+        - code [ref=e57]: var ordersByCustomer = new Dictionary<string, List<decimal>>();
+      - generic [ref=e58]:
+        - heading "Anonymous type projection" [level=2] [ref=e59]
+        - paragraph [ref=e60]: Anonymous types have no type name, so var is the canonical declaration style.
+        - paragraph [ref=e61]:
+          - strong [ref=e62]: Valid since C# 3.0
+        - code [ref=e64]: "using System.Linq; var metrics = new[] { new { Endpoint = \"/health\", DurationMs = 12 }, new { Endpoint = \"/orders\", DurationMs = 43 } }; var slowEndpoints = metrics .Where(metric => metric.DurationMs > 20) .Select(metric => new { metric.Endpoint, metric.DurationMs });"
+      - heading "Learn more" [level=2] [ref=e65]
+      - paragraph [ref=e66]:
+        - link "Implicitly typed local variables (Microsoft Learn)" [ref=e67] [cursor=pointer]:
+          - /url: https://learn.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/implicitly-typed-local-variables
+      - region "Newer capabilities" [ref=e68]:
+        - heading "Newer capabilities" [level=2] [ref=e69]
+        - list [ref=e70]:
+          - listitem [ref=e71]:
+            - article [ref=e72]:
+              - 'heading "Target-typed `new`" [level=3] [ref=e73]'
+              - paragraph [ref=e74]:
+                - strong [ref=e75]: Introduced in C# 9.0
+              - paragraph [ref=e76]:
+                - text: Target-typed
+                - code [ref=e77]: new
+                - text: is a newer syntax option that can reduce repeated type names when the target type is already known.
+              - code [ref=e79]: Dictionary<string, List<decimal>> trailingOrders = new();
+  - contentinfo [ref=e80]:
+    - paragraph [ref=e82]: Built for developers tracking C# language evolution.

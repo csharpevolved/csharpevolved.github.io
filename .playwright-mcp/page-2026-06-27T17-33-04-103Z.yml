@@ -1,0 +1,161 @@
+- generic [active] [ref=e1]:
+  - generic: In development
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "C# Evolved" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation "Primary" [ref=e5]:
+        - list [ref=e6]:
+          - listitem [ref=e7]:
+            - link "Home" [ref=e8] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e9]:
+            - link "Features" [ref=e10] [cursor=pointer]:
+              - /url: /features/
+          - listitem [ref=e11]:
+            - link "Cloud" [ref=e12] [cursor=pointer]:
+              - /url: /cloud/
+          - listitem [ref=e13]:
+            - link "Snippets" [ref=e14] [cursor=pointer]:
+              - /url: /snippets/
+          - listitem [ref=e15]:
+            - link "Analyzers" [ref=e16] [cursor=pointer]:
+              - /url: /analyzers/
+  - main [ref=e17]:
+    - navigation "Breadcrumb" [ref=e18]:
+      - paragraph [ref=e19]:
+        - link "← Back to all features" [ref=e20] [cursor=pointer]:
+          - /url: /features/
+    - article [ref=e21]:
+      - heading "String interpolation" [level=1] [ref=e22]
+      - paragraph [ref=e23]:
+        - generic [ref=e24]: C# 6.0
+        - generic [ref=e25]: NETFx 4.6
+      - paragraph [ref=e26]:
+        - text: Use string interpolation (
+        - code [ref=e27]: $"..."
+        - text: ) to build readable strings without manual concatenation.
+      - paragraph [ref=e28]:
+        - text: String interpolation was introduced in C# 6.0. It lets you embed expressions directly in a string with
+        - code [ref=e29]: "{...}"
+        - text: placeholders, which is usually clearer than
+        - code [ref=e30]: +
+        - text: concatenation or long
+        - code [ref=e31]: string.Format
+        - text: calls.
+      - generic [ref=e32]:
+        - heading "Why it matters" [level=2] [ref=e33]
+        - list [ref=e34]:
+          - listitem [ref=e35]: Interpolation keeps the output template and values in one place.
+          - listitem [ref=e36]: It improves readability for logs, messages, and diagnostics.
+          - listitem [ref=e37]:
+            - text: Expressions inside
+            - code [ref=e38]: "{...}"
+            - text: are compile-time checked.
+      - generic [ref=e39]:
+        - heading "Baseline usage" [level=2] [ref=e40]
+        - paragraph [ref=e41]:
+          - text: Use
+          - code [ref=e42]: $
+          - text: "before the string and place expressions in braces:"
+        - code [ref=e44]:
+          - text: var name = "Sam"; var count = 3; var message =
+          - generic [ref=e45]:
+            - text: $"
+            - generic [ref=e46]: "{name}"
+            - text: has
+            - generic [ref=e47]: "{count}"
+            - text: new notifications."
+          - text: ;
+        - paragraph [ref=e48]: "You can also format values inline:"
+        - code [ref=e50]:
+          - text: var total =
+          - generic [ref=e51]: "12.5"
+          - text: m; var line =
+          - generic [ref=e52]:
+            - text: "$\"Total:"
+            - generic [ref=e53]: "{total:C}"
+            - text: "\""
+          - text: ;
+      - generic [ref=e54]:
+        - heading "Cautions" [level=2] [ref=e55]
+        - list [ref=e56]:
+          - listitem [ref=e57]:
+            - text: Escape literal braces with
+            - code [ref=e58]: "{{"
+            - text: and
+            - code [ref=e59]: "}}"
+            - text: .
+          - listitem [ref=e60]: Keep interpolated expressions simple; move complex logic outside the string.
+          - listitem [ref=e61]: For localization-heavy UI text, prefer resource files over hard-coded interpolated strings.
+      - generic [ref=e62]:
+        - heading "From string.Format to interpolation" [level=2] [ref=e63]
+        - paragraph [ref=e64]: C# 6.0 interpolation replaces positional placeholders with inline expressions for clearer templates.
+        - paragraph [ref=e65]:
+          - strong [ref=e66]: Valid since C# 6.0
+        - heading "Without var" [level=3] [ref=e67]:
+          - text: Without
+          - code [ref=e68]: var
+        - code [ref=e70]:
+          - text: var userName = "Avery"; var orderTotal =
+          - generic [ref=e71]: "27.5"
+          - text: m; var message = string.Format(
+          - generic [ref=e72]: "\"Customer {0} placed an order totaling {1:C}.\""
+          - text: ", userName, orderTotal );"
+        - heading "With var" [level=3] [ref=e73]:
+          - text: With
+          - code [ref=e74]: var
+        - code [ref=e76]:
+          - text: var userName = "Avery"; var orderTotal =
+          - generic [ref=e77]: "27.5"
+          - text: m; var message =
+          - generic [ref=e78]:
+            - text: $"Customer
+            - generic [ref=e79]: "{userName}"
+            - text: placed an order totaling
+            - generic [ref=e80]: "{orderTotal:C}"
+            - text: ."
+          - text: ;
+      - generic [ref=e81]:
+        - heading "Formatting and alignment in interpolated strings" [level=2] [ref=e82]
+        - paragraph [ref=e83]: Interpolation supports the same numeric/date format and alignment components used with composite formatting.
+        - paragraph [ref=e84]:
+          - strong [ref=e85]: Valid since C# 6.0
+        - code [ref=e87]:
+          - text: var serviceName = "Billing"; var elapsedMs =
+          - generic [ref=e88]: "17.234"
+          - text: ; var startedAt = new DateTime(2026, 06, 17, 11, 19, 0, DateTimeKind.Utc); var logLine =
+          - generic [ref=e89]:
+            - text: $"
+            - generic [ref=e90]: "{serviceName,-12}"
+            - text: "|"
+            - generic [ref=e91]: "{elapsedMs,8:F2}"
+            - text: ms |
+            - generic [ref=e92]: "{startedAt:O}"
+            - text: "\""
+          - text: ;
+      - heading "Learn more" [level=2] [ref=e93]
+      - paragraph [ref=e94]:
+        - link "String interpolation (Microsoft Learn)" [ref=e95] [cursor=pointer]:
+          - /url: https://learn.microsoft.com/dotnet/csharp/language-reference/tokens/interpolated
+      - region "Newer capabilities" [ref=e96]:
+        - heading "Newer capabilities" [level=2] [ref=e97]
+        - list [ref=e98]:
+          - listitem [ref=e99]:
+            - article [ref=e100]:
+              - heading "Interpolated string handlers and raw interpolated strings" [level=3] [ref=e101]
+              - paragraph [ref=e102]:
+                - strong [ref=e103]: Introduced in C# 10.0
+              - heading "Optional newer-version capability (C# 10+ / C# 11+)" [level=3] [ref=e104]
+              - paragraph [ref=e105]: The baseline guidance for this article is C# 6.0.
+              - list [ref=e106]:
+                - listitem [ref=e107]:
+                  - strong [ref=e108]: "C# 10+:"
+                  - text: custom interpolated string handlers can reduce allocations in high-performance scenarios.
+                - listitem [ref=e109]:
+                  - strong [ref=e110]: "C# 11+:"
+                  - text: interpolated raw string literals (
+                  - code [ref=e111]: $"""..."""
+                  - text: ) make multi-line templates and embedded quotes easier to write.
+  - contentinfo [ref=e112]:
+    - paragraph [ref=e114]: Built for developers tracking C# language evolution.

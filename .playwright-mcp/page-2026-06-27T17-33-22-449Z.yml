@@ -1,0 +1,94 @@
+- generic [active] [ref=e1]:
+  - generic: In development
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "C# Evolved" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation "Primary" [ref=e5]:
+        - list [ref=e6]:
+          - listitem [ref=e7]:
+            - link "Home" [ref=e8] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e9]:
+            - link "Features" [ref=e10] [cursor=pointer]:
+              - /url: /features/
+          - listitem [ref=e11]:
+            - link "Cloud" [ref=e12] [cursor=pointer]:
+              - /url: /cloud/
+          - listitem [ref=e13]:
+            - link "Snippets" [ref=e14] [cursor=pointer]:
+              - /url: /snippets/
+          - listitem [ref=e15]:
+            - link "Analyzers" [ref=e16] [cursor=pointer]:
+              - /url: /analyzers/
+  - main [ref=e17]:
+    - navigation "Breadcrumb" [ref=e18]:
+      - paragraph [ref=e19]:
+        - link "← Back to all features" [ref=e20] [cursor=pointer]:
+          - /url: /features/
+    - article [ref=e21]:
+      - heading "Collection expressions" [level=1] [ref=e22]
+      - paragraph [ref=e23]:
+        - generic [ref=e24]: C# 12.0
+        - generic [ref=e25]: .NET 8.0
+      - paragraph [ref=e26]: Use a unified, concise syntax to initialize arrays, lists, spans, and other collections with cleaner code and optional spread operators for composition.
+      - paragraph [ref=e27]:
+        - text: Collection expressions, introduced in C# 12.0 (.NET 8.0), provide a unified syntax for creating collections. Instead of
+        - code [ref=e28]: "new List<int> { ... }"
+        - text: or
+        - code [ref=e29]: "new[] { ... }"
+        - text: ", you can use"
+        - code [ref=e30]: "[...]"
+        - text: directly, and the compiler infers the target collection type. The spread operator (
+        - code [ref=e31]: ..
+        - text: ) allows combining collections easily. This feature makes collection initialization more readable and reduces ceremony.
+      - generic [ref=e32]:
+        - heading "Why it matters" [level=2] [ref=e33]
+        - list [ref=e34]:
+          - listitem [ref=e35]: Cleaner, more consistent syntax across all collection types (arrays, lists, spans, etc.).
+          - listitem [ref=e36]:
+            - text: The spread operator (
+            - code [ref=e37]: ..
+            - text: ) enables elegant composition and flattening of collections.
+          - listitem [ref=e38]: The compiler infers collection type from context, reducing explicit type declarations.
+          - listitem [ref=e39]: Improves readability and aligns C# with syntax in modern languages like Python and JavaScript.
+      - generic [ref=e40]:
+        - heading "Cautions" [level=2] [ref=e41]
+        - list [ref=e42]:
+          - listitem [ref=e43]: Collection expression syntax requires type inference context; always ensure the compiler can determine the target type from assignment or parameter type.
+          - listitem [ref=e44]: The spread operator creates a copy of the collection, which has performance implications for large collections.
+          - listitem [ref=e45]: Some older custom collection types may not support collection expression syntax; verify compatibility with your collection types.
+          - listitem [ref=e46]:
+            - text: Empty collection expressions
+            - code [ref=e47]: "[]"
+            - text: are valid but require explicit type context to avoid ambiguity.
+      - generic [ref=e48]:
+        - heading "Unified syntax for array and list creation" [level=2] [ref=e49]
+        - paragraph [ref=e50]: Collection expressions provide a consistent syntax for creating arrays, lists, and other collections, making initialization cleaner and less verbose.
+        - paragraph [ref=e51]:
+          - strong [ref=e52]: Valid since C# 12.0
+        - heading "Without var" [level=3] [ref=e53]:
+          - text: Without
+          - code [ref=e54]: var
+        - code [ref=e56]: "// Array int[] numbers = new int[] { 1, 2, 3, 4, 5 }; // List List<string> names = new List<string> { \"Alice\", \"Bob\", \"Charlie\" }; // Span Span<int> values = new Span<int>(new int[] { 10, 20, 30 });"
+        - heading "With var" [level=3] [ref=e57]:
+          - text: With
+          - code [ref=e58]: var
+        - code [ref=e60]: // Array int[] numbers = [1, 2, 3, 4, 5]; // List List<string> names = ["Alice", "Bob", "Charlie"]; // Span Span<int> values = [10, 20, 30];
+      - generic [ref=e61]:
+        - heading "Spread operator for combining collections" [level=2] [ref=e62]
+        - paragraph [ref=e63]: "The spread operator (`..`) makes it easy to combine existing collections into a new one without explicit loops or LINQ."
+        - paragraph [ref=e64]:
+          - strong [ref=e65]: Valid since C# 12.0
+        - code [ref=e67]:
+          - text: int[] first = [1, 2, 3]; int[] second = [4, 5]; int[] third = [6]; // Combine collections with spread operator int[] combined = [..first, ..second, ..third];
+          - generic [ref=e68]: "// Result: [1, 2, 3, 4, 5, 6]"
+          - text: Console.WriteLine(string.Join(
+          - generic [ref=e69]: "\", \""
+          - text: ", combined));"
+      - heading "Learn more" [level=2] [ref=e70]
+      - paragraph [ref=e71]:
+        - link "Collection expressions (Microsoft Learn)" [ref=e72] [cursor=pointer]:
+          - /url: https://learn.microsoft.com/dotnet/csharp/language-reference/operators/collection-expressions
+  - contentinfo [ref=e73]:
+    - paragraph [ref=e75]: Built for developers tracking C# language evolution.

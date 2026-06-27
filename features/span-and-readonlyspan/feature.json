@@ -22,7 +22,7 @@
   ],
   "learnMore": {
     "label": "Span<T> (Microsoft Learn)",
-    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/span"
+    "url": "https://learn.microsoft.com/en-us/dotnet/standard/memory-and-spans/memory-t-usage-guidelines"
   },
   "examples": [
     {
