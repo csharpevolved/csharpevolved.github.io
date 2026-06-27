@@ -1,0 +1,1 @@
+Anonymous types arrived in C# 3.0 to support LINQ projections. Instead of creating a named class every time you need to reshape data, you write `new { Name = x.Name, Count = x.Items.Count }` and let the compiler build a class for you.

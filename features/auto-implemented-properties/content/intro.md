@@ -1,0 +1,1 @@
+Before C# 3.0, even a simple property required declaring a backing field, a getter, and a setter. Auto-implemented properties arrived in C# 3.0 and let the compiler handle the field for you. You just write `{ get; set; }` and move on.

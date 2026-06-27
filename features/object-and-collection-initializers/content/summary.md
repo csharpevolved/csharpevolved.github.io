@@ -1,0 +1,1 @@
+Object and collection initializers let you populate properties and collection elements inline at construction time. Instead of creating an object and then setting properties separately, you do it all in one readable expression.

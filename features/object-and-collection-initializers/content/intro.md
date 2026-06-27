@@ -1,0 +1,1 @@
+C# 3.0 introduced object and collection initializers to eliminate the verbose pattern of creating an object, then assigning properties one by one. Now you can write `new Person { Name = "Alice", Age = 30 }` and build the entire object in a single, readable line.

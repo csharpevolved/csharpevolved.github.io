@@ -1,0 +1,47 @@
+{
+  "slug": "anonymous-types",
+  "title": "Anonymous types",
+  "shortTitle": "Anonymous types",
+  "versions": {
+    "csharp": "3.0",
+    "dotnet": "3.5"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Anonymous types (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/fundamentals/types/anonymous-types"
+  },
+  "examples": [
+    {
+      "id": "anonymous-types-linq",
+      "title": "Shaping data with anonymous types in LINQ",
+      "description": "Anonymous types let you pluck just the fields you need from a query without defining a new class.",
+      "sampleLanguageVersion": "3.0",
+      "snippets": {
+        "code": "anonymous-types/linq-projection.cs"
+      }
+    },
+    {
+      "id": "anonymous-types-local",
+      "title": "Creating temporary objects inline",
+      "description": "Use anonymous types to group related values for local use without ceremony.",
+      "sampleLanguageVersion": "3.0",
+      "snippets": {
+        "code": "anonymous-types/local-usage.cs"
+      }
+    }
+  ]
+}

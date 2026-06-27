@@ -1,0 +1,47 @@
+{
+  "slug": "auto-implemented-properties",
+  "title": "Auto-implemented properties",
+  "shortTitle": "Auto-properties",
+  "versions": {
+    "csharp": "3.0",
+    "dotnet": "3.5"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Auto-implemented properties (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties"
+  },
+  "examples": [
+    {
+      "id": "auto-properties-basic",
+      "title": "Replacing backing fields with auto-properties",
+      "description": "Auto-implemented properties eliminate boilerplate field declarations for simple getters and setters.",
+      "sampleLanguageVersion": "3.0",
+      "snippets": {
+        "code": "auto-implemented-properties/person-auto.cs"
+      }
+    },
+    {
+      "id": "auto-properties-migration",
+      "title": "Migrating from manual properties",
+      "description": "See how auto-properties transform verbose property implementations into clean, minimal syntax.",
+      "sampleLanguageVersion": "3.0",
+      "snippets": {
+        "code": "auto-implemented-properties/migration.cs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Auto-implemented properties let you declare a property with just `{ get; set; }`, letting the compiler generate the backing field for you. They cut property boilerplate while keeping your intent crystal clear.
