@@ -128,12 +128,24 @@ a:focus-visible {
   box-shadow: 0 10px 20px rgba(2, 8, 23, 0.38);
 }
 
+.visible-mobile {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .corner-badge {
     top: calc(0.5rem + env(safe-area-inset-top, 0px));
     right: calc(0.5rem + env(safe-area-inset-right, 0px));
     font-size: 0.68rem;
     padding: 0.25rem 0.52rem;
+  }
+
+  .footer-meta-link {
+    flex-basis: 100%;
+  }
+
+  .visible-mobile {
+    display: inline-block;
   }
 }
 
@@ -165,6 +177,18 @@ a:focus-visible {
   border-top: 1px solid var(--border);
   border-bottom: none;
   margin-top: 4rem;
+}
+
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-meta-link {
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav {
