@@ -105,6 +105,27 @@
 - Nav is now exactly: Home, Features, Snippets, Analyzers.
 - `npm run build` (including `check:var`) passes cleanly.
 
+### 2026-06-30 — Toolbox hub and skills catalog structure
+**Source:** `decisions/inbox/perry-toolbox-skills-hub.md`
+
+- Consolidated the top-level help navigation under `/toolbox/`, replacing separate top-nav Snippets/Analyzers entry points with a single Toolbox hub while keeping `/snippets/` and `/analyzers/` at their existing URLs.
+- Added a skills content model rooted in `skills/` with `skills.index.json` display metadata and markdown files under `skills/content/` for long-form editorial notes.
+- Established `/toolbox/skills/` as the shared skills listing destination for future editorial additions.
+
+### 2026-06-30 — Skills draft source and status handling
+**Source:** `decisions/inbox/cat-skills-schema-flags.md`
+
+- Published skills entries are limited to items directly verified from the official `dotnet/skills` repository.
+- Proposed C# Evolved skills use `status: "coming-soon"`, `verified: false`, and `url: "#coming-soon"` until real published destinations exist.
+- This keeps the live schema wired for planned cards without implying nonexistent outbound links.
+
+### 2026-06-30 — Skills catalog integration
+**Source:** `decisions/inbox/clark-skills-catalog.md`
+
+- Replaced the seeded Skills catalog with per-skill entries aligned to Cat's verified .NET Team research and Clark's rendered content files.
+- Added `coming-soon` handling in the skills data pipeline so planned C# Evolved cards suppress external actions until published.
+- The live catalog now owns skills content, allowing draft handoff files to be removed once integrated.
+
 ## Governance
 
 - All meaningful changes require team consensus.

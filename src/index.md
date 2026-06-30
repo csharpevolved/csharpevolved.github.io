@@ -42,14 +42,9 @@ templateEngineOverride: njk
     <a href="/cloud/">Explore cloud guides →</a>
   </article>
   <article class="card">
-    <h2>Snippet Library</h2>
-    <p>Copy-ready snippets for Visual Studio and VS Code. One per feature, available in both formats.</p>
-    <a href="/snippets/">Browse snippets →</a>
-  </article>
-  <article class="card">
-    <h2>Analyzers</h2>
-    <p>Roslyn analyzers that surface upgrade opportunities in your existing code — right in your editor.</p>
-    <a href="/analyzers/">See analyzers →</a>
+    <h2>Toolbox</h2>
+    <p>Jump into snippets, analyzers, and AI skills that help you adopt modern C# faster in editors, reviews, and coding agents.</p>
+    <a href="/toolbox/">Open the toolbox →</a>
   </article>
 </section>
 

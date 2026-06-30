@@ -1,0 +1,1 @@
+Coming soon from C# Evolved: a skill that translates analyzer findings into safe, staged modernization steps with linked explanations. It is intended to help teams move from diagnostics to rollout-ready changes.

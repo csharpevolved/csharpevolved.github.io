@@ -30,3 +30,5 @@ Initial lead context seeded.
 
 ### 2026-06-17T10:22:23.592-04:00
 - Added version-tagging data model and baseline filter metadata for C#/.NET family filtering semantics.
+## 2026-06-30T11:55:07.470-04:00
+- Delivered the Toolbox IA refactor: unified top navigation under `/toolbox/`, preserved `/snippets/` and `/analyzers/`, and established the skills content model plus `/toolbox/skills/` listing.

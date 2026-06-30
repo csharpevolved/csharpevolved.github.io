@@ -1,0 +1,1 @@
+Coming soon from C# Evolved: a skill that pairs coding tasks with the smallest modern C# snippet or pattern that fits. It is designed to turn the snippet library into a practical refactoring assistant.

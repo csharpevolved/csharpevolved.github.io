@@ -1,0 +1,1 @@
+Use this skill for targeted performance reviews across async code, allocations, strings, collections, LINQ, and I/O. It helps agents spot hot-path problems early and recommend practical cleanup steps.

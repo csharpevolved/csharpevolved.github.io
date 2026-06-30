@@ -49,3 +49,6 @@ Initial DevRel context seeded.
   - Nav is now: Home, Features, Snippets, Analyzers.
   - `npm run build` passed cleanly.
 - Scribe merged both decisions into `decisions.md` and cleared inbox entries.
+
+## 2026-06-30T11:55:07.470-04:00
+- Verified 8 official .NET Team skills from `github.com/dotnet/skills`, proposed 3 C# Evolved skills, and defined the published-vs-coming-soon status/link rules used by the shared schema.

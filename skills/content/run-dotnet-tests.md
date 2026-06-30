@@ -1,0 +1,1 @@
+Use this skill when you need the right dotnet test command, filters, and reporting switches for the active test stack. It helps agents get to reliable test runs faster across common .NET test workflows.

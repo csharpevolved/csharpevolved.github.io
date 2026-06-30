@@ -79,7 +79,7 @@ const checks = [
       "<li><a href=\"/\">Home</a></li>",
       "<li><a href=\"/features/\">Features</a></li>",
       "<li><a href=\"/cloud/\">Cloud</a></li>",
-      "<li><a href=\"/snippets/\">Snippets</a></li>"
+      "<li><a href=\"/toolbox/\">Toolbox</a></li>"
     ],
     forbiddenSnippets: ["/features/{{ firstFeature.slug }}/", "{% if firstFeature %}"]
   },
@@ -492,7 +492,7 @@ for (const version of renderedStringExampleVersions) {
   }
 }
 
-const expectedPrimaryNavLinks = ["/", "/features/", "/cloud/", "/snippets/", "/analyzers/"];
+const expectedPrimaryNavLinks = ["/", "/features/", "/cloud/", "/toolbox/"];
 
 function extractPrimaryNavLinks(content, file) {
   const navMatch = content.match(

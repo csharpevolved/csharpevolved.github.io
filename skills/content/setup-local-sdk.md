@@ -1,0 +1,1 @@
+Use this skill when you need a repo-scoped .NET SDK install that stays isolated from the machine-wide toolchain. It is a strong fit for preview validation, reproducible onboarding, and global.json-driven setup.

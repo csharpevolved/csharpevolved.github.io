@@ -1,0 +1,1 @@
+Use this skill to enable nullable reference types and work through the resulting warnings in a controlled way. It keeps the focus on safer APIs and compiler guidance rather than mixing in unrelated refactors.

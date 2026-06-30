@@ -1,0 +1,1 @@
+Use this skill when EF Core queries need a focused pass on query shape, tracking, and database round trips. It is especially useful when generated SQL and runtime behavior do not match the intent of the LINQ.
