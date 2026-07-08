@@ -1,0 +1,1 @@
+Planned C# Evolved analyzer that complements the official analyzer story with a focused doc-backed suggestion for flatter disposal scopes. It is meant to turn a small cleanup into a teaching moment tied directly to the feature guide.

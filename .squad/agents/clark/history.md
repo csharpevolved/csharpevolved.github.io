@@ -57,3 +57,6 @@ Initial backend/sample context seeded.
 
 ## 2026-06-30T11:55:07.470-04:00
 - Integrated 8 verified .NET Team skills and 3 coming-soon C# Evolved skills into the live schema, created 11 skill content files, and removed draft handoff files after build validation.
+
+## 2026-06-30T12:33:37.821-04:00
+- Integrated the verified official analyzer metadata into the live `/analyzers/` catalog, replaced placeholder docs/rules, and preserved the C# Evolved coming-soon section while keeping the build green.

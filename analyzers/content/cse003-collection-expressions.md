@@ -1,0 +1,1 @@
+Planned C# Evolved analyzer that connects collection-modernization hints to the site's walkthrough of collection expressions. It stays intentionally complementary: use the built-in analyzer stack first, then add site-specific coaching where it helps most.

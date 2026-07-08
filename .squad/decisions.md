@@ -126,6 +126,35 @@
 - Added `coming-soon` handling in the skills data pipeline so planned C# Evolved cards suppress external actions until published.
 - The live catalog now owns skills content, allowing draft handoff files to be removed once integrated.
 
+### 2026-06-30 — Official-first analyzers catalog architecture
+**Source:** `decisions/inbox/perry-analyzers-official-first-catalog.md`
+
+- Keep `/analyzers/` as the public destination, but lead with official .NET analyzer guidance before any C# Evolved package messaging.
+- Standardize analyzer content on a data-driven catalog rooted in `analyzers/analyzers.index.json`, long-form markdown under `analyzers/content/`, and `src/_data/analyzers.js` for enrichment and sectioning.
+- Reserve the C# Evolved analyzers area for a clearly labeled in-progress section so official analyzers ship first while custom analyzer content remains local-only and coming soon.
+
+### 2026-06-30 — Official analyzer recommendations for /analyzers/
+**Source:** `decisions/inbox/cat-analyzers-official-first.md`
+
+- Center `/analyzers/` on Microsoft's shipped analyzer stack: SDK code-quality analyzers (CAxxxx), IDE/style analyzers (IDExxxx), platform compatibility analysis (CA1416), nullable reference type analysis, and package-based adoption through `Microsoft.CodeAnalysis.NetAnalyzers` when needed.
+- Exclude deprecated ASP.NET Core MVC web API analyzer messaging from hero content and avoid unverified positioning around `Microsoft.DotNet.ApiAnalyzers`.
+- Present C# Evolved analyzers as focused add-ons after readers understand the immediate value of first-party analyzers already available in the box.
+
+### 2026-06-30 — Activation overview plus platform compatibility entry in analyzer catalog
+**Source:** `decisions/inbox/clark-analyzers-platform-compatibility.md`
+
+- Keep the activation/configuration overview card in the official catalog so `EnableNETAnalyzers`, `AnalysisLevel`, `AnalysisMode`, `EnforceCodeStyleInBuild`, and `.editorconfig` rollout guidance stay discoverable.
+- Add a distinct platform compatibility card for CA1416 instead of burying platform analysis inside general SDK analyzer coverage.
+- The live official analyzer catalog now spans activation/configuration, modern IDE patterns, style consistency, SDK CA analyzers, platform compatibility, and nullable flow analysis while leaving the C# Evolved section unchanged.
+
+### 2026-07-01 — Analyzer repair roadmap and delivery waves
+**Source:** `decisions/inbox/perry-analyzer-repair-roadmap.md`
+
+- Reviewed all 39 feature manifests for analyzer plus code-fix suitability: 21 are repair-suitable and 18 are not.
+- Kept CSE001-CSE007 assigned to existing in-repo analyzer work and started new proposed analyzer IDs at CSE008 through CSE021.
+- Grouped the proposed analyzer/code-fix pairs into three delivery waves, with higher-risk structural rewrites held for the final wave.
+- Reaffirmed that `CSharpEvolved.Analyzers` remains local-only and should not be published to NuGet without a later explicit decision.
+
 ## Governance
 
 - All meaningful changes require team consensus.

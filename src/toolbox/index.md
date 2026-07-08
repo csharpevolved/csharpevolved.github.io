@@ -19,7 +19,7 @@ description: A get-help hub for C# snippets, analyzers, and AI skills.
 
   <article class="card toolbox-card">
     <h2>Analyzers</h2>
-    <p>See Roslyn analyzers that spot opportunities to adopt newer C# syntax and patterns without manual code review.</p>
+    <p>Start with official .NET SDK and Roslyn analyzers today, then see how C# Evolved plans to add doc-linked follow-on guidance.</p>
     <a class="toolbox-card-link" href="/analyzers/">Explore analyzers →</a>
   </article>
 

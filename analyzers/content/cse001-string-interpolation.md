@@ -1,0 +1,1 @@
+Planned C# Evolved analyzer that layers feature-teaching onto a familiar modernization nudge. The goal is not just to offer a fix, but to link that fix back to the site's interpolation guide so teams understand when and why the newer syntax helps.

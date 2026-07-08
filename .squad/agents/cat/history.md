@@ -52,3 +52,6 @@ Initial DevRel context seeded.
 
 ## 2026-06-30T11:55:07.470-04:00
 - Verified 8 official .NET Team skills from `github.com/dotnet/skills`, proposed 3 C# Evolved skills, and defined the published-vs-coming-soon status/link rules used by the shared schema.
+
+## 2026-06-30T12:33:37.821-04:00
+- Verified the official analyzer story for `/analyzers/`, including representative CA/IDE/nullable rule IDs, Microsoft Learn links, and activation/configuration guidance for the catalog handoff.

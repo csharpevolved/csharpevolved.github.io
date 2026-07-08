@@ -32,3 +32,10 @@ Initial lead context seeded.
 - Added version-tagging data model and baseline filter metadata for C#/.NET family filtering semantics.
 ## 2026-06-30T11:55:07.470-04:00
 - Delivered the Toolbox IA refactor: unified top navigation under `/toolbox/`, preserved `/snippets/` and `/analyzers/`, and established the skills content model plus `/toolbox/skills/` listing.
+
+## 2026-06-30T12:33:37.821-04:00
+- Reframed `/analyzers/` around official .NET analyzers first, shipped the shared analyzer catalog model, and kept C# Evolved analyzer work in an explicit in-progress section.
+
+
+## 2026-07-01T17:06:15.624-04:00
+- Authored `docs/analyzer-repair-roadmap.md`, documenting the 39-feature analyzer/code-fix suitability review, proposed CSE008-CSE021 IDs, and the three-wave delivery plan.
