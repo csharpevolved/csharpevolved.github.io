@@ -7,7 +7,7 @@
     <AssemblyName>CSharpEvolved.Analyzers</AssemblyName>
     <Version>1.0.0</Version>
     <PackageId>CSharpEvolved.Analyzers</PackageId>
-    <Description>Roslyn analyzers that detect opportunities to use modern C# language features. Each diagnostic links to csharp-evolved.dev for guidance.</Description>
+    <Description>Roslyn analyzers that detect opportunities to use modern C# language features. Each diagnostic links to csharpevolved.github.io for guidance.</Description>
     <IsRoslynComponent>true</IsRoslynComponent>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
   </PropertyGroup>
