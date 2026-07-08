@@ -155,6 +155,14 @@
 - Grouped the proposed analyzer/code-fix pairs into three delivery waves, with higher-risk structural rewrites held for the final wave.
 - Reaffirmed that `CSharpEvolved.Analyzers` remains local-only and should not be published to NuGet without a later explicit decision.
 
+### 2026-07-08 — CSE001–CSE003 code fixes and Roslyn test harness
+**Source:** `decisions/inbox/clark-cse-codefixes-test-harness.md`
+
+- Implemented `CodeFixProvider` repairs for CSE001 (`string.Format(...)` → interpolation), CSE002 (`using (...) { }` → `using var`), and CSE003 (collection initializer/array creation → collection expression) under `analyzers/CSharpEvolved.Analyzers/CodeFixes/`.
+- Added `Microsoft.CodeAnalysis.CSharp.Workspaces` `4.8.0` to the analyzer project and created a separate `analyzers/CSharpEvolved.Analyzers.Tests` project targeting `net8.0` with `Microsoft.CodeAnalysis.CSharp.CodeFix.Testing.XUnit` `1.1.2` plus `ReferenceAssemblies.Net.Net80` / C# 12 parse options for verification.
+- Added 6 tests covering positive fix application plus negative cases, resolved RS1033 analyzer-description warnings and the RS2007 unshipped-header warning, and verified `dotnet build` plus `dotnet test` (6 passed, 0 failed).
+- `CSharpEvolved.Analyzers` remains local-only and is not approved for NuGet publication.
+
 ## Governance
 
 - All meaningful changes require team consensus.

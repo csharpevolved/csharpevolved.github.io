@@ -18,7 +18,7 @@ public sealed class NullConditionalAnalyzer : DiagnosticAnalyzer
         category: "Modernization",
         defaultSeverity: DiagnosticSeverity.Info,
         isEnabledByDefault: true,
-        description: "The null-conditional operator (C# 6.0) eliminates verbose null guard patterns. See https://csharp-evolved.dev/features/nullable-reference-types/",
+        description: "The null-conditional operator (C# 6.0) eliminates verbose null guard patterns. See https://csharp-evolved.dev/features/nullable-reference-types/.",
         helpLinkUri: "https://csharp-evolved.dev/features/nullable-reference-types/");
 
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);

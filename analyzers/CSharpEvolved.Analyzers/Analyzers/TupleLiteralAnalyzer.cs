@@ -18,7 +18,7 @@ public sealed class TupleLiteralAnalyzer : DiagnosticAnalyzer
         category: "Modernization",
         defaultSeverity: DiagnosticSeverity.Info,
         isEnabledByDefault: true,
-        description: "Tuple literals (C# 7.0) are more concise than Tuple.Create or new Tuple<T>. See https://csharp-evolved.dev/features/tuples-and-deconstruction/",
+        description: "Tuple literals (C# 7.0) are more concise than Tuple.Create or new Tuple<T>. See https://csharp-evolved.dev/features/tuples-and-deconstruction/.",
         helpLinkUri: "https://csharp-evolved.dev/features/tuples-and-deconstruction/");
 
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);

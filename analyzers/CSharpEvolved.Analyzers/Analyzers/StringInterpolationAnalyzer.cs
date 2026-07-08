@@ -18,7 +18,7 @@ public sealed class StringInterpolationAnalyzer : DiagnosticAnalyzer
         category: "Modernization",
         defaultSeverity: DiagnosticSeverity.Info,
         isEnabledByDefault: true,
-        description: "String interpolation (C# 6.0) is more readable than string.Format. See https://csharp-evolved.dev/features/string-interpolation/",
+        description: "String interpolation (C# 6.0) is more readable than string.Format. See https://csharp-evolved.dev/features/string-interpolation/.",
         helpLinkUri: "https://csharp-evolved.dev/features/string-interpolation/");
 
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics =>

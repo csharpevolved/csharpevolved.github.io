@@ -18,7 +18,7 @@ public sealed class UsingDeclarationAnalyzer : DiagnosticAnalyzer
         category: "Modernization",
         defaultSeverity: DiagnosticSeverity.Info,
         isEnabledByDefault: true,
-        description: "Using declarations (C# 8.0) eliminate the extra block scope and reduce nesting. See https://csharp-evolved.dev/features/using-declarations/",
+        description: "Using declarations (C# 8.0) eliminate the extra block scope and reduce nesting. See https://csharp-evolved.dev/features/using-declarations/.",
         helpLinkUri: "https://csharp-evolved.dev/features/using-declarations/");
 
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics =>
