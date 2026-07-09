@@ -1,0 +1,41 @@
+name: Analyzer Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analyzers/**'
+      - '.github/workflows/analyzer-tests.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'analyzers/**'
+      - '.github/workflows/analyzer-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build & Test Analyzers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore analyzers/CSharpEvolved.Analyzers.Tests/CSharpEvolved.Analyzers.Tests.csproj
+
+      - name: Build
+        run: dotnet build analyzers/CSharpEvolved.Analyzers.Tests/CSharpEvolved.Analyzers.Tests.csproj -c Release --no-restore
+
+      - name: Test
+        run: dotnet test analyzers/CSharpEvolved.Analyzers.Tests/CSharpEvolved.Analyzers.Tests.csproj -c Release --no-build --verbosity normal
