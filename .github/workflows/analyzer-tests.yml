@@ -18,6 +18,16 @@ on:
 permissions:
   contents: read
 
+# Cancel superseded runs for the same PR/branch to avoid wasted CI time.
+concurrency:
+  group: analyzer-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_NOLOGO: 'true'
+  DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 'true'
+
 jobs:
   test:
     name: Build & Test Analyzers
@@ -30,6 +40,14 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('analyzers/**/*.csproj') }}
+          restore-keys: |
+            nuget-${{ runner.os }}-
 
       - name: Restore
         run: dotnet restore analyzers/CSharpEvolved.Analyzers.Tests/CSharpEvolved.Analyzers.Tests.csproj
