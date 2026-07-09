@@ -58,4 +58,37 @@ public sealed class CollectionExpressionCodeFixProviderTests
 
         return VerifyCS.VerifyAnalyzerAsync(source);
     }
+
+    [Fact]
+    public Task ReplacesVarWithExplicitTypeWhenFixingInitializer()
+    {
+        const string source = """
+            using System.Collections.Generic;
+
+            class Sample
+            {
+                void M()
+                {
+                    var names = {|#0:new List<string> { "Alice", "Bob" }|};
+                }
+            }
+            """;
+
+        const string fixedSource = """
+            using System.Collections.Generic;
+
+            class Sample
+            {
+                void M()
+                {
+                    List<string> names = ["Alice", "Bob"];
+                }
+            }
+            """;
+
+        return VerifyCS.VerifyCodeFixAsync(
+            source,
+            fixedSource,
+            VerifyCS.Diagnostic(CollectionExpressionAnalyzer.DiagnosticId).WithLocation(0));
+    }
 }

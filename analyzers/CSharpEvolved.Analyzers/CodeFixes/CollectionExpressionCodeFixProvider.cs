@@ -8,6 +8,7 @@ using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Formatting;
+using Microsoft.CodeAnalysis.Simplification;
 
 namespace CSharpEvolved.Analyzers;
 
@@ -47,17 +48,75 @@ public sealed class CollectionExpressionCodeFixProvider : CodeFixProvider
         InitializerExpressionSyntax initializer,
         CancellationToken cancellationToken)
     {
+        var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
+        if (root is null)
+            return document;
+
+        var semanticModel = await document.GetSemanticModelAsync(cancellationToken).ConfigureAwait(false);
+        if (semanticModel is null)
+            return document;
+
         var replacement = (ExpressionSyntax)SyntaxFactory.ParseExpression(
             "[" + string.Join(", ", initializer.Expressions.Select(expression => expression.ToString())) + "]")
             .WithTriviaFrom(originalNode)
             .WithAdditionalAnnotations(Formatter.Annotation);
 
-        var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
-        if (root is null)
+        var replaceVarType = TryCreateExplicitTypeReplacement(
+            originalNode,
+            semanticModel,
+            cancellationToken,
+            out var varType,
+            out var explicitType);
+
+        var trackedRoot = replaceVarType
+            ? root.TrackNodes(originalNode, varType)
+            : root.TrackNodes(originalNode);
+
+        var currentOriginalNode = trackedRoot.GetCurrentNode(originalNode);
+        if (currentOriginalNode is null)
             return document;
 
-        var newRoot = root.ReplaceNode(originalNode, replacement);
+        var newRoot = trackedRoot.ReplaceNode(currentOriginalNode, replacement);
+
+        if (replaceVarType)
+        {
+            var currentVarType = newRoot.GetCurrentNode(varType);
+            if (currentVarType is not null)
+                newRoot = newRoot.ReplaceNode(currentVarType, explicitType);
+        }
+
         return document.WithSyntaxRoot(newRoot);
+    }
+
+    private static bool TryCreateExplicitTypeReplacement(
+        SyntaxNode originalNode,
+        SemanticModel semanticModel,
+        CancellationToken cancellationToken,
+        out TypeSyntax varType,
+        out TypeSyntax explicitType)
+    {
+        varType = null!;
+        explicitType = null!;
+
+        if (originalNode.Parent is not EqualsValueClauseSyntax equalsValueClause ||
+            equalsValueClause.Parent is not VariableDeclaratorSyntax declarator ||
+            declarator.Parent is not VariableDeclarationSyntax declaration ||
+            !declaration.Type.IsVar)
+        {
+            return false;
+        }
+
+        var localSymbol = semanticModel.GetDeclaredSymbol(declarator, cancellationToken) as ILocalSymbol;
+        if (localSymbol?.Type is not ITypeSymbol inferredType)
+            return false;
+
+        varType = declaration.Type;
+        explicitType = SyntaxFactory.ParseTypeName(inferredType.ToDisplayString(SymbolDisplayFormat.MinimallyQualifiedFormat))
+            .WithTriviaFrom(declaration.Type)
+            .WithAdditionalAnnotations(Formatter.Annotation)
+            .WithAdditionalAnnotations(Simplifier.Annotation);
+
+        return true;
     }
 
     private static bool TryGetInitializer(SyntaxNode node, out InitializerExpressionSyntax initializer)
