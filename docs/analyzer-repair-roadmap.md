@@ -17,14 +17,14 @@ Status notes:
 | String interpolation (`string-interpolation`) | `string.Format("Customer {0}", userName)` | `$"Customer {userName}"` | 6.0 | CSE001 | Low | In progress | Analyzer exists; add the code fix. |
 | Using declarations (`using-declarations`) | `using (var logger = new ScopeLogger("outer")) { Console.WriteLine("Working"); }` | `using var logger = new ScopeLogger("outer"); Console.WriteLine("Working");` | 8.0 | CSE002 | Low | In progress | Analyzer exists; code fix must preserve scope and trivia. |
 | Collection expressions (`collection-expressions`) | `new List<string> { "Alice", "Bob" }` | `["Alice", "Bob"]` | 12.0 | CSE003 | Medium | In progress | Analyzer exists; code fix needs target-typing and collection-shape checks. |
-| Switch expressions (`switch-expressions`) | `switch (day) { case DayOfWeek.Saturday: case DayOfWeek.Sunday: return "Weekend"; default: return "Weekday"; }` | `day switch { DayOfWeek.Saturday or DayOfWeek.Sunday => "Weekend", _ => "Weekday" }` | 8.0 | CSE004 | Medium | In progress | Analyzer exists; repair only for value-returning, non-fall-through switches. |
-| Tuples and deconstruction (`tuples-and-deconstruction`) | `Tuple.Create("Seattle", 9.5m)` | `("Seattle", 9.5m)` | 7.0 | CSE005 | Low | In progress | Analyzer exists; start with `Tuple.Create`/`new Tuple<...>` to tuple literals. |
-| Pattern matching (`pattern-matching`) | `if (animal is Dog) { var dog = (Dog)animal; Console.WriteLine(dog.Breed); }` | `if (animal is Dog dog) { Console.WriteLine(dog.Breed); }` | 7.0 | CSE006 | Medium | In progress | Analyzer exists; code fix needs cast-use replacement inside the guarded block. |
-| Nullable reference types (`nullable-reference-types`) | `customer != null ? customer.Name : null` | `customer?.Name` | 8.0 | CSE007 | Medium | In progress | Current analyzer actually targets null-conditional modernization under the nullable feature guide. |
+| Switch expressions (`switch-expressions`) | `switch (day) { case DayOfWeek.Saturday: case DayOfWeek.Sunday: return "Weekend"; default: return "Weekday"; }` | `day switch { DayOfWeek.Saturday or DayOfWeek.Sunday => "Weekend", _ => "Weekday" }` | 8.0 | CSE004 | Medium | Shipped | Analyzer + repair now handle return-switches and same-target assignment switches with conservative default-arm requirements. |
+| Tuples and deconstruction (`tuples-and-deconstruction`) | `Tuple.Create("Seattle", 9.5m)` | `("Seattle", 9.5m)` | 7.0 | CSE005 | Low | Shipped | Analyzer + repair convert `Tuple.Create` and `new Tuple<...>` to tuple literals when the replacement remains valid. |
+| Pattern matching (`pattern-matching`) | `if (animal is Dog) { var dog = (Dog)animal; Console.WriteLine(dog.Breed); }` | `if (animal is Dog dog) { Console.WriteLine(dog.Breed); }` | 7.0 | CSE006 | Medium | Shipped | Analyzer + repair introduce a collision-safe pattern variable and replace matching casts inside the guarded block. |
+| Nullable reference types (`nullable-reference-types`) | `customer != null ? customer.Name : null` | `customer?.Name` | 8.0 | CSE007 | Medium | Shipped | Current analyzer targets null-conditional modernization, and the repair now rewrites matching member/indexer ternaries to `?.`/`?[]`. |
 | Auto-implemented properties (`auto-implemented-properties`) | `private string _name; public string Name { get { return _name; } set { _name = value; } }` | `public string Name { get; set; }` | 3.0 | CSE008 | Medium | Proposed | Needs proof the backing field is only used by the property. |
-| Expression-bodied members (`expression-bodied-members`) | `public int Age { get { return DateTime.Now.Year - BirthYear; } }` | `public int Age => DateTime.Now.Year - BirthYear;` | 6.0 | CSE009 | Low | Proposed | Straight syntax rewrite for single-expression members and accessors. |
-| File-scoped namespaces (`file-scoped-namespaces`) | `namespace MyApp.Services { class UserService { } }` | `namespace MyApp.Services; class UserService { }` | 10.0 | CSE010 | Low | Proposed | Narrow to one namespace per file, with no outer declarations that block the rewrite. |
-| Lambda expressions (`lambda-expressions`) | `Func<int, int> doubleIt = delegate (int value) { return value * 2; };` | `Func<int, int> doubleIt = value => value * 2;` | 3.0 | CSE011 | Low | Proposed | Good early win; keep scope limited to anonymous methods that map 1:1 to lambdas. |
+| Expression-bodied members (`expression-bodied-members`) | `public int Age { get { return DateTime.Now.Year - BirthYear; } }` | `public int Age => DateTime.Now.Year - BirthYear;` | 6.0 | CSE009 | Low | Shipped | Analyzer + repair cover single-expression methods plus getter-only properties/indexers with conservative accessor checks. |
+| File-scoped namespaces (`file-scoped-namespaces`) | `namespace MyApp.Services { class UserService { } }` | `namespace MyApp.Services; class UserService { }` | 10.0 | CSE010 | Low | Shipped | Analyzer + repair convert a lone top-level block namespace to file-scoped form and reformat the file. |
+| Lambda expressions (`lambda-expressions`) | `Func<int, int> doubleIt = delegate (int value) { return value * 2; };` | `Func<int, int> doubleIt = value => value * 2;` | 3.0 | CSE011 | Low | Shipped | Analyzer + repair convert anonymous methods with explicit parameter lists to expression-bodied or block-bodied lambdas. |
 | List patterns (`list-patterns`) | `if (numbers.Length >= 2 && numbers[0] == 1 && numbers[1] == 2)` | `numbers is [1, 2, ..]` | 11.0 | CSE012 | High | Proposed | Strong manifest signal, but repair needs boolean-expression normalization and conservative pattern limits. |
 | Named and optional parameters (`named-and-optional-parameters`) | `void Send(string recipient, string subject, string body, bool highPriority, bool saveCopy)` plus `service.Send("team@contoso.com", "Deployment complete", "The new release is live.", true, false);` | `void Send(string recipient, string subject, string body, bool highPriority = false, bool saveCopy = true)` plus `service.Send(recipient: "team@contoso.com", subject: "Deployment complete", body: "The new release is live.", highPriority: true, saveCopy: false);` | 4.0 | CSE013 | High | Proposed | Mechanical only when symbol visibility and call-site coverage are tightly controlled. |
 | Null coalescing & assignment operators (`null-coalescing-and-assignment`) | `if (cache == null) cache = Load();` | `cache ??= Load();` | 8.0 | CSE014 | Medium | Proposed | Scope this to `??`/`??=` first; avoid overlapping with CSE007 null-conditional fixes. |
@@ -61,14 +61,13 @@ Status notes:
 
 ### Wave 1 — finish the current analyzer investments and the easiest syntax rewrites
 
-- Complete repair/code-fix work for `CSE001`, `CSE002`, `CSE005`, `CSE006`, and `CSE007`.
-- Add low-risk new repairs: `CSE009` (expression-bodied members), `CSE010` (file-scoped namespaces), `CSE011` (lambda expressions), and `CSE021` (`var`).
+- Delivered in-repo: `CSE004`, `CSE005`, `CSE006`, `CSE007`, `CSE009`, `CSE010`, and `CSE011`.
+- Remaining low-risk follow-ups from the same wave: finish repair/code-fix work for `CSE001`, `CSE002`, `CSE003`, and later add `CSE021` (`var`).
 - Reasoning: these are high-visibility, common patterns with mostly local rewrites and low review cost.
 
 ### Wave 2 — add common modernizations that need moderate semantic checks
 
 - `CSE003` (collection expressions)
-- `CSE004` (switch expressions)
 - `CSE008` (auto-implemented properties)
 - `CSE014` (null coalescing and assignment)
 - `CSE015` (object and collection initializers)

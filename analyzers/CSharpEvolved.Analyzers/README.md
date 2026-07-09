@@ -19,6 +19,9 @@ dotnet add package CSharpEvolved.Analyzers
 | CSE005 | Info | Use a tuple literal instead of `Tuple.Create` or `new Tuple<T>` | [Tuples and Deconstruction](https://csharpevolved.github.io/features/tuples-and-deconstruction/) |
 | CSE006 | Info | Use an is-pattern with a variable instead of an is check followed by a cast | [Pattern Matching](https://csharpevolved.github.io/features/pattern-matching/) |
 | CSE007 | Info | Use the null-conditional operator (`?.`) instead of an explicit null check | [Nullable Reference Types](https://csharpevolved.github.io/features/nullable-reference-types/) |
+| CSE009 | Info | Use an expression-bodied member instead of a single-expression block body | [Expression-Bodied Members](https://csharpevolved.github.io/features/expression-bodied-members/) |
+| CSE010 | Info | Use a file-scoped namespace when the file contains a single top-level namespace | [File-Scoped Namespaces](https://csharpevolved.github.io/features/file-scoped-namespaces/) |
+| CSE011 | Info | Use a lambda expression instead of an anonymous method | [Lambda Expressions](https://csharpevolved.github.io/features/lambda-expressions/) |
 
 ## Configuration
 
@@ -33,4 +36,7 @@ dotnet_diagnostic.CSE004.severity = none
 dotnet_diagnostic.CSE005.severity = none
 dotnet_diagnostic.CSE006.severity = none
 dotnet_diagnostic.CSE007.severity = none
+dotnet_diagnostic.CSE009.severity = none
+dotnet_diagnostic.CSE010.severity = none
+dotnet_diagnostic.CSE011.severity = none
 ```
