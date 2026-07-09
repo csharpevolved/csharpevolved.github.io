@@ -1,5 +1,4 @@
 <Solution>
   <Project Path="CSharpEvolved.Analyzers/CSharpEvolved.Analyzers.csproj" />
   <Project Path="CSharpEvolved.Analyzers.Tests/CSharpEvolved.Analyzers.Tests.csproj" />
-  <Project Path="Sample/Sample.csproj" />
 </Solution>
