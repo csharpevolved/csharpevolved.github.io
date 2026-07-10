@@ -8,6 +8,7 @@
     "build": "eleventy && npm run --silent check:var",
     "predev": "node scripts/generate-social-images.mjs",
     "check:var": "node scripts/check-var-feature.mjs",
+    "check:wave1": "node scripts/validate-wave1-features.mjs",
     "dev": "eleventy --serve",
     "preserve": "node scripts/generate-social-images.mjs",
     "serve": "eleventy --serve --quiet",

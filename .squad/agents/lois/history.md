@@ -100,3 +100,8 @@ Initial frontend context seeded.
 - Added shared canonical/OG/Twitter/JSON-LD head metadata, homepage nav visibility on `/`, and feature-article UX improvements (meta row, reading time, TOC, back-to-top, copy buttons, language labels, prose CSS).
 - Under reviewer-lockout, followed up by fixing sitemap coverage (16 → 54 URLs, 0 duplicates) and adding distinct browse-page descriptions for `/features/by-version/`, `/features/by-theme/`, and `/features/timeline/`.
 - `npm run build` and `npm run test:e2e` passed before and after the follow-up fix.
+
+
+## 2026-07-10T13:47:53.126-04:00
+- Defined compare-first UX rollout for the next round using existing Features IA, spotlight cards, phased filter/card enhancements, and accessibility polish.
+- Scribe merged this planning decision into `decisions.md` and logged orchestration/session synthesis artifacts.

@@ -1,0 +1,1 @@
+Introduced in C# 11.0, the `file` modifier lets you define top-level types that are accessible only within the current file. This keeps helper types close to the code they support without exposing them across the assembly.

@@ -76,3 +76,8 @@ Initial testing context seeded.
 ## 2026-07-10T09:40:18-04:00
 - Initial validation for `feature/seo-presentation-discovery` rejected the branch despite green build/e2e because the sitemap omitted many feature pages and the new browse hubs used generic metadata descriptions.
 - Revalidation after Lois's fixes approved the branch: `npm run build`, `check:var`, and `npm run test:e2e` all passed, and the sitemap audit confirmed 54 unique URLs with distinct browse-page metadata.
+
+
+## 2026-07-10T13:47:53.126-04:00
+- Established next-round validation gates and definition of done using existing build/check/e2e commands plus snippet compile checks and analyzer-test reuse guidance.
+- Scribe merged this planning decision into `decisions.md` and logged orchestration/session synthesis artifacts.

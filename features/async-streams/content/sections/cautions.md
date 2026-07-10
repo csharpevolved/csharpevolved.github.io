@@ -1,0 +1,1 @@
+Always assume enumeration can fail midway through a stream and design processing to be retry-safe or idempotent. Also avoid mixing blocking calls into async stream pipelines—stick with asynchronous APIs end-to-end so `await foreach` can keep threads available while I/O is in flight.

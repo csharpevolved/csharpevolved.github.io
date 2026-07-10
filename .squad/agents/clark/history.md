@@ -68,3 +68,8 @@ Initial backend/sample context seeded.
 ## 2026-07-10T09:40:18-04:00
 - Implemented the shared SEO foundation in `src/_data/site.js`, added dependency-free sitemap/robots/feed generation, shipped reusable JSON-LD support plus a default social image, and standardized feature `updated` timestamps from source file mtimes.
 - `npm run build` and `npm run test:e2e` passed for the branch.
+
+
+## 2026-07-10T13:47:53.126-04:00
+- Delivered ranked post-C# 12 feature candidates, identified a best-four starter subset, and documented SDK/language constraints affecting compile-validation coverage.
+- Scribe merged this planning decision into `decisions.md` and logged orchestration/session synthesis artifacts.

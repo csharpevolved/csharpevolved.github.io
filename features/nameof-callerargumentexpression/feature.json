@@ -1,0 +1,65 @@
+{
+  "slug": "nameof-callerargumentexpression",
+  "title": "nameof + CallerArgumentExpression",
+  "shortTitle": "nameof + CallerArgumentExpression",
+  "versions": {
+    "csharp": "10.0",
+    "dotnet": "6.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Practical usage",
+      "path": "content/sections/practical-usage.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "attributes-and-reflection",
+      "reason": "Start with Attributes and reflection for the earlier attribute building block."
+    },
+    {
+      "slug": "named-and-optional-parameters",
+      "reason": "Explore Named and optional parameters for another practical API design stepping stone."
+    },
+    {
+      "slug": "nullable-reference-types",
+      "reason": "Continue to Nullable refs for the next guide in this maintainability-focused theme."
+    }
+  ],
+  "learnMore": {
+    "label": "CallerArgumentExpression attribute (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/attributes/caller-information"
+  },
+  "examples": [
+    {
+      "id": "assert-with-expression-capture",
+      "title": "Capture failed conditions in guard helpers",
+      "description": "Pair CallerArgumentExpression with nameof to produce precise diagnostics without hard-coded parameter strings.",
+      "sampleLanguageVersion": "10.0",
+      "snippets": {
+        "code": "nameof-callerargumentexpression/guard-helper.cs"
+      }
+    },
+    {
+      "id": "validate-not-null",
+      "title": "Build null-check helpers with rich error messages",
+      "description": "Capture the original call-site expression so thrown exceptions tell you exactly what argument failed validation.",
+      "sampleLanguageVersion": "10.0",
+      "snippets": {
+        "code": "nameof-callerargumentexpression/not-null-helper.cs"
+      }
+    }
+  ]
+}

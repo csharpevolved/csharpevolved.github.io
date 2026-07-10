@@ -1,0 +1,1 @@
+Async streams arrived in C# 8.0 and let asynchronous producers return a sequence of values over time. Instead of waiting for one large `Task<List<T>>` to complete, you can `yield return` values as they become available and consume them with `await foreach`.
