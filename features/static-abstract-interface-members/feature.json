@@ -44,5 +44,15 @@
       }
     }
   ],
-  "newerCapabilities": []
+  "newerCapabilities": [],
+  "relatedFeatures": [
+    {
+      "slug": "default-interface-members",
+      "reason": "Start with Default Interface Members when you want an earlier building block for Static Abstract Members."
+    },
+    {
+      "slug": "local-functions",
+      "reason": "Explore Local functions for another earlier stepping stone in the same theme."
+    }
+  ]
 }

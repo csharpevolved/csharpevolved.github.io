@@ -45,5 +45,15 @@
       }
     }
   ],
-  "newerCapabilities": []
+  "newerCapabilities": [],
+  "relatedFeatures": [
+    {
+      "slug": "null-coalescing-and-assignment",
+      "reason": "Start with Null coalescing & assignment when you want an earlier building block for Using Declarations."
+    },
+    {
+      "slug": "nullable-reference-types",
+      "reason": "Continue to Nullable refs for the next guide in this theme."
+    }
+  ]
 }

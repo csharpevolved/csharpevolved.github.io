@@ -56,5 +56,23 @@
         "code": "local-functions/async-and-iterators.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "linq",
+      "reason": "Start with LINQ when you want an earlier building block for Local functions."
+    },
+    {
+      "slug": "default-interface-members",
+      "reason": "Continue to Default Interface Members for the next guide in this theme."
+    },
+    {
+      "slug": "extension-methods",
+      "reason": "Explore Extension methods for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "static-abstract-interface-members",
+      "reason": "Explore Static Abstract Members to take the same theme one step further."
+    }
   ]
 }

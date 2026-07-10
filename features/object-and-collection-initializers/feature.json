@@ -52,5 +52,19 @@
         "code": "object-and-collection-initializers/nested-init.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "anonymous-types",
+      "reason": "Start with Anonymous types when you want an earlier building block for Object initializers."
+    },
+    {
+      "slug": "tuples-and-deconstruction",
+      "reason": "Continue to Tuples for the next guide in this theme."
+    },
+    {
+      "slug": "init-accessors",
+      "reason": "Explore Init accessors to take the same theme one step further."
+    }
   ]
 }

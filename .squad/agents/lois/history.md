@@ -95,3 +95,8 @@ Initial frontend context seeded.
 - Created `docs/github-pages-migration.md` documenting manual org/repo transfer and Pages activation steps.
 - `npm run build` passed — 53 files copied, 30 HTML files written.
 - Scribe merged decision into `decisions.md` and cleared inbox entry.
+
+## 2026-07-10T09:40:18-04:00
+- Added shared canonical/OG/Twitter/JSON-LD head metadata, homepage nav visibility on `/`, and feature-article UX improvements (meta row, reading time, TOC, back-to-top, copy buttons, language labels, prose CSS).
+- Under reviewer-lockout, followed up by fixing sitemap coverage (16 → 54 URLs, 0 duplicates) and adding distinct browse-page descriptions for `/features/by-version/`, `/features/by-theme/`, and `/features/timeline/`.
+- `npm run build` and `npm run test:e2e` passed before and after the follow-up fix.

@@ -43,5 +43,23 @@
         "code": "auto-implemented-properties/migration.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "var",
+      "reason": "Start with `var` keyword when you want an earlier building block for Auto-properties."
+    },
+    {
+      "slug": "named-and-optional-parameters",
+      "reason": "Continue to Named / optional params for the next guide in this theme."
+    },
+    {
+      "slug": "attributes-and-reflection",
+      "reason": "Explore Attributes / reflection for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "string-interpolation",
+      "reason": "Explore String interpolation to take the same theme one step further."
+    }
   ]
 }

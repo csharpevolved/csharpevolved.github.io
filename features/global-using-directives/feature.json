@@ -44,5 +44,19 @@
       }
     }
   ],
-  "newerCapabilities": []
+  "newerCapabilities": [],
+  "relatedFeatures": [
+    {
+      "slug": "file-scoped-namespaces",
+      "reason": "Start with File-Scoped Namespaces when you want an earlier building block for Global Using."
+    },
+    {
+      "slug": "top-level-statements",
+      "reason": "Continue to Top-level statements for the next guide in this theme."
+    },
+    {
+      "slug": "using-static-directives",
+      "reason": "Explore using static for another earlier stepping stone in the same theme."
+    }
+  ]
 }

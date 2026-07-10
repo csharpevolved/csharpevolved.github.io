@@ -44,5 +44,19 @@
       }
     }
   ],
-  "newerCapabilities": []
+  "newerCapabilities": [],
+  "relatedFeatures": [
+    {
+      "slug": "local-functions",
+      "reason": "Start with Local functions when you want an earlier building block for Default Interface Members."
+    },
+    {
+      "slug": "static-abstract-interface-members",
+      "reason": "Continue to Static Abstract Members for the next guide in this theme."
+    },
+    {
+      "slug": "linq",
+      "reason": "Explore LINQ for another earlier stepping stone in the same theme."
+    }
+  ]
 }

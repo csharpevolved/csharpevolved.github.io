@@ -44,5 +44,19 @@
         "code": "primary-constructors/person-class.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "required-members",
+      "reason": "Start with Required Members when you want an earlier building block for Primary constructors."
+    },
+    {
+      "slug": "collection-expressions",
+      "reason": "Continue to Collection expressions for the next guide in this theme."
+    },
+    {
+      "slug": "records",
+      "reason": "Explore Records for another earlier stepping stone in the same theme."
+    }
   ]
 }

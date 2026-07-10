@@ -44,5 +44,23 @@
       }
     }
   ],
-  "newerCapabilities": []
+  "newerCapabilities": [],
+  "relatedFeatures": [
+    {
+      "slug": "object-and-collection-initializers",
+      "reason": "Start with Object initializers when you want an earlier building block for Tuples."
+    },
+    {
+      "slug": "init-accessors",
+      "reason": "Continue to Init accessors for the next guide in this theme."
+    },
+    {
+      "slug": "anonymous-types",
+      "reason": "Explore Anonymous types for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "records",
+      "reason": "Explore Records to take the same theme one step further."
+    }
+  ]
 }

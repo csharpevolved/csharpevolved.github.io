@@ -1,21 +1,38 @@
 <!doctype html>
 <html lang="en">
   <head>
+    {% set pageTitle = site.title if page.url == "/" else (title or site.name) %}
+    {% set documentTitle = pageTitle if page.url == "/" else pageTitle + " | " + site.name %}
+    {% set pageDescription = site.stripMarkdown(description or (feature and feature.summary) or site.description) %}
+    {% set pageUrl = site.absoluteUrl(page.url) %}
+    {% set pageImage = site.absoluteUrl(image or (feature and feature.image) or site.defaultSocialImage) %}
+    {% set openGraphType = "article" if feature else "website" %}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title }} | C# Evolved</title>
-    <meta
-      name="description"
-      content="A practical C# reference site for modern language features and examples."
-    />
+    <title>{{ documentTitle }}</title>
+    <meta name="description" content="{{ pageDescription }}" />
+    <link rel="canonical" href="{{ pageUrl }}" />
+    <meta property="og:title" content="{{ pageTitle }}" />
+    <meta property="og:description" content="{{ pageDescription }}" />
+    <meta property="og:type" content="{{ openGraphType }}" />
+    <meta property="og:url" content="{{ pageUrl }}" />
+    <meta property="og:image" content="{{ pageImage }}" />
+    <meta property="og:site_name" content="{{ site.name }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ pageTitle }}" />
+    <meta name="twitter:description" content="{{ pageDescription }}" />
+    <meta name="twitter:image" content="{{ pageImage }}" />
+    {% if site.twitter %}
+    <meta name="twitter:site" content="{{ site.twitter }}" />
+    {% endif %}
+    {% include "structured-data.njk" %}
     <link rel="stylesheet" href="/assets/site.css" />
   </head>
-  <body>
+  <body id="top">
     <div class="corner-badge" aria-hidden="true">In development</div>
-    {% if page.url != "/" %}
     <header class="site-header">
       <div class="container nav">
-        <a class="brand" href="/">C# Evolved</a>
+        <a class="brand" href="/">{{ site.name }}</a>
         <nav aria-label="Primary">
           <ul>
             <li><a href="/">Home</a></li>
@@ -26,7 +43,6 @@
         </nav>
       </div>
     </header>
-    {% endif %}
     <main class="container">
       {{ content | safe }}
     </main>

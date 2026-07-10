@@ -56,5 +56,15 @@
         "code": "null-coalescing-and-assignment/chaining-coalescing.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "using-declarations",
+      "reason": "Continue to Using Declarations for the next guide in this theme."
+    },
+    {
+      "slug": "nullable-reference-types",
+      "reason": "Explore Nullable refs to take the same theme one step further."
+    }
   ]
 }

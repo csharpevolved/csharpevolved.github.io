@@ -22,12 +22,20 @@
   ],
   "relatedFeatures": [
     {
+      "slug": "tuples-and-deconstruction",
+      "reason": "Start with Tuples when you want an earlier building block for Init accessors."
+    },
+    {
       "slug": "records",
-      "reason": "Records often rely on init accessors to keep immutable data easy to construct."
+      "reason": "Continue to Records for the next guide in this theme."
+    },
+    {
+      "slug": "object-and-collection-initializers",
+      "reason": "Explore Object initializers for another earlier stepping stone in the same theme."
     },
     {
       "slug": "required-members",
-      "reason": "Required members extend init-only patterns when some values must always be provided by callers."
+      "reason": "Explore Required Members to take the same theme one step further."
     }
   ],
   "learnMore": {

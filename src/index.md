@@ -7,10 +7,10 @@ templateEngineOverride: njk
 <section class="hero">
   <div class="hero-content">
     <h1>C# <span class="hero-accent">Evolved</span></h1>
-    <p class="lead">See how C# has evolved — then move through the feature map with version filters, full guides, and related-feature trails that keep discovery moving.</p>
+    <p class="lead">See how C# has evolved — then move through curated guides, browse paths, and related-feature trails that keep discovery moving.</p>
     <div class="hero-actions">
       <a href="/features/" class="hero-cta">Explore the features →</a>
-      <a href="/features/?target=csharp&mode=after&version=9.0" class="hero-cta hero-cta-secondary">See recent additions →</a>
+      <a href="/features/timeline/" class="hero-cta hero-cta-secondary">See the timeline →</a>
     </div>
   </div>
   <div class="hero-code">
@@ -27,15 +27,28 @@ templateEngineOverride: njk
 
 <section class="grid feature-cards-grid" aria-label="Content sections">
   <article class="card">
-    <h2>Feature map</h2>
-    <p>Search by syntax, filter by C# or .NET version, and branch into related guides without losing your place.</p>
-    <a href="/features/">Explore features →</a>
+    <h2>Browse all</h2>
+    <p>Open the full feature map, search by syntax, and move into related guides without losing your place.</p>
+    <a href="/features/">Explore all features →</a>
   </article>
   <article class="card">
-    <h2>Recent additions</h2>
-    <p>Start with newer language additions first, then use related-feature links to work backward into the foundations they build on.</p>
-    <a href="/features/?target=csharp&mode=after&version=9.0">See recent additions →</a>
+    <h2>By C# version</h2>
+    <p>Follow the language release-by-release when you want a clear path from earlier syntax to the latest, cutting-edge additions.</p>
+    <a href="/features/by-version/">Browse by C# version →</a>
   </article>
+  <article class="card">
+    <h2>By theme</h2>
+    <p>Jump straight to data modeling, performance, async, safety, and other practical themes when you have a specific use case in mind.</p>
+    <a href="/features/by-theme/">Browse by theme →</a>
+  </article>
+  <article class="card">
+    <h2>Timeline</h2>
+    <p>Trace the journey from .NET Framework foundations to secure, modern C# and see which features define each era.</p>
+    <a href="/features/timeline/">See the evolution timeline →</a>
+  </article>
+</section>
+
+<section class="grid feature-cards-grid" aria-label="Additional sections">
   <article class="card">
     <h2>Cloud-first Architecture</h2>
     <p>Learn modern service patterns with Azure Functions, containers, storage, Redis caching, and event-driven design.</p>
@@ -48,12 +61,12 @@ templateEngineOverride: njk
   </article>
 </section>
 
-{% if spotlightFeatures and spotlightFeatures.length %}
-<h2>Featured demos</h2>
-<p>Explore a curated set of full source demos, then use each guide’s related features to keep moving through the language.</p>
+{% if homeFeatures and homeFeatures.length %}
+<h2>Start here</h2>
+<p>Begin with cornerstone guides that help teams move from familiar C# into the latest, secure, and modern language patterns.</p>
 
 <section class="grid feature-snippet-grid home-feature-snippet-grid" aria-label="Feature demos">
-{% for feature in spotlightFeatures %}
+{% for feature in homeFeatures %}
 {% set example = feature.examples[0] %}
 {% set snippetDescription = feature.spotlightDescription or (example and example.description) or feature.summary %}
   <article class="card feature-snippet-card home-feature-snippet-card">
@@ -71,16 +84,4 @@ templateEngineOverride: njk
   </article>
 {% endfor %}
 </section>
-<script>
-  (function () {
-    const grid = document.querySelector(".home-feature-snippet-grid");
-    if (!grid) return;
-    const cards = Array.from(grid.querySelectorAll(".home-feature-snippet-card"));
-    for (let index = cards.length - 1; index > 0; index -= 1) {
-      const swapIndex = Math.floor(Math.random() * (index + 1));
-      [cards[index], cards[swapIndex]] = [cards[swapIndex], cards[index]];
-    }
-    cards.forEach((card) => grid.appendChild(card));
-  })();
-</script>
 {% endif %}

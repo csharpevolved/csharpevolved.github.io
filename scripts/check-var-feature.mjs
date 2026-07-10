@@ -68,9 +68,7 @@ const checks = [
   {
     file: "src/_data/homeFeatures.js",
     regexes: [
-      /const\s+features\s*=\s*require\("\.\/features"\);/,
-      /left\.shuffleOrder\s*-\s*right\.shuffleOrder/,
-      /\(left\.slug\s*\?\?\s*""\)\.localeCompare\(right\.slug\s*\?\?\s*""\)/
+      /module\.exports\s*=\s*require\("\.\/spotlightFeatures"\);/
     ]
   },
   {
@@ -91,9 +89,9 @@ const checks = [
       "class=\"hero-cta\"",
       "Explore the features",
       "<div class=\"hero-code\">",
-      "<h2>Featured demos</h2>",
+      "<h2>Start here</h2>",
       "class=\"grid feature-snippet-grid home-feature-snippet-grid\"",
-      "{% for feature in spotlightFeatures %}",
+      "{% for feature in homeFeatures %}",
       "class=\"card feature-snippet-card home-feature-snippet-card\""
     ],
     forbiddenSnippets: [
@@ -542,10 +540,10 @@ const homeDemoSection = homeDemoSectionMatch[0];
 const renderedHomeDemoCards = homeDemoSection.match(
   /<article class="[^"]*\bfeature-snippet-card\b[^"]*\bhome-feature-snippet-card\b[^"]*">[\s\S]*?<\/article>/g
 );
-const spotlightFeatures = require("../src/_data/spotlightFeatures.js");
-if (!renderedHomeDemoCards || renderedHomeDemoCards.length !== spotlightFeatures.length) {
+const homeFeatures = require("../src/_data/homeFeatures.js");
+if (!renderedHomeDemoCards || renderedHomeDemoCards.length !== homeFeatures.length) {
   throw new Error(
-    `Landing page demo card count (${renderedHomeDemoCards?.length ?? 0}) does not match source (${spotlightFeatures.length})`
+    `Landing page demo card count (${renderedHomeDemoCards?.length ?? 0}) does not match source (${homeFeatures.length})`
   );
 }
 

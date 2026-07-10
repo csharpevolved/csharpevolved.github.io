@@ -1,12 +1,54 @@
 const fs = require("fs");
 const path = require("path");
+const featureThemes = require("./featureThemes");
 
 const featureContentRoot = path.join(__dirname, "..", "..", "features");
 const codeSampleRoot = path.join(__dirname, "..", "code-samples");
+const featureThemeMap = new Map(
+  featureThemes.flatMap((theme, themeIndex) =>
+    theme.slugs.map((slug, featureIndex) => [
+      slug,
+      {
+        id: theme.id,
+        label: theme.label,
+        description: theme.description,
+        order: themeIndex,
+        featureOrder: featureIndex
+      }
+    ])
+  )
+);
 
 function readText(rootPath, relativePath) {
   const fullPath = path.join(rootPath, relativePath);
   return fs.readFileSync(fullPath, "utf8").trim();
+}
+
+function collectFiles(rootPath) {
+  return fs.readdirSync(rootPath, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(rootPath, entry.name);
+    if (entry.isDirectory()) {
+      return collectFiles(fullPath);
+    }
+
+    return [fullPath];
+  });
+}
+
+function getLatestUpdated(featureRoot, samplePaths = []) {
+  const candidatePaths = [
+    ...collectFiles(featureRoot),
+    ...samplePaths
+      .map((samplePath) => path.join(codeSampleRoot, samplePath))
+      .filter((samplePath) => fs.existsSync(samplePath))
+  ];
+
+  const latestTimestamp = candidatePaths.reduce((latest, candidatePath) => {
+    const stats = fs.statSync(candidatePath);
+    return Math.max(latest, stats.mtimeMs);
+  }, 0);
+
+  return latestTimestamp ? new Date(latestTimestamp).toISOString() : null;
 }
 
 function readFeatureManifests() {
@@ -244,6 +286,7 @@ function createSearchText(feature) {
 }
 
 const features = readFeatureManifests().map(({ manifest: entry, featureRoot }) => {
+  const samplePaths = [];
   const examples = (entry.examples || []).map((example) => {
     const normalized = {
       id: example.id,
@@ -254,9 +297,11 @@ const features = readFeatureManifests().map(({ manifest: entry, featureRoot }) =
     };
 
     if (example.snippets?.before && example.snippets?.after) {
+      samplePaths.push(example.snippets.before, example.snippets.after);
       normalized.beforeCode = readText(codeSampleRoot, example.snippets.before);
       normalized.afterCode = readText(codeSampleRoot, example.snippets.after);
     } else if (example.snippets?.code) {
+      samplePaths.push(example.snippets.code);
       normalized.code = readText(codeSampleRoot, example.snippets.code);
     }
 
@@ -284,6 +329,7 @@ const features = readFeatureManifests().map(({ manifest: entry, featureRoot }) =
     ),
     learnMoreUrl: entry.learnMore?.url,
     learnMore: entry.learnMore,
+    updated: getLatestUpdated(featureRoot, samplePaths),
     examples
   };
 });
@@ -318,6 +364,7 @@ module.exports = features.map((feature) => {
 
   return {
     ...feature,
+    theme: featureThemeMap.get(feature.slug) ?? null,
     relatedFeatures,
     searchText: createSearchText(feature)
   };

@@ -44,5 +44,15 @@
         "code": "collection-expressions/spread-operator.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "primary-constructors",
+      "reason": "Start with Primary constructors when you want an earlier building block for Collection expressions."
+    },
+    {
+      "slug": "required-members",
+      "reason": "Explore Required Members for another earlier stepping stone in the same theme."
+    }
   ]
 }

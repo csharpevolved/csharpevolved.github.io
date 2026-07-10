@@ -72,3 +72,7 @@ Initial testing context seeded.
 - Scribe logged orchestration/session outcomes for this sync verification cycle.
 
 - 2026-06-19: Scribe recorded completed Playwright/E2E navigation-search-filter rollout and archived decision into `decisions.md`; inbox entry processed and removed.
+
+## 2026-07-10T09:40:18-04:00
+- Initial validation for `feature/seo-presentation-discovery` rejected the branch despite green build/e2e because the sitemap omitted many feature pages and the new browse hubs used generic metadata descriptions.
+- Revalidation after Lois's fixes approved the branch: `npm run build`, `check:var`, and `npm run test:e2e` all passed, and the sitemap audit confirmed 54 unique URLs with distinct browse-page metadata.

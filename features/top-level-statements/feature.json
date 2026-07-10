@@ -44,5 +44,15 @@
         "code": "top-level-statements/cli-arguments.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "global-using-directives",
+      "reason": "Start with Global Using when you want an earlier building block for Top-level statements."
+    },
+    {
+      "slug": "file-scoped-namespaces",
+      "reason": "Explore File-Scoped Namespaces for another earlier stepping stone in the same theme."
+    }
   ]
 }

@@ -44,5 +44,15 @@
       }
     }
   ],
-  "newerCapabilities": []
+  "newerCapabilities": [],
+  "relatedFeatures": [
+    {
+      "slug": "lambda-expressions",
+      "reason": "Continue to Lambda expressions for the next guide in this theme."
+    },
+    {
+      "slug": "extension-methods",
+      "reason": "Explore Extension methods to take the same theme one step further."
+    }
+  ]
 }

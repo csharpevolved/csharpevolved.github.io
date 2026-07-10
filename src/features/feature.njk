@@ -18,112 +18,279 @@ eleventyComputed:
   <p class="breadcrumb-back-link"><a href="/features/">← Back to all features</a></p>
 </nav>
 
-<article>
-  <h1>{{ feature.title }}</h1>
-  <p class="feature-version-pills" aria-label="Version support">
-    <span class="feature-pill feature-pill-csharp">{{ feature.versions.csharp.label }}</span>
-    <span class="feature-pill feature-pill-dotnet">{{ feature.versions.dotnet.label }}</span>
-  </p>
-  <p class="lead">{{ feature.summary | renderMarkdownInline | safe }}</p>
-
-  {% if feature.introMarkdown %}
-    {{ feature.introMarkdown | renderMarkdown | safe }}
-  {% endif %}
-
-  {% if feature.articleMarkdown %}
-    {{ feature.articleMarkdown | renderMarkdown | safe }}
-  {% endif %}
-
-  {% if feature.sections and feature.sections.length %}
-    {% for section in feature.sections %}
-      <section>
-        {% if section.title %}
-          <h2>{{ section.title }}</h2>
-        {% endif %}
-        {{ section.markdown | renderMarkdown | safe }}
-      </section>
-    {% endfor %}
-  {% endif %}
-
-  {% if feature.callouts and feature.callouts.length %}
-    {% for callout in feature.callouts %}
-      <aside class="card" role="note">
-        {% if callout.title %}
-          <h2>{{ callout.title }}</h2>
-        {% endif %}
-        {{ callout.markdown | renderMarkdown | safe }}
-      </aside>
-    {% endfor %}
-  {% endif %}
-
-  {% for example in feature.examples %}
-    <section>
-      <h2>{{ example.title }}</h2>
-      <p>{{ example.description }}</p>
-      {% if example.sampleLanguageVersion %}
-        <p>
-          <strong>Valid since C# {{ example.sampleLanguageVersion }}</strong>
-          {% if example.newerCapabilityNote %}
-            · {{ example.newerCapabilityNote }}
-          {% endif %}
-        </p>
-      {% endif %}
-
-      {% if example.beforeCode and example.afterCode %}
-        <h3>Without <code>var</code></h3>
-        {{ example.beforeCode | highlightCode("csharp") | safe }}
-        <h3>With <code>var</code></h3>
-        {{ example.afterCode | highlightCode("csharp") | safe }}
-      {% elseif example.code %}
-        {{ example.code | highlightCode("csharp") | safe }}
-      {% endif %}
-    </section>
-  {% endfor %}
-
-  {% if feature.relatedFeatures and feature.relatedFeatures.length %}
-    <section aria-labelledby="related-features-heading">
-      <h2 id="related-features-heading">Related features</h2>
-      <div class="grid feature-related-grid">
-        {% for relatedFeature in feature.relatedFeatures %}
-          <article class="card feature-related-card">
-            <h3><a href="{{ relatedFeature.url }}">{{ relatedFeature.title }}</a></h3>
-            <p class="feature-version-pills" aria-label="Version support">
-              <span class="feature-pill feature-pill-csharp">{{ relatedFeature.versions.csharp.label }}</span>
-              <span class="feature-pill feature-pill-dotnet">{{ relatedFeature.versions.dotnet.label }}</span>
-            </p>
-            {% if relatedFeature.reason %}
-              <p class="feature-related-reason">{{ relatedFeature.reason }}</p>
-            {% endif %}
-            <p class="feature-related-summary">{{ relatedFeature.summary | renderMarkdownInline | safe }}</p>
-          </article>
-        {% endfor %}
+<div class="feature-page-layout">
+  <article class="feature-article">
+    <header class="feature-article-header">
+      <h1>{{ feature.title }}</h1>
+      <p class="feature-version-pills" aria-label="Version support">
+        <span class="feature-pill feature-pill-csharp">{{ feature.versions.csharp.label }}</span>
+        <span class="feature-pill feature-pill-dotnet">{{ feature.versions.dotnet.label }}</span>
+      </p>
+      <div class="feature-meta" aria-label="Article details">
+        <span class="feature-meta-item">
+          <strong>Published</strong>
+          <time class="feature-date" datetime="{{ feature.updated }}" data-iso-date="{{ feature.updated }}">{{ feature.updated }}</time>
+        </span>
+        <span class="feature-meta-item">
+          <strong>Updated</strong>
+          <time class="feature-date" datetime="{{ feature.updated }}" data-iso-date="{{ feature.updated }}">{{ feature.updated }}</time>
+        </span>
+        <span class="feature-meta-item"><strong>Author</strong> {{ site.author }}</span>
+        <span class="feature-meta-item"><strong>Reading time</strong> <span data-reading-time>—</span></span>
       </div>
-    </section>
-  {% endif %}
+      <p class="lead">{{ feature.summary | renderMarkdownInline | safe }}</p>
+    </header>
 
-  <h2>Learn more</h2>
-  <p>
-    <a href="{{ feature.learnMoreUrl }}" target="_blank" rel="noopener noreferrer">
-      {{ (feature.learnMore and feature.learnMore.label) or ("Microsoft Learn reference for " + feature.title) }}
-    </a>
-  </p>
+    <div class="feature-article-body" data-reading-source>
+      {% if feature.introMarkdown %}
+        {{ feature.introMarkdown | renderMarkdown | safe }}
+      {% endif %}
 
-  {% if feature.newerCapabilities and feature.newerCapabilities.length %}
-    <section aria-labelledby="newer-capabilities-heading">
-      <h2 id="newer-capabilities-heading">Newer capabilities</h2>
-      <ol class="newer-capabilities-list">
-        {% for capability in feature.newerCapabilities %}
-          <li>
-            <article class="card">
-              {% if capability.title %}
-                <h3>{{ capability.title }}</h3>
-              {% endif %}
-              <p><strong>Introduced in C# {{ capability.csharpVersion }}</strong></p>
-              {{ capability.markdown | renderMarkdown | safe }}
-            </article>
-          </li>
+      {% if feature.articleMarkdown %}
+        {{ feature.articleMarkdown | renderMarkdown | safe }}
+      {% endif %}
+
+      {% if feature.sections and feature.sections.length %}
+        {% for section in feature.sections %}
+          <section>
+            {% if section.title %}
+              <h2>{{ section.title }}</h2>
+            {% endif %}
+            {{ section.markdown | renderMarkdown | safe }}
+          </section>
         {% endfor %}
-      </ol>
-    </section>
-  {% endif %}
-</article>
+      {% endif %}
+
+      {% if feature.callouts and feature.callouts.length %}
+        {% for callout in feature.callouts %}
+          <aside class="card feature-callout" role="note">
+            {% if callout.title %}
+              <h2>{{ callout.title }}</h2>
+            {% endif %}
+            {{ callout.markdown | renderMarkdown | safe }}
+          </aside>
+        {% endfor %}
+      {% endif %}
+
+      {% for example in feature.examples %}
+        <section>
+          <h2>{{ example.title }}</h2>
+          <p>{{ example.description }}</p>
+          {% if example.sampleLanguageVersion %}
+            <p>
+              <strong>Valid since C# {{ example.sampleLanguageVersion }}</strong>
+              {% if example.newerCapabilityNote %}
+                · {{ example.newerCapabilityNote }}
+              {% endif %}
+            </p>
+          {% endif %}
+
+          {% if example.beforeCode and example.afterCode %}
+            <h3>Without <code>var</code></h3>
+            {{ example.beforeCode | highlightCode("csharp") | safe }}
+            <h3>With <code>var</code></h3>
+            {{ example.afterCode | highlightCode("csharp") | safe }}
+          {% elseif example.code %}
+            {{ example.code | highlightCode("csharp") | safe }}
+          {% endif %}
+        </section>
+      {% endfor %}
+
+      {% if feature.relatedFeatures and feature.relatedFeatures.length %}
+        <section aria-labelledby="related-features-heading">
+          <h2 id="related-features-heading">Related features</h2>
+          <div class="grid feature-related-grid">
+            {% for relatedFeature in feature.relatedFeatures %}
+              <article class="card feature-related-card">
+                <h3><a href="{{ relatedFeature.url }}">{{ relatedFeature.title }}</a></h3>
+                <p class="feature-version-pills" aria-label="Version support">
+                  <span class="feature-pill feature-pill-csharp">{{ relatedFeature.versions.csharp.label }}</span>
+                  <span class="feature-pill feature-pill-dotnet">{{ relatedFeature.versions.dotnet.label }}</span>
+                </p>
+                {% if relatedFeature.reason %}
+                  <p class="feature-related-reason">{{ relatedFeature.reason }}</p>
+                {% endif %}
+                <p class="feature-related-summary">{{ relatedFeature.summary | renderMarkdownInline | safe }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+      <section>
+        <h2>Learn more</h2>
+        <p>
+          <a href="{{ feature.learnMoreUrl }}" target="_blank" rel="noopener noreferrer">
+            {{ (feature.learnMore and feature.learnMore.label) or ("Microsoft Learn reference for " + feature.title) }}
+          </a>
+        </p>
+      </section>
+
+      {% if feature.newerCapabilities and feature.newerCapabilities.length %}
+        <section aria-labelledby="newer-capabilities-heading">
+          <h2 id="newer-capabilities-heading">Newer capabilities</h2>
+          <ol class="newer-capabilities-list">
+            {% for capability in feature.newerCapabilities %}
+              <li>
+                <article class="card">
+                  {% if capability.title %}
+                    <h3>{{ capability.title }}</h3>
+                  {% endif %}
+                  <p><strong>Introduced in C# {{ capability.csharpVersion }}</strong></p>
+                  {{ capability.markdown | renderMarkdown | safe }}
+                </article>
+              </li>
+            {% endfor %}
+          </ol>
+        </section>
+      {% endif %}
+    </div>
+  </article>
+
+  <aside class="feature-sidebar">
+    <nav id="feature-toc" class="card feature-toc" aria-labelledby="feature-toc-heading" hidden>
+      <h2 id="feature-toc-heading">On this page</h2>
+      <ol class="feature-toc-list"></ol>
+    </nav>
+    <a class="back-to-top" href="#top">Back to top ↑</a>
+  </aside>
+</div>
+
+<p id="feature-copy-status" class="sr-only" role="status" aria-live="polite"></p>
+
+<script>
+(() => {
+  const article = document.querySelector('.feature-article-body');
+  if (!article) {
+    return;
+  }
+
+  const formatDate = (value) => {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) {
+      return value;
+    }
+
+    return new Intl.DateTimeFormat('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    }).format(date);
+  };
+
+  document.querySelectorAll('.feature-date[data-iso-date]').forEach((element) => {
+    const isoDate = element.getAttribute('data-iso-date');
+    if (isoDate) {
+      element.textContent = formatDate(isoDate);
+    }
+  });
+
+  const readingTarget = document.querySelector('[data-reading-time]');
+  if (readingTarget) {
+    const wordCount = article.textContent.trim().split(/\s+/).filter(Boolean).length;
+    const minutes = Math.max(1, Math.ceil(wordCount / 200));
+    readingTarget.textContent = `${minutes} min read`;
+  }
+
+  const slugCounts = new Map();
+  const slugify = (value) => {
+    const base = value
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-');
+    const slug = base || 'section';
+    const count = slugCounts.get(slug) || 0;
+    slugCounts.set(slug, count + 1);
+    return count ? `${slug}-${count + 1}` : slug;
+  };
+
+  const toc = document.getElementById('feature-toc');
+  const tocList = toc?.querySelector('.feature-toc-list');
+  const headings = Array.from(article.querySelectorAll('h2, h3')).filter((heading) => heading.textContent.trim());
+
+  if (toc && tocList && headings.length) {
+    headings.forEach((heading) => {
+      if (!heading.id) {
+        heading.id = slugify(heading.textContent);
+      }
+
+      const item = document.createElement('li');
+      item.className = `feature-toc-item feature-toc-item-${heading.tagName.toLowerCase()}`;
+
+      const link = document.createElement('button');
+      link.type = 'button';
+      link.className = 'feature-toc-link';
+      link.textContent = heading.textContent.trim();
+      link.setAttribute('aria-label', `Jump to ${heading.textContent.trim()} section`);
+      link.addEventListener('click', () => {
+        heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (window.history?.replaceState) {
+          window.history.replaceState(null, '', `#${heading.id}`);
+        }
+      });
+      item.appendChild(link);
+      tocList.appendChild(item);
+    });
+
+    toc.hidden = false;
+  }
+
+  const languageLabels = {
+    csharp: 'C#',
+    cs: 'C#',
+    xml: 'XML',
+    bash: 'Bash',
+    shell: 'Shell',
+    plaintext: 'Text'
+  };
+
+  const status = document.getElementById('feature-copy-status');
+  document.querySelectorAll('.feature-article-body pre > code').forEach((codeBlock) => {
+    const pre = codeBlock.parentElement;
+    if (!pre || pre.parentElement?.classList.contains('article-code-block')) {
+      return;
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'article-code-block';
+
+    const header = document.createElement('div');
+    header.className = 'article-code-block-header';
+
+    const languageClass = Array.from(codeBlock.classList).find((className) => className.startsWith('language-'));
+    const language = languageClass ? languageClass.replace('language-', '').toLowerCase() : 'plaintext';
+
+    const label = document.createElement('span');
+    label.className = 'article-code-language';
+    label.textContent = languageLabels[language] || language.toUpperCase();
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'snippet-copy-btn article-code-copy-btn';
+    button.textContent = 'Copy code';
+
+    button.addEventListener('click', () => {
+      const text = codeBlock.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = button.textContent;
+        button.textContent = 'Copied!';
+        if (status) {
+          status.textContent = 'Code sample copied to clipboard.';
+        }
+        setTimeout(() => {
+          button.textContent = original;
+        }, 2000);
+      }).catch(() => {
+        if (status) {
+          status.textContent = 'Copy failed. Select and copy manually.';
+        }
+      });
+    });
+
+    header.append(label, button);
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.append(header, pre);
+  });
+})();
+</script>

@@ -23,15 +23,19 @@
   "relatedFeatures": [
     {
       "slug": "init-accessors",
-      "reason": "Pair records with init-only setters when you want immutable models that still work well with object initializers."
+      "reason": "Start with Init accessors when you want an earlier building block for Records."
     },
     {
       "slug": "required-members",
-      "reason": "Required members build on record-style modeling by enforcing complete initialization at compile time."
+      "reason": "Continue to Required Members for the next guide in this theme."
+    },
+    {
+      "slug": "tuples-and-deconstruction",
+      "reason": "Explore Tuples for another earlier stepping stone in the same theme."
     },
     {
       "slug": "primary-constructors",
-      "reason": "Primary constructors continue the move toward concise data-focused type declarations in newer C# versions."
+      "reason": "Explore Primary constructors to take the same theme one step further."
     }
   ],
   "learnMore": {

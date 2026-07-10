@@ -34,5 +34,15 @@
         "code": "nullable-reference-types/nullable-guard.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "using-declarations",
+      "reason": "Start with Using Declarations when you want an earlier building block for Nullable refs."
+    },
+    {
+      "slug": "null-coalescing-and-assignment",
+      "reason": "Explore Null coalescing & assignment for another earlier stepping stone in the same theme."
+    }
   ]
 }

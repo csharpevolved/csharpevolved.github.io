@@ -34,5 +34,15 @@
         "code": "async-await/http-call.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "exception-filters",
+      "reason": "Continue to Exception filters for the next guide in this theme."
+    },
+    {
+      "slug": "pattern-matching",
+      "reason": "Explore Pattern matching to take the same theme one step further."
+    }
   ]
 }

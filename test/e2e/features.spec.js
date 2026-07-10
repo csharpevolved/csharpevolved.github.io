@@ -23,6 +23,22 @@ test.describe("Website navigation and features experience", () => {
     await expect(page.getByRole("heading", { level: 1, name: "Snippets" })).toBeVisible();
   });
 
+  test("reaches the new browse pages from discovery links", async ({ page }) => {
+    await page.goto("/features/");
+
+    await page.getByRole("link", { name: "Open version groups →" }).click();
+    await expect(page).toHaveURL(/\/features\/by-version\/$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Browse features by C# version" })).toBeVisible();
+
+    await page.getByRole("link", { name: "Browse by theme →" }).first().click();
+    await expect(page).toHaveURL(/\/features\/by-theme\/$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Browse features by theme" })).toBeVisible();
+
+    await page.getByRole("link", { name: "See the timeline →" }).first().click();
+    await expect(page).toHaveURL(/\/features\/timeline\/$/);
+    await expect(page.getByRole("heading", { level: 1, name: "C# evolution timeline" })).toBeVisible();
+  });
+
   test("keeps homepage CTA contrast and focus-visible styling accessible", async ({ page }) => {
     await page.goto("/");
 
@@ -224,12 +240,15 @@ test.describe("Website navigation and features experience", () => {
     await expect(page.getByRole("link", { name: "Primary constructors" })).toBeVisible();
   });
 
-  test("homepage surfaces recent feature discovery entry points", async ({ page }) => {
+  test("homepage surfaces browse entry points and curated guides", async ({ page }) => {
     await page.goto("/");
 
-    await page.getByRole("link", { name: "See recent additions →" }).first().click();
+    await expect(page.getByRole("heading", { level: 2, name: "Start here" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Browse by C# version →" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Browse by theme →" })).toBeVisible();
 
-    await expect(page).toHaveURL(/\/features\/\?target=csharp&mode=after&version=9.0/);
-    await expect(page.locator("#feature-filter-summary")).toContainText("after C# 9.0");
+    await page.getByRole("link", { name: "See the timeline →" }).first().click();
+    await expect(page).toHaveURL(/\/features\/timeline\/$/);
+    await expect(page.getByRole("heading", { level: 1, name: "C# evolution timeline" })).toBeVisible();
   });
 });

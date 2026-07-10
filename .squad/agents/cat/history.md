@@ -55,3 +55,7 @@ Initial DevRel context seeded.
 
 ## 2026-06-30T12:33:37.821-04:00
 - Verified the official analyzer story for `/analyzers/`, including representative CA/IDE/nullable rule IDs, Microsoft Learn links, and activation/configuration guidance for the catalog handoff.
+
+## 2026-07-10T09:40:18-04:00
+- Added discovery browse hubs for version/theme/timeline navigation, introduced the shared feature-theme taxonomy, curated the homepage `Start here` journey, and backfilled `relatedFeatures` across the feature library.
+- `npm run build` and `npm run test:e2e` passed for the branch.

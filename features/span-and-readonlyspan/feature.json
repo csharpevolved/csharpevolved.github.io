@@ -50,5 +50,19 @@
       "csharpVersion": "14.0",
       "path": "content/newer-capabilities/implicit-span-conversions.md"
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "ref-structs",
+      "reason": "Start with ref struct when you want an earlier building block for Span<T>."
+    },
+    {
+      "slug": "range-and-index-operators",
+      "reason": "Continue to Range & index operators for the next guide in this theme."
+    },
+    {
+      "slug": "ref-returns",
+      "reason": "Explore ref returns for another earlier stepping stone in the same theme."
+    }
   ]
 }

@@ -44,5 +44,23 @@
       }
     }
   ],
-  "newerCapabilities": []
+  "newerCapabilities": [],
+  "relatedFeatures": [
+    {
+      "slug": "using-static-directives",
+      "reason": "Start with using static when you want an earlier building block for File-Scoped Namespaces."
+    },
+    {
+      "slug": "global-using-directives",
+      "reason": "Continue to Global Using for the next guide in this theme."
+    },
+    {
+      "slug": "expression-bodied-members",
+      "reason": "Explore Expression-bodied members for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "top-level-statements",
+      "reason": "Explore Top-level statements to take the same theme one step further."
+    }
+  ]
 }

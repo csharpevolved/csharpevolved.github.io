@@ -50,5 +50,23 @@
         "code": "using-static-directives/domain-helpers.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "expression-bodied-members",
+      "reason": "Start with Expression-bodied members when you want an earlier building block for using static."
+    },
+    {
+      "slug": "file-scoped-namespaces",
+      "reason": "Continue to File-Scoped Namespaces for the next guide in this theme."
+    },
+    {
+      "slug": "string-interpolation",
+      "reason": "Explore String interpolation for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "global-using-directives",
+      "reason": "Explore Global Using to take the same theme one step further."
+    }
   ]
 }

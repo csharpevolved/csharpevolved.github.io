@@ -53,5 +53,15 @@
       }
     }
   ],
-  "newerCapabilities": []
+  "newerCapabilities": [],
+  "relatedFeatures": [
+    {
+      "slug": "ref-returns",
+      "reason": "Continue to ref returns for the next guide in this theme."
+    },
+    {
+      "slug": "ref-structs",
+      "reason": "Explore ref struct to take the same theme one step further."
+    }
+  ]
 }

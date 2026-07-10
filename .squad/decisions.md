@@ -105,6 +105,13 @@
 - Nav is now exactly: Home, Features, Snippets, Analyzers.
 - `npm run build` (including `check:var`) passes cleanly.
 
+### 2026-06-27 — Sprint 1 final review gate: 6/7 pass, 1/7 conditional
+**Source:** `decisions/inbox/perry-white-sprint-1-final-review-gate-6-7-pass-1-7-conditiona.md`
+
+- Approved the seven-feature Sprint 1 batch for PR merge once the `range-and-index-operators` Microsoft Learn URL is corrected.
+- Identified the lone blocker in `features/range-and-index-operators/feature.json`, where `learnMore.url` must move to `https://learn.microsoft.com/dotnet/csharp/language-reference/operators/member-access-operators#range-operator-`.
+- Build, content, design, and integration checks otherwise passed with no additional blockers.
+
 ### 2026-06-30 — Toolbox hub and skills catalog structure
 **Source:** `decisions/inbox/perry-toolbox-skills-hub.md`
 
@@ -125,6 +132,13 @@
 - Replaced the seeded Skills catalog with per-skill entries aligned to Cat's verified .NET Team research and Clark's rendered content files.
 - Added `coming-soon` handling in the skills data pipeline so planned C# Evolved cards suppress external actions until published.
 - The live catalog now owns skills content, allowing draft handoff files to be removed once integrated.
+
+### 2026-06-30 — Skills grid restyle
+**Source:** `decisions/inbox/lois-skills-grid.md`
+
+- Scoped the skills listing to a dedicated `.skill-grid` layout that renders at most two cards per row on larger screens and collapses to one column at the existing `768px` breakpoint.
+- Increased card spacing, padding, and line-height; added a subtle footer divider; and kept footer actions pinned for steadier card rhythm.
+- Preserved existing publisher badge colors plus accessible link and focus treatments while improving card readability.
 
 ### 2026-06-30 — Official-first analyzers catalog architecture
 **Source:** `decisions/inbox/perry-analyzers-official-first-catalog.md`
@@ -147,6 +161,13 @@
 - Add a distinct platform compatibility card for CA1416 instead of burying platform analysis inside general SDK analyzer coverage.
 - The live official analyzer catalog now spans activation/configuration, modern IDE patterns, style consistency, SDK CA analyzers, platform compatibility, and nullable flow analysis while leaving the C# Evolved section unchanged.
 
+### 2026-06-30 — Audit trail append blocked by state backend
+**Source:** `decisions/inbox/Rai-audit-trail-append-blocked-by-state-backend.md`
+
+- Record that `squad_state_append` to `rai/audit-trail.md` was rejected by the state backend because the target is treated as non-mutable/static config.
+- When the backend blocks protected state updates, capture the review outcome in the runtime session log instead of retrying manual file choreography.
+- The related toolbox fast-path review verdict remained Green despite the blocked append.
+
 ### 2026-07-01 — Analyzer repair roadmap and delivery waves
 **Source:** `decisions/inbox/perry-analyzer-repair-roadmap.md`
 
@@ -162,6 +183,48 @@
 - Added `Microsoft.CodeAnalysis.CSharp.Workspaces` `4.8.0` to the analyzer project and created a separate `analyzers/CSharpEvolved.Analyzers.Tests` project targeting `net8.0` with `Microsoft.CodeAnalysis.CSharp.CodeFix.Testing.XUnit` `1.1.2` plus `ReferenceAssemblies.Net.Net80` / C# 12 parse options for verification.
 - Added 6 tests covering positive fix application plus negative cases, resolved RS1033 analyzer-description warnings and the RS2007 unshipped-header warning, and verified `dotnet build` plus `dotnet test` (6 passed, 0 failed).
 - `CSharpEvolved.Analyzers` remains local-only and is not approved for NuGet publication.
+
+### 2026-07-10 — SEO foundation and indexability assets
+**Source:** `decisions/inbox/clark-seo-impl.md`
+
+- Added shared SEO metadata and absolute URL helpers in `src/_data/site.js`, including reusable JSON-LD builders for site, organization, breadcrumb, and article schemas.
+- Implemented dependency-free `sitemap.xml`, `robots.txt`, and `feed.xml` generation so production indexing assets share one canonical base URL and schema source.
+- Standardized feature `updated` timestamps from the newest related content/code-sample source file and exposed a structured-data partial for template reuse.
+
+### 2026-07-10 — Discovery browse architecture and homepage curation
+**Source:** `decisions/inbox/cat-discovery-impl.md`
+
+- Added a shared theme taxonomy plus three browse hubs for discovery by C# version, by theme, and across a runtime-era timeline.
+- Replaced randomized homepage spotlighting with a stable curated `Start here` path spanning LINQ, async/await, nullable reference types, records, pattern matching, and collection expressions.
+- Populated `relatedFeatures` across the feature library using ordered theme progression so cross-links are repeatable, broadly bidirectional, and discovery-friendly.
+
+### 2026-07-10 — Server-rendered metadata and progressive article enhancements
+**Source:** `decisions/inbox/lois-impl.md`
+
+- Kept canonical, Open Graph, Twitter, and JSON-LD metadata server-rendered in the shared layout so generated HTML carries SEO/share tags without client JavaScript.
+- Added progressive feature-article enhancements in `src/features/feature.njk`, including reading time, heading-driven TOC, formatted dates, back-to-top affordances, code copy controls, and language labels, without new dependencies.
+- Reused the site's existing snippet copy-button interaction pattern and styling for article code blocks to keep behavior and accessibility messaging consistent.
+
+### 2026-07-10 — Sitemap canonicalization and browse-page metadata fix
+**Source:** `decisions/inbox/lois-fix.md`
+
+- Updated sitemap generation to emit feature detail URLs from the `features` data set instead of depending on `collections.all`, which had only surfaced one paginated feature page.
+- Guaranteed the three browse hubs (`/features/by-version/`, `/features/by-theme/`, `/features/timeline/`) are included alongside canonical site pages and feature detail URLs exactly once.
+- Added page-specific browse hub descriptions so the shared head logic emits distinct `description`, `og:description`, and `twitter:description` values instead of the site default.
+
+### 2026-07-10 — SEO/discovery validation findings before follow-up fixes
+**Source:** `decisions/inbox/jimmy-validation.md`
+
+- Validation passed `npm run build` and `npm run test:e2e` (72/72) but rejected the branch because `sitemap.xml` contained only 16 URLs and omitted many generated feature detail pages.
+- Validation also found the three browse hubs were missing page-specific descriptions, causing shared layout metadata to fall back to the generic site description for standard, Open Graph, and Twitter descriptions.
+- Feed, robots, homepage discovery affordances, feature-page SEO tags, internal links, accessibility spot checks, and code-sample drift checks otherwise passed.
+
+### 2026-07-10 — SEO/discovery implementation approved after sitemap and metadata fixes
+**Source:** `decisions/inbox/jimmy-revalidation.md`
+
+- Revalidation approved the branch after confirming `npm run build`, `check:var`, and `npm run test:e2e` all passed with 72/72 green.
+- Confirmed `sitemap.xml` now contains 54 unique URLs, including feature detail pages and the three browse hubs, with 0 duplicate URLs and 0 missing generated targets.
+- Verified browse hubs now emit distinct page descriptions while homepage and representative feature-page SEO head output remain correct, and `relatedFeatures` updates did not alter C# sample code.
 
 ## Governance
 

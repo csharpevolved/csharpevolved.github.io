@@ -34,5 +34,23 @@
         "code": "pattern-matching/temperature-description.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "exception-filters",
+      "reason": "Start with Exception filters when you want an earlier building block for Pattern matching."
+    },
+    {
+      "slug": "switch-expressions",
+      "reason": "Continue to Switch Expressions for the next guide in this theme."
+    },
+    {
+      "slug": "async-await",
+      "reason": "Explore Async and await for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "list-patterns",
+      "reason": "Explore List patterns to take the same theme one step further."
+    }
   ]
 }

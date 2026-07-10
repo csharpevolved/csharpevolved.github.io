@@ -56,5 +56,23 @@
         "code": "expression-bodied-members/constructors-and-operators.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "string-interpolation",
+      "reason": "Start with String interpolation when you want an earlier building block for Expression-bodied members."
+    },
+    {
+      "slug": "using-static-directives",
+      "reason": "Continue to using static for the next guide in this theme."
+    },
+    {
+      "slug": "named-and-optional-parameters",
+      "reason": "Explore Named / optional params for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "file-scoped-namespaces",
+      "reason": "Explore File-Scoped Namespaces to take the same theme one step further."
+    }
   ]
 }
