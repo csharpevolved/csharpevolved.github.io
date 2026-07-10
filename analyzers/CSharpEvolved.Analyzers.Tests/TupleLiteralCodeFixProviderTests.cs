@@ -92,4 +92,139 @@ public sealed class TupleLiteralCodeFixProviderTests
 
         return VerifyCS.VerifyAnalyzerAsync(source);
     }
+
+    [Fact]
+    public Task PreservesCommentsAndBlankLinesWhenFixingTupleCreate()
+    {
+        const string source = """
+            using System;
+
+            class Sample
+            {
+                void M()
+                {
+                    // Keep the city and count paired.
+
+                    var pair = {|#0:Tuple.Create("Seattle", 9)|};
+                }
+            }
+            """;
+
+        const string fixedSource = """
+            using System;
+
+            class Sample
+            {
+                void M()
+                {
+                    // Keep the city and count paired.
+
+                    var pair = ("Seattle", 9);
+                }
+            }
+            """;
+
+        return VerifyCS.VerifyCodeFixAsync(
+            source,
+            fixedSource,
+            VerifyCS.Diagnostic(TupleLiteralAnalyzer.DiagnosticId).WithLocation(0));
+    }
+
+    [Fact]
+    public Task ReportsDiagnosticAndFixesTupleCreateWithVarLocal()
+    {
+        const string source = """
+            using System;
+
+            class Sample
+            {
+                string GetCity() => "Seattle";
+
+                int GetCount() => 9;
+
+                void M()
+                {
+                    var pair = {|#0:Tuple.Create(GetCity(), GetCount())|};
+                }
+            }
+            """;
+
+        const string fixedSource = """
+            using System;
+
+            class Sample
+            {
+                string GetCity() => "Seattle";
+
+                int GetCount() => 9;
+
+                void M()
+                {
+                    var pair = (GetCity(), GetCount());
+                }
+            }
+            """;
+
+        return VerifyCS.VerifyCodeFixAsync(
+            source,
+            fixedSource,
+            VerifyCS.Diagnostic(TupleLiteralAnalyzer.DiagnosticId).WithLocation(0));
+    }
+
+    [Fact]
+    public Task DoesNotReportWhenCreateMethodIsNotOnTuple()
+    {
+        const string source = """
+            class Pair
+            {
+                public static string Create(string city, int count) => city + count;
+            }
+
+            class Sample
+            {
+                void M()
+                {
+                    var pair = Pair.Create("Seattle", 9);
+                }
+            }
+            """;
+
+        return VerifyCS.VerifyAnalyzerAsync(source);
+    }
+
+    [Fact]
+    public Task FixesAllTupleCreationsInMethod()
+    {
+        const string source = """
+            using System;
+
+            class Sample
+            {
+                void M()
+                {
+                    var first = {|#0:Tuple.Create("Seattle", 9)|};
+                    var second = {|#1:new Tuple<string, int>("Portland", 7)|};
+                }
+            }
+            """;
+
+        const string fixedSource = """
+            using System;
+
+            class Sample
+            {
+                void M()
+                {
+                    var first = ("Seattle", 9);
+                    var second = ("Portland", 7);
+                }
+            }
+            """;
+
+        return VerifyCS.VerifyCodeFixAsync(
+            source,
+            fixedSource,
+            VerifyCS.Diagnostic(TupleLiteralAnalyzer.DiagnosticId).WithLocation(0),
+            VerifyCS.Diagnostic(TupleLiteralAnalyzer.DiagnosticId).WithLocation(1));
+    }
 }
