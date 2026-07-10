@@ -703,15 +703,6 @@ h3 {
   color: var(--muted);
 }
 
-.home-feature-snippet-description code {
-  display: inline;
-  white-space: normal;
-  font-size: 0.9em;
-  padding: 0.1em 0.35em;
-  background: rgba(124, 77, 255, 0.15);
-  border-radius: 4px;
-}
-
 .feature-snippet-card pre {
   margin: 0;
   max-height: none;
@@ -732,6 +723,15 @@ h3 {
   white-space: pre;
   overflow-wrap: normal;
   word-break: normal;
+}
+
+.home-feature-snippet-card .home-feature-snippet-description code {
+  display: inline;
+  white-space: normal;
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  background: rgba(124, 77, 255, 0.15);
+  border-radius: 4px;
 }
 
 @media (max-width: 900px) {
