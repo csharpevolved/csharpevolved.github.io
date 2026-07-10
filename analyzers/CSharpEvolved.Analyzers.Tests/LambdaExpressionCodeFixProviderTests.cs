@@ -92,4 +92,135 @@ public sealed class LambdaExpressionCodeFixProviderTests
 
         return VerifyCS.VerifyAnalyzerAsync(source);
     }
+
+    [Fact]
+    public Task ReportsDiagnosticAndFixesAsyncAnonymousMethod()
+    {
+        const string source = """
+            using System;
+            using System.Threading.Tasks;
+
+            class Sample
+            {
+                void M()
+                {
+                    Func<int, Task<int>> addOne = async {|#0:delegate|} (int value) { return await Task.FromResult(value + 1); };
+                }
+            }
+            """;
+
+        const string fixedSource = """
+            using System;
+            using System.Threading.Tasks;
+
+            class Sample
+            {
+                void M()
+                {
+                    Func<int, Task<int>> addOne = async (int value) => await Task.FromResult(value + 1);
+                }
+            }
+            """;
+
+        return VerifyCS.VerifyCodeFixAsync(
+            source,
+            fixedSource,
+            VerifyCS.Diagnostic(LambdaExpressionAnalyzer.DiagnosticId).WithLocation(0));
+    }
+
+    [Fact]
+    public Task PreservesCommentsWhenFixingBlockBodiedAnonymousMethod()
+    {
+        const string source = """
+            using System;
+
+            class Sample
+            {
+                void M()
+                {
+                    Action<int> print = {|#0:delegate|} (int value)
+                    {
+                        // Keep the logging comment.
+                        Console.WriteLine(value);
+                    };
+                }
+            }
+            """;
+
+        const string fixedSource = """
+            using System;
+
+            class Sample
+            {
+                void M()
+                {
+                    Action<int> print = (int value) =>
+                    {
+                        // Keep the logging comment.
+                        Console.WriteLine(value);
+                    };
+                }
+            }
+            """;
+
+        return VerifyCS.VerifyCodeFixAsync(
+            source,
+            fixedSource,
+            VerifyCS.Diagnostic(LambdaExpressionAnalyzer.DiagnosticId).WithLocation(0));
+    }
+
+    [Fact]
+    public Task DoesNotReportWhenAsyncAnonymousMethodHasNoParameterList()
+    {
+        const string source = """
+            using System;
+            using System.Threading.Tasks;
+
+            class Sample
+            {
+                void M()
+                {
+                    Func<Task> work = async delegate { await Task.Yield(); };
+                }
+            }
+            """;
+
+        return VerifyCS.VerifyAnalyzerAsync(source);
+    }
+
+    [Fact]
+    public Task FixesAllAnonymousMethodsInMethod()
+    {
+        const string source = """
+            using System;
+
+            class Sample
+            {
+                void M()
+                {
+                    Func<int, int> first = {|#0:delegate|} (int value) { return value + 1; };
+                    Action<int> second = {|#1:delegate|} (int value) { Console.WriteLine(value); };
+                }
+            }
+            """;
+
+        const string fixedSource = """
+            using System;
+
+            class Sample
+            {
+                void M()
+                {
+                    Func<int, int> first = (int value) => value + 1;
+                    Action<int> second = (int value) => { Console.WriteLine(value); };
+                }
+            }
+            """;
+
+        return VerifyCS.VerifyCodeFixAsync(
+            source,
+            fixedSource,
+            VerifyCS.Diagnostic(LambdaExpressionAnalyzer.DiagnosticId).WithLocation(0),
+            VerifyCS.Diagnostic(LambdaExpressionAnalyzer.DiagnosticId).WithLocation(1));
+    }
 }
