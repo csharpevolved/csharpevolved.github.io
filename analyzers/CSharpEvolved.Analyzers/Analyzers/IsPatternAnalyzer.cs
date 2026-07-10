@@ -19,8 +19,8 @@ public sealed class IsPatternAnalyzer : DiagnosticAnalyzer
         category: "Modernization",
         defaultSeverity: DiagnosticSeverity.Info,
         isEnabledByDefault: true,
-        description: "Is-patterns with a variable (C# 7.0) eliminate the redundant cast after an is type check. See https://csharp-evolved.dev/features/pattern-matching/",
-        helpLinkUri: "https://csharp-evolved.dev/features/pattern-matching/");
+        description: "Is-patterns with a variable (C# 7.0) eliminate the redundant cast after an is type check. See https://csharpevolved.github.io/features/pattern-matching/.",
+        helpLinkUri: "https://csharpevolved.github.io/features/pattern-matching/");
 
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
 

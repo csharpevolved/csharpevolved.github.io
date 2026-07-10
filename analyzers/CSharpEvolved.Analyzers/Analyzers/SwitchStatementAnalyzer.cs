@@ -18,8 +18,8 @@ public sealed class SwitchStatementAnalyzer : DiagnosticAnalyzer
         category: "Modernization",
         defaultSeverity: DiagnosticSeverity.Info,
         isEnabledByDefault: true,
-        description: "Switch expressions (C# 8.0) are more concise than switch statements for value-returning scenarios. See https://csharp-evolved.dev/features/switch-expressions/",
-        helpLinkUri: "https://csharp-evolved.dev/features/switch-expressions/");
+        description: "Switch expressions (C# 8.0) are more concise than switch statements for value-returning scenarios. See https://csharpevolved.github.io/features/switch-expressions/.",
+        helpLinkUri: "https://csharpevolved.github.io/features/switch-expressions/");
 
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
 

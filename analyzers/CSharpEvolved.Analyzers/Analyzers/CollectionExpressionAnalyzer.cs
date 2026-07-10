@@ -18,8 +18,8 @@ public sealed class CollectionExpressionAnalyzer : DiagnosticAnalyzer
         category: "Modernization",
         defaultSeverity: DiagnosticSeverity.Info,
         isEnabledByDefault: true,
-        description: "Collection expressions (C# 12) replace verbose initializer syntax with concise [...] literals. See https://csharp-evolved.dev/features/collection-expressions/",
-        helpLinkUri: "https://csharp-evolved.dev/features/collection-expressions/");
+        description: "Collection expressions (C# 12) replace verbose initializer syntax with concise [...] literals. See https://csharpevolved.github.io/features/collection-expressions/.",
+        helpLinkUri: "https://csharpevolved.github.io/features/collection-expressions/");
 
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics =>
         ImmutableArray.Create(Rule);

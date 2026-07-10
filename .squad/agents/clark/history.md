@@ -60,3 +60,7 @@ Initial backend/sample context seeded.
 
 ## 2026-06-30T12:33:37.821-04:00
 - Integrated the verified official analyzer metadata into the live `/analyzers/` catalog, replaced placeholder docs/rules, and preserved the C# Evolved coming-soon section while keeping the build green.
+
+## 2026-07-08T14:49:32.622-04:00
+- Added CSE001-CSE003 Roslyn `CodeFixProvider` repairs under `analyzers/CSharpEvolved.Analyzers/CodeFixes/` and kept the analyzer package local-only.
+- Created `analyzers/CSharpEvolved.Analyzers.Tests` (`net8.0`) with 6 code-fix verification tests covering positive and negative cases; build and test both passed.
