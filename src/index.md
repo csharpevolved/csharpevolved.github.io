@@ -27,40 +27,16 @@ image: /assets/social/pages/home.png
   </div>
 </section>
 
-<section class="grid feature-cards-grid" aria-label="Content sections">
-  <article class="card">
-    <h2>Browse all</h2>
-    <p>Open the full feature map, search by syntax, and move into related guides without losing your place.</p>
-    <a href="/features/">Explore all features →</a>
-  </article>
-  <article class="card">
-    <h2>By C# version</h2>
-    <p>Follow the language release-by-release when you want a clear path from earlier syntax to the latest, cutting-edge additions.</p>
-    <a href="/features/by-version/">Browse by C# version →</a>
-  </article>
-  <article class="card">
-    <h2>By theme</h2>
-    <p>Jump straight to data modeling, performance, async, safety, and other practical themes when you have a specific use case in mind.</p>
-    <a href="/features/by-theme/">Browse by theme →</a>
-  </article>
-  <article class="card">
-    <h2>Timeline</h2>
-    <p>Trace the journey from .NET Framework foundations to secure, modern C# and see which features define each era.</p>
-    <a href="/features/timeline/">See the evolution timeline →</a>
-  </article>
-</section>
-
-<section class="grid feature-cards-grid" aria-label="Additional sections">
-  <article class="card">
-    <h2>Cloud-first Architecture</h2>
-    <p>Learn modern service patterns with Azure Functions, containers, storage, Redis caching, and event-driven design.</p>
-    <a href="/cloud/">Explore cloud guides →</a>
-  </article>
-  <article class="card">
-    <h2>Toolbox</h2>
-    <p>Jump into snippets, analyzers, and AI skills that help you adopt modern C# faster in editors, reviews, and coding agents.</p>
-    <a href="/toolbox/">Open the toolbox →</a>
-  </article>
+<section class="explore-links" aria-labelledby="home-explore-title">
+  <h2 id="home-explore-title" class="explore-links-title">Explore</h2>
+  <ul class="explore-links-list">
+    <li><a href="/features/">All features →</a></li>
+    <li><a href="/features/by-version/">By C# version →</a></li>
+    <li><a href="/features/by-theme/">By theme →</a></li>
+    <li><a href="/features/timeline/">Timeline →</a></li>
+    <li><a href="/cloud/">Cloud-first architecture →</a></li>
+    <li><a href="/toolbox/">Toolbox →</a></li>
+  </ul>
 </section>
 
 {% if homeFeatures and homeFeatures.length %}

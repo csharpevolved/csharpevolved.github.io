@@ -18,23 +18,25 @@ test.describe("Website navigation and features experience", () => {
     await page.getByRole("link", { name: "← Back to all features" }).click();
     await expect(page).toHaveURL(/\/features\/\?/);
 
-    await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Snippets" }).click();
-    await expect(page).toHaveURL(/\/snippets\/$/);
-    await expect(page.getByRole("heading", { level: 1, name: "Snippets" })).toBeVisible();
+    await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Cloud" }).click();
+    await expect(page).toHaveURL(/\/cloud\/$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Cloud-first Architecture" })).toBeVisible();
   });
 
   test("reaches the new browse pages from discovery links", async ({ page }) => {
     await page.goto("/features/");
 
-    await page.getByRole("link", { name: "Open version groups →" }).click();
+    await page.getByRole("link", { name: "By version →" }).click();
     await expect(page).toHaveURL(/\/features\/by-version\/$/);
     await expect(page.getByRole("heading", { level: 1, name: "Browse features by C# version" })).toBeVisible();
 
-    await page.getByRole("link", { name: "Browse by theme →" }).first().click();
+    await page.goto("/features/");
+    await page.getByRole("link", { name: "By theme →" }).click();
     await expect(page).toHaveURL(/\/features\/by-theme\/$/);
     await expect(page.getByRole("heading", { level: 1, name: "Browse features by theme" })).toBeVisible();
 
-    await page.getByRole("link", { name: "See the timeline →" }).first().click();
+    await page.goto("/features/");
+    await page.getByRole("link", { name: "Timeline →", exact: true }).click();
     await expect(page).toHaveURL(/\/features\/timeline\/$/);
     await expect(page.getByRole("heading", { level: 1, name: "C# evolution timeline" })).toBeVisible();
   });
@@ -244,10 +246,10 @@ test.describe("Website navigation and features experience", () => {
     await page.goto("/");
 
     await expect(page.getByRole("heading", { level: 2, name: "Start here" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Browse by C# version →" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Browse by theme →" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "By C# version →" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "By theme →" })).toBeVisible();
 
-    await page.getByRole("link", { name: "See the timeline →" }).first().click();
+    await page.getByRole("link", { name: "Timeline →", exact: true }).click();
     await expect(page).toHaveURL(/\/features\/timeline\/$/);
     await expect(page.getByRole("heading", { level: 1, name: "C# evolution timeline" })).toBeVisible();
   });

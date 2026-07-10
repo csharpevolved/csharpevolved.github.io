@@ -6,20 +6,6 @@ templateEngineOverride: njk
 
 <h1>C# feature map</h1>
 <p>Organized starting points for content that can grow into full feature guides.</p>
-<nav aria-label="Primary">
-  <p>
-    <a href="/">Home</a> ·
-    <a href="/features/">Features</a> ·
-    <a href="/snippets/">Snippets</a> ·
-    <a href="/cloud/">Cloud</a> ·
-    <a href="/toolbox/">Toolbox</a>
-  </p>
-</nav>
-<p>
-  Prefer a guided path? Browse <a href="/features/by-version/">by C# version</a>,
-  <a href="/features/by-theme/">by theme</a>, or walk the
-  <a href="/features/timeline/">timeline</a>.
-</p>
 
 {% set defaultTarget = "csharp" %}
 {% set defaultMode = "upToIncluding" %}
@@ -32,59 +18,16 @@ templateEngineOverride: njk
   <p>
     Search by feature name, example topic, or newer capability, then keep moving with related guides on each feature page.
   </p>
-  <div class="grid feature-discovery-grid" aria-label="Feature discovery highlights">
-    <article class="card">
-      <h3>Find recent language additions</h3>
-      <p>
-        Jump straight to the newest additions after {{ recentCsharpVersion.label }} when you want a modern-C# skim.
-      </p>
-      <p>
-        <a href="/features/?target=csharp&mode=after&version={{ recentCsharpVersion.id }}">See what came next →</a>
-      </p>
-    </article>
-    <article class="card">
-      <h3>Browse by runtime era</h3>
-      <p>
-        Switch to .NET filtering when you want to anchor guides to the runtime your team is shipping today.
-      </p>
-      <p>
-        <a href="/features/?target=dotnet&mode=upToIncluding&version={{ latestDotnetVersion.id }}">Browse by .NET version →</a>
-      </p>
-    </article>
-    <article class="card">
-      <h3>Follow connected guides</h3>
-      <p>
-        Feature guides now link to adjacent topics so you can move from an overview into nearby language changes without restarting your search.
-      </p>
-    </article>
-    <article class="card">
-      <h3>Browse by C# version</h3>
-      <p>
-        Group the guides release-by-release when you want a cleaner walkthrough of how the language keeps evolving.
-      </p>
-      <p>
-        <a href="/features/by-version/">Open version groups →</a>
-      </p>
-    </article>
-    <article class="card">
-      <h3>Browse by theme</h3>
-      <p>
-        Jump straight to performance, data modeling, async, safety, and other practical themes built from the feature taxonomy.
-      </p>
-      <p>
-        <a href="/features/by-theme/">Open theme groups →</a>
-      </p>
-    </article>
-    <article class="card">
-      <h3>Walk the timeline</h3>
-      <p>
-        Trace the journey from .NET Framework foundations to today’s modern C# guides in one chronological view.
-      </p>
-      <p>
-        <a href="/features/timeline/">Open the timeline →</a>
-      </p>
-    </article>
-  </div>
+  <nav class="explore-links" aria-labelledby="feature-explore-title">
+    <h3 id="feature-explore-title" class="explore-links-title">Quick paths</h3>
+    <ul class="explore-links-list">
+      <li><a href="/features/by-version/">By version →</a></li>
+      <li><a href="/features/by-theme/">By theme →</a></li>
+      <li><a href="/features/timeline/">Timeline →</a></li>
+      <li><a href="/features/?target=csharp&mode=after&version={{ recentCsharpVersion.id }}">Recent additions →</a></li>
+      <li><a href="/features/?target=dotnet&mode=upToIncluding&version={{ latestDotnetVersion.id }}">By runtime →</a></li>
+    </ul>
+  </nav>
   <h2 id="feature-filter-title">Filter features by version</h2>
   <p class="feature-filter-help">
     Pick a version family and view either everything up to that version or only features added after it. Search also matches example topics and newer capability notes.
