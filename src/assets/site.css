@@ -678,17 +678,38 @@ h3 {
   min-width: 0;
 }
 
+.home-feature-snippet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.45rem;
+}
+
 .home-feature-snippet-title {
-  margin: 0 0 0.45rem;
+  margin: 0;
   text-wrap: balance;
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+.home-feature-snippet-header .feature-version-pills {
+  flex-shrink: 0;
 }
 
 .home-feature-snippet-description {
   display: block;
   margin: 0 0 0.75rem;
   color: var(--muted);
+}
+
+.home-feature-snippet-description code {
+  display: inline;
+  white-space: normal;
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  background: rgba(124, 77, 255, 0.15);
+  border-radius: 4px;
 }
 
 .feature-snippet-card pre {
