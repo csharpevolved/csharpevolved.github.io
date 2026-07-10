@@ -50,5 +50,23 @@
         "code": "ref-structs/ascii-scratch-buffer.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "ref-returns",
+      "reason": "Start with ref returns when you want an earlier building block for ref struct."
+    },
+    {
+      "slug": "span-and-readonlyspan",
+      "reason": "Continue to Span<T> for the next guide in this theme."
+    },
+    {
+      "slug": "out-ref-in-parameters",
+      "reason": "Explore out / ref / in for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "range-and-index-operators",
+      "reason": "Explore Range & index operators to take the same theme one step further."
+    }
   ]
 }

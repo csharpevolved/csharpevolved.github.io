@@ -6,6 +6,20 @@ templateEngineOverride: njk
 
 <h1>C# feature map</h1>
 <p>Organized starting points for content that can grow into full feature guides.</p>
+<nav aria-label="Primary">
+  <p>
+    <a href="/">Home</a> ·
+    <a href="/features/">Features</a> ·
+    <a href="/snippets/">Snippets</a> ·
+    <a href="/cloud/">Cloud</a> ·
+    <a href="/toolbox/">Toolbox</a>
+  </p>
+</nav>
+<p>
+  Prefer a guided path? Browse <a href="/features/by-version/">by C# version</a>,
+  <a href="/features/by-theme/">by theme</a>, or walk the
+  <a href="/features/timeline/">timeline</a>.
+</p>
 
 {% set defaultTarget = "csharp" %}
 {% set defaultMode = "upToIncluding" %}
@@ -41,6 +55,33 @@ templateEngineOverride: njk
       <h3>Follow connected guides</h3>
       <p>
         Feature guides now link to adjacent topics so you can move from an overview into nearby language changes without restarting your search.
+      </p>
+    </article>
+    <article class="card">
+      <h3>Browse by C# version</h3>
+      <p>
+        Group the guides release-by-release when you want a cleaner walkthrough of how the language keeps evolving.
+      </p>
+      <p>
+        <a href="/features/by-version/">Open version groups →</a>
+      </p>
+    </article>
+    <article class="card">
+      <h3>Browse by theme</h3>
+      <p>
+        Jump straight to performance, data modeling, async, safety, and other practical themes built from the feature taxonomy.
+      </p>
+      <p>
+        <a href="/features/by-theme/">Open theme groups →</a>
+      </p>
+    </article>
+    <article class="card">
+      <h3>Walk the timeline</h3>
+      <p>
+        Trace the journey from .NET Framework foundations to today’s modern C# guides in one chronological view.
+      </p>
+      <p>
+        <a href="/features/timeline/">Open the timeline →</a>
       </p>
     </article>
   </div>
@@ -121,14 +162,6 @@ templateEngineOverride: njk
     </p>
   </header>
   <p class="feature-card-summary">{{ feature.summary }}</p>
-  {% if feature.relatedFeatures and feature.relatedFeatures.length %}
-    <p class="feature-card-related">
-      <strong>Related:</strong>
-      {% for relatedFeature in feature.relatedFeatures %}
-        <a href="{{ relatedFeature.url }}">{{ relatedFeature.title }}</a>{% if not loop.last %}, {% endif %}
-      {% endfor %}
-    </p>
-  {% endif %}
 
   {% for example in feature.examples %}
     <section class="feature-demo-example">

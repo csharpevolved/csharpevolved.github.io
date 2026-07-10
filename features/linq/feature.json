@@ -34,5 +34,23 @@
         "code": "linq/filter-project-sort.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "extension-methods",
+      "reason": "Start with Extension methods when you want an earlier building block for LINQ."
+    },
+    {
+      "slug": "local-functions",
+      "reason": "Continue to Local functions for the next guide in this theme."
+    },
+    {
+      "slug": "lambda-expressions",
+      "reason": "Explore Lambda expressions for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "default-interface-members",
+      "reason": "Explore Default Interface Members to take the same theme one step further."
+    }
   ]
 }

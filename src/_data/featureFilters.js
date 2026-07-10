@@ -1,4 +1,5 @@
 const features = require("./features");
+const themes = require("./featureThemes");
 
 function buildVersionOptions(versionKey) {
   return features
@@ -34,6 +35,12 @@ module.exports = {
     csharp: buildVersionOptions("csharp"),
     dotnet: buildVersionOptions("dotnet")
   },
+  themes: themes.map((theme) => ({
+    id: theme.id,
+    label: theme.label,
+    description: theme.description,
+    slugs: [...theme.slugs]
+  })),
   defaults: {
     versionFamily: defaultVersionFamily,
     mode: defaultModeId

@@ -33,8 +33,20 @@
   ],
   "relatedFeatures": [
     {
-      "slug": "raw-string-literals",
-      "reason": "Raw strings are the next stop when interpolated templates need multiline content without escape noise."
+      "slug": "named-and-optional-parameters",
+      "reason": "Start with Named / optional params when you want an earlier building block for String interpolation."
+    },
+    {
+      "slug": "expression-bodied-members",
+      "reason": "Continue to Expression-bodied members for the next guide in this theme."
+    },
+    {
+      "slug": "auto-implemented-properties",
+      "reason": "Explore Auto-properties for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "using-static-directives",
+      "reason": "Explore using static to take the same theme one step further."
     }
   ],
   "learnMore": {

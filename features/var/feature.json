@@ -51,5 +51,19 @@
         "code": "var/anonymous-type.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "attributes-and-reflection",
+      "reason": "Start with Attributes / reflection when you want an earlier building block for `var` keyword."
+    },
+    {
+      "slug": "auto-implemented-properties",
+      "reason": "Continue to Auto-properties for the next guide in this theme."
+    },
+    {
+      "slug": "named-and-optional-parameters",
+      "reason": "Explore Named / optional params to take the same theme one step further."
+    }
   ]
 }

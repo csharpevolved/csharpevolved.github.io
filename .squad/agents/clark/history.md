@@ -64,3 +64,7 @@ Initial backend/sample context seeded.
 ## 2026-07-08T14:49:32.622-04:00
 - Added CSE001-CSE003 Roslyn `CodeFixProvider` repairs under `analyzers/CSharpEvolved.Analyzers/CodeFixes/` and kept the analyzer package local-only.
 - Created `analyzers/CSharpEvolved.Analyzers.Tests` (`net8.0`) with 6 code-fix verification tests covering positive and negative cases; build and test both passed.
+
+## 2026-07-10T09:40:18-04:00
+- Implemented the shared SEO foundation in `src/_data/site.js`, added dependency-free sitemap/robots/feed generation, shipped reusable JSON-LD support plus a default social image, and standardized feature `updated` timestamps from source file mtimes.
+- `npm run build` and `npm run test:e2e` passed for the branch.

@@ -54,5 +54,15 @@
         "code": "attributes-and-reflection/settings-help-text.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "var",
+      "reason": "Continue to `var` keyword for the next guide in this theme."
+    },
+    {
+      "slug": "auto-implemented-properties",
+      "reason": "Explore Auto-properties to take the same theme one step further."
+    }
   ]
 }

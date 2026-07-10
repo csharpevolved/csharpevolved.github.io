@@ -50,5 +50,19 @@
         "code": "ref-returns/ref-indexer.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "out-ref-in-parameters",
+      "reason": "Start with out / ref / in when you want an earlier building block for ref returns."
+    },
+    {
+      "slug": "ref-structs",
+      "reason": "Continue to ref struct for the next guide in this theme."
+    },
+    {
+      "slug": "span-and-readonlyspan",
+      "reason": "Explore Span<T> to take the same theme one step further."
+    }
   ]
 }

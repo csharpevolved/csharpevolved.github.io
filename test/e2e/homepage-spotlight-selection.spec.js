@@ -4,14 +4,6 @@ const spotlightFeaturesData = require("../../src/_data/spotlightFeatures");
 
 const { selectSpotlightFeatures } = spotlightFeaturesData;
 
-function createSeededRandom(seed) {
-  let value = seed >>> 0;
-  return () => {
-    value = (1664525 * value + 1013904223) >>> 0;
-    return value / 0x100000000;
-  };
-}
-
 function makeFeature(slug, csharpLabel, dotnetLabel) {
   return {
     slug,
@@ -23,65 +15,51 @@ function makeFeature(slug, csharpLabel, dotnetLabel) {
 }
 
 test.describe("Homepage spotlight selection", () => {
-  test("is not locked to one static feature ordering", () => {
+  test("uses the curated default spotlight order", () => {
     const features = [
       makeFeature("f1", "C# 3.0", "NETFx 3.5"),
-      makeFeature("f2", "C# 4.0", "NETFx 4.0"),
-      makeFeature("f3", "C# 5.0", "NETFx 4.5"),
-      makeFeature("f4", "C# 6.0", "NETFx 4.6"),
-      makeFeature("f5", "C# 7.0", "NETCore 2.1"),
-      makeFeature("f6", "C# 8.0", "NETCore 3.0"),
-      makeFeature("f7", "C# 9.0", ".NET 5.0"),
-      makeFeature("f8", "C# 10.0", ".NET 6.0")
+      makeFeature("linq", "C# 3.0", "NETFx 3.5"),
+      makeFeature("async-await", "C# 5.0", "NETFx 4.5"),
+      makeFeature("nullable-reference-types", "C# 8.0", "NETCore 3.0"),
+      makeFeature("records", "C# 9.0", ".NET 5.0"),
+      makeFeature("pattern-matching", "C# 9.0", ".NET 5.0"),
+      makeFeature("collection-expressions", "C# 12.0", ".NET 8.0"),
+      makeFeature("extra", "C# 13.0", ".NET 9.0")
     ];
 
-    const seedAResult = selectSpotlightFeatures(features, { count: 6, random: createSeededRandom(7) });
-    const seedBResult = selectSpotlightFeatures(features, { count: 6, random: createSeededRandom(17) });
-
-    expect(seedAResult.map((feature) => feature.slug)).not.toEqual(
-      seedBResult.map((feature) => feature.slug)
-    );
+    expect(selectSpotlightFeatures(features).map((feature) => feature.slug)).toEqual([
+      "linq",
+      "async-await",
+      "nullable-reference-types",
+      "records",
+      "pattern-matching",
+      "collection-expressions"
+    ]);
   });
 
-  test("intentionally spans language and runtime versions when enough features exist", () => {
-    const selected = selectSpotlightFeatures(
-      [
-        makeFeature("a", "C# 3.0", "NETFx 3.5"),
-        makeFeature("b", "C# 4.0", "NETFx 4.5"),
-        makeFeature("c", "C# 5.0", "NETFx 4.6"),
-        makeFeature("d", "C# 6.0", "NETFx 4.7"),
-        makeFeature("e", "C# 7.0", "NETCore 2.1"),
-        makeFeature("f", "C# 8.0", "NETCore 3.0"),
-        makeFeature("g", "C# 9.0", ".NET 5.0"),
-        makeFeature("h", "C# 10.0", ".NET 6.0")
-      ],
-      { count: 6, random: createSeededRandom(42) }
-    );
+  test("skips curated slugs that are not present", () => {
+    const selected = selectSpotlightFeatures([
+      makeFeature("linq", "C# 3.0", "NETFx 3.5"),
+      makeFeature("records", "C# 9.0", ".NET 5.0"),
+      makeFeature("collection-expressions", "C# 12.0", ".NET 8.0")
+    ]);
 
-    const selectedCsharp = new Set(selected.map((feature) => feature.versions.csharp.label));
-    const selectedDotnet = new Set(selected.map((feature) => feature.versions.dotnet.label));
-
-    expect(selectedCsharp.size).toBeGreaterThanOrEqual(4);
-    expect(selectedDotnet.size).toBeGreaterThanOrEqual(4);
+    expect(selected.map((feature) => feature.slug)).toEqual([
+      "linq",
+      "records",
+      "collection-expressions"
+    ]);
   });
 
-  test("is deterministic for tests when a seeded random helper is used", () => {
+  test("supports an explicit override order", () => {
     const source = [
       makeFeature("a", "C# 3.0", "NETFx 3.5"),
       makeFeature("b", "C# 4.0", "NETFx 4.5"),
-      makeFeature("c", "C# 5.0", "NETFx 4.6"),
-      makeFeature("d", "C# 6.0", "NETFx 4.7"),
-      makeFeature("e", "C# 7.0", "NETCore 2.1"),
-      makeFeature("f", "C# 8.0", "NETCore 3.0"),
-      makeFeature("g", "C# 9.0", ".NET 5.0"),
-      makeFeature("h", "C# 10.0", ".NET 6.0")
+      makeFeature("c", "C# 5.0", "NETFx 4.6")
     ];
 
-    const firstRun = selectSpotlightFeatures(source, { count: 6, random: createSeededRandom(99) });
-    const secondRun = selectSpotlightFeatures(source, { count: 6, random: createSeededRandom(99) });
-
-    expect(firstRun.map((feature) => feature.slug)).toEqual(
-      secondRun.map((feature) => feature.slug)
-    );
+    expect(
+      selectSpotlightFeatures(source, { slugs: ["c", "a"], count: 2 }).map((feature) => feature.slug)
+    ).toEqual(["c", "a"]);
   });
 });

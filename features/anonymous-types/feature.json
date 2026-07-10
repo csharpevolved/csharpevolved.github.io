@@ -43,5 +43,15 @@
         "code": "anonymous-types/local-usage.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "object-and-collection-initializers",
+      "reason": "Continue to Object initializers for the next guide in this theme."
+    },
+    {
+      "slug": "tuples-and-deconstruction",
+      "reason": "Explore Tuples to take the same theme one step further."
+    }
   ]
 }

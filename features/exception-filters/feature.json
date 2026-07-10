@@ -43,5 +43,19 @@
         "code": "exception-filters/log-and-rethrow.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "async-await",
+      "reason": "Start with Async and await when you want an earlier building block for Exception filters."
+    },
+    {
+      "slug": "pattern-matching",
+      "reason": "Continue to Pattern matching for the next guide in this theme."
+    },
+    {
+      "slug": "switch-expressions",
+      "reason": "Explore Switch Expressions to take the same theme one step further."
+    }
   ]
 }

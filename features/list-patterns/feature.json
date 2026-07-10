@@ -44,5 +44,15 @@
         "code": "list-patterns/slice-pattern.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "switch-expressions",
+      "reason": "Start with Switch Expressions when you want an earlier building block for List patterns."
+    },
+    {
+      "slug": "pattern-matching",
+      "reason": "Explore Pattern matching for another earlier stepping stone in the same theme."
+    }
   ]
 }

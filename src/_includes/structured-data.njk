@@ -1,0 +1,7 @@
+<script type="application/ld+json">{{ site.structuredData.webSite() | safe }}</script>
+<script type="application/ld+json">{{ site.structuredData.organization() | safe }}</script>
+{% if feature %}
+  {% for schema in site.structuredData.featureSchemas(feature) %}
+<script type="application/ld+json">{{ schema | safe }}</script>
+  {% endfor %}
+{% endif %}

@@ -1,57 +1,65 @@
 const features = require("./features");
 
 const DEFAULT_SPOTLIGHT_COUNT = 6;
+const DEFAULT_SPOTLIGHT_SLUGS = [
+  "linq",
+  "async-await",
+  "nullable-reference-types",
+  "records",
+  "pattern-matching",
+  "collection-expressions"
+];
+const spotlightDescriptions = new Map([
+  [
+    "linq",
+    "Start with readable query pipelines when you want data-heavy code to stay direct and expressive."
+  ],
+  [
+    "async-await",
+    "Learn the async workflow most teams reach for first when modern apps need responsive I/O without callback sprawl."
+  ],
+  [
+    "nullable-reference-types",
+    "Use compiler-backed null-safety to make modern codebases more secure, intentional, and easier to reason about."
+  ],
+  [
+    "records",
+    "Adopt concise data models when you want immutable-friendly types that still feel natural in everyday C#."
+  ],
+  [
+    "pattern-matching",
+    "See how modern branching turns nested conditionals into clearer intent-focused decision code."
+  ],
+  [
+    "collection-expressions",
+    "Jump into the latest concise collection syntax when you want modern code to stay clean and easy to scan."
+  ]
+]);
 
 function selectSpotlightFeatures(allFeatures, options = {}) {
   const count = options.count ?? DEFAULT_SPOTLIGHT_COUNT;
-  const random = options.random ?? Math.random;
-  const candidates = [...allFeatures]
-    .filter((feature) => feature?.slug && feature?.versions?.csharp?.label && feature?.versions?.dotnet?.label)
-    .map((feature, index) => ({ feature, index, randomOrder: random() }));
+  const slugs = Array.isArray(options.slugs) && options.slugs.length
+    ? options.slugs
+    : DEFAULT_SPOTLIGHT_SLUGS;
+  const featuresBySlug = new Map(
+    allFeatures
+      .filter((feature) => feature?.slug)
+      .map((feature) => [feature.slug, feature])
+  );
 
-  const selected = [];
-  const seenCsharp = new Set();
-  const seenDotnet = new Set();
-
-  while (selected.length < count && candidates.length > 0) {
-    candidates.sort((left, right) => {
-      const leftCsharp = left.feature.versions.csharp.label;
-      const rightCsharp = right.feature.versions.csharp.label;
-      const leftDotnet = left.feature.versions.dotnet.label;
-      const rightDotnet = right.feature.versions.dotnet.label;
-
-      const leftDiversityBoost =
-        (seenCsharp.has(leftCsharp) ? 0 : 1) +
-        (seenDotnet.has(leftDotnet) ? 0 : 1);
-      const rightDiversityBoost =
-        (seenCsharp.has(rightCsharp) ? 0 : 1) +
-        (seenDotnet.has(rightDotnet) ? 0 : 1);
-
-      if (rightDiversityBoost !== leftDiversityBoost) {
-        return rightDiversityBoost - leftDiversityBoost;
-      }
-
-      if (left.randomOrder !== right.randomOrder) {
-        return left.randomOrder - right.randomOrder;
-      }
-
-      return left.index - right.index;
-    });
-
-    const next = candidates.shift();
-    if (!next) {
-      break;
-    }
-
-    selected.push(next.feature);
-    seenCsharp.add(next.feature.versions.csharp.label);
-    seenDotnet.add(next.feature.versions.dotnet.label);
-  }
-
-  return selected;
+  return slugs
+    .map((slug) => featuresBySlug.get(slug))
+    .filter(Boolean)
+    .slice(0, count)
+    .map((feature) => ({
+      ...feature,
+      spotlightDescription:
+        spotlightDescriptions.get(feature.slug) ?? feature.summary
+    }));
 }
 
 const spotlightFeatures = selectSpotlightFeatures(features);
 
 module.exports = spotlightFeatures;
 module.exports.selectSpotlightFeatures = selectSpotlightFeatures;
+module.exports.DEFAULT_SPOTLIGHT_SLUGS = DEFAULT_SPOTLIGHT_SLUGS;

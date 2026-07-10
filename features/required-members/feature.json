@@ -22,16 +22,20 @@
   ],
   "relatedFeatures": [
     {
-      "slug": "init-accessors",
-      "reason": "Required and init-only properties work together for immutable object creation with compiler enforcement."
-    },
-    {
       "slug": "records",
-      "reason": "Required members are a natural next step when record models need stronger initialization rules."
+      "reason": "Start with Records when you want an earlier building block for Required Members."
     },
     {
       "slug": "primary-constructors",
-      "reason": "Primary constructors offer another concise object-construction pattern to compare with required properties."
+      "reason": "Continue to Primary constructors for the next guide in this theme."
+    },
+    {
+      "slug": "init-accessors",
+      "reason": "Explore Init accessors for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "collection-expressions",
+      "reason": "Explore Collection expressions to take the same theme one step further."
     }
   ],
   "learnMore": {

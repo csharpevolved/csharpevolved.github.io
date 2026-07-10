@@ -44,5 +44,23 @@
         "code": "named-and-optional-parameters/invoice-summary.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "auto-implemented-properties",
+      "reason": "Start with Auto-properties when you want an earlier building block for Named / optional params."
+    },
+    {
+      "slug": "string-interpolation",
+      "reason": "Continue to String interpolation for the next guide in this theme."
+    },
+    {
+      "slug": "var",
+      "reason": "Explore `var` keyword for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "expression-bodied-members",
+      "reason": "Explore Expression-bodied members to take the same theme one step further."
+    }
   ]
 }

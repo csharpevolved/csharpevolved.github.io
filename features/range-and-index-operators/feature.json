@@ -56,5 +56,15 @@
         "code": "range-and-index-operators/combined-usage.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "span-and-readonlyspan",
+      "reason": "Start with Span<T> when you want an earlier building block for Range & index operators."
+    },
+    {
+      "slug": "ref-structs",
+      "reason": "Explore ref struct for another earlier stepping stone in the same theme."
+    }
   ]
 }

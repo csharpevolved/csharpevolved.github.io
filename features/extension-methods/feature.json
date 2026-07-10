@@ -34,5 +34,23 @@
         "code": "extension-methods/string-extension.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "lambda-expressions",
+      "reason": "Start with Lambda expressions when you want an earlier building block for Extension methods."
+    },
+    {
+      "slug": "linq",
+      "reason": "Continue to LINQ for the next guide in this theme."
+    },
+    {
+      "slug": "func-and-action-delegates",
+      "reason": "Explore Func<T> / Action<T> for another earlier stepping stone in the same theme."
+    },
+    {
+      "slug": "local-functions",
+      "reason": "Explore Local functions to take the same theme one step further."
+    }
   ]
 }

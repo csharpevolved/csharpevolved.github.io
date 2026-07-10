@@ -34,5 +34,19 @@
         "code": "lambda-expressions/delegate-lambda.cs"
       }
     }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "func-and-action-delegates",
+      "reason": "Start with Func<T> / Action<T> when you want an earlier building block for Lambda expressions."
+    },
+    {
+      "slug": "extension-methods",
+      "reason": "Continue to Extension methods for the next guide in this theme."
+    },
+    {
+      "slug": "linq",
+      "reason": "Explore LINQ to take the same theme one step further."
+    }
   ]
 }

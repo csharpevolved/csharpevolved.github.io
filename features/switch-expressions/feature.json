@@ -44,5 +44,19 @@
       }
     }
   ],
-  "newerCapabilities": []
+  "newerCapabilities": [],
+  "relatedFeatures": [
+    {
+      "slug": "pattern-matching",
+      "reason": "Start with Pattern matching when you want an earlier building block for Switch Expressions."
+    },
+    {
+      "slug": "list-patterns",
+      "reason": "Continue to List patterns for the next guide in this theme."
+    },
+    {
+      "slug": "exception-filters",
+      "reason": "Explore Exception filters for another earlier stepping stone in the same theme."
+    }
+  ]
 }

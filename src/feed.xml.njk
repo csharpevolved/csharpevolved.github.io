@@ -1,0 +1,26 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>{{ site.absoluteUrl("/feed.xml") }}</id>
+  <title>{{ site.title | escape }}</title>
+  <subtitle>{{ site.description | escape }}</subtitle>
+  <updated>{{ site.toIsoDate(featureFeed[0].updated) }}</updated>
+  <link href="{{ site.absoluteUrl("/feed.xml") }}" rel="self" />
+  <link href="{{ site.absoluteUrl("/features/") }}" />
+  <author>
+    <name>{{ site.author | escape }}</name>
+  </author>
+{% for feature in featureFeed %}
+  {% set featureSummary = site.stripMarkdown(feature.summary or site.description) %}
+  <entry>
+    <id>{{ site.absoluteUrl(feature.url) }}</id>
+    <title>{{ feature.title | escape }}</title>
+    <link href="{{ site.absoluteUrl(feature.url) }}" />
+    <updated>{{ site.toIsoDate(feature.updated) }}</updated>
+    <summary>{{ featureSummary | escape }}</summary>
+  </entry>
+{% endfor %}
+</feed>

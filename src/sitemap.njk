@@ -1,0 +1,27 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for entry in collections.all | reverse %}
+  {% if entry.url and not entry.data.feature and "?" not in entry.url and entry.url != "/404.html" and entry.url != "/sitemap.xml" and entry.url != "/robots.txt" and entry.url != "/feed.xml" %}
+  <url>
+    <loc>{{ site.absoluteUrl(entry.url) }}</loc>
+    {% if entry.data.feature and entry.data.feature.updated %}
+    <lastmod>{{ site.toIsoDate(entry.data.feature.updated) }}</lastmod>
+    {% endif %}
+  </url>
+  {% endif %}
+{% endfor %}
+{% for feature in features %}
+  {% if feature.url and "?" not in feature.url %}
+  <url>
+    <loc>{{ site.absoluteUrl(feature.url) }}</loc>
+    {% if feature.updated %}
+    <lastmod>{{ site.toIsoDate(feature.updated) }}</lastmod>
+    {% endif %}
+  </url>
+  {% endif %}
+{% endfor %}
+</urlset>
