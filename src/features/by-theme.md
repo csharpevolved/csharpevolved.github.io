@@ -3,6 +3,7 @@ title: Features by theme
 layout: layout.njk
 templateEngineOverride: njk
 description: Browse C# feature guides by theme to move from language basics into modeling, async flows, performance work, and safer code patterns.
+image: /assets/social/pages/features-by-theme.png
 ---
 
 <nav aria-label="Breadcrumb">

@@ -3,6 +3,7 @@ title: C# evolution timeline
 layout: layout.njk
 templateEngineOverride: njk
 description: Follow the C# evolution timeline to see how major language eras connect practical feature guides across the modern .NET journey.
+image: /assets/social/pages/features-timeline.png
 ---
 
 <nav aria-label="Breadcrumb">

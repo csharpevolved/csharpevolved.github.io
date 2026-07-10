@@ -3,6 +3,7 @@ title: Features by C# version
 layout: layout.njk
 templateEngineOverride: njk
 description: Explore C# feature guides grouped by language release so you can trace how each wave of syntax and runtime support fits together.
+image: /assets/social/pages/features-by-version.png
 ---
 
 <nav aria-label="Breadcrumb">

@@ -124,6 +124,7 @@ function buildFeatureArticle(feature) {
   }
 
   const description = stripMarkdown(feature.summary || site.description);
+  const image = feature.image || site.defaultSocialImage;
   const relatedLinks = Array.isArray(feature.relatedFeatures)
     ? feature.relatedFeatures.map((relatedFeature) => absoluteUrl(relatedFeature.url))
     : [];
@@ -137,7 +138,7 @@ function buildFeatureArticle(feature) {
     name: feature.title,
     description,
     url: absoluteUrl(feature.url),
-    image: absoluteUrl(site.defaultSocialImage),
+    image: absoluteUrl(image),
     author: {
       "@type": "Person",
       name: site.author

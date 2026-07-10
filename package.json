@@ -4,11 +4,16 @@
   "private": true,
   "description": "Static site for exploring modern C# features and snippets.",
   "scripts": {
+    "prebuild": "node scripts/generate-social-images.mjs",
     "build": "eleventy && npm run --silent check:var",
+    "predev": "node scripts/generate-social-images.mjs",
     "check:var": "node scripts/check-var-feature.mjs",
     "dev": "eleventy --serve",
+    "preserve": "node scripts/generate-social-images.mjs",
     "serve": "eleventy --serve --quiet",
+    "preserve:e2e": "node scripts/generate-social-images.mjs",
     "serve:e2e": "eleventy --serve --quiet --port=4173",
+    "pretest:e2e": "node scripts/generate-social-images.mjs",
     "test:e2e": "playwright test"
   },
   "devDependencies": {

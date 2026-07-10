@@ -2,6 +2,8 @@
 title: Home
 layout: layout.njk
 templateEngineOverride: njk
+description: Explore C# Evolved to discover modern C# features, practical guides, and learning paths that make the latest tools easier to try.
+image: /assets/social/pages/home.png
 ---
 
 <section class="hero">

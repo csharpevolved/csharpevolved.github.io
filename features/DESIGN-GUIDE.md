@@ -807,6 +807,13 @@ Use this checklist when creating a new feature page:
 - [ ] Syntax highlighting matches palette
 - [ ] Spacing uses the spacing scale
 
+### Social Card Readiness
+- [ ] `feature.title` is concise and readable in social previews
+- [ ] `summary.md` is a clear one-sentence value statement
+- [ ] Title + summary language clearly communicates practical value for share previews
+- [ ] Generated card exists at `src/assets/social/features/<slug>.png`
+- [ ] Card is readable at small size (mobile/social preview) with no clipped or overflowing text
+
 ---
 
 ## FAQ
