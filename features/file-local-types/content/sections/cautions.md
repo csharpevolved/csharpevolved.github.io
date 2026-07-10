@@ -1,0 +1,1 @@
+File-local types are not visible outside their file, so avoid them for anything shared across multiple classes or test projects. Also keep naming clear: because file-local and public types can live together, concise names with obvious responsibilities prevent confusion during refactors.

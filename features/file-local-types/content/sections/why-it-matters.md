@@ -1,0 +1,1 @@
+File-local types improve maintainability when a helper is too large for a nested private type but still should not be part of your shared surface area. They reduce namespace clutter and make intent explicit: this type exists only to support this file.

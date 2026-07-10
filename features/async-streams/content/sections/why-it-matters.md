@@ -1,0 +1,1 @@
+Async streams improve throughput and responsiveness in data-heavy paths such as paged APIs, event feeds, and incremental ETL jobs. Consumers can begin work immediately, which reduces perceived latency and avoids unnecessary memory pressure from fully buffered collections.

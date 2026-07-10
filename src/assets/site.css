@@ -847,6 +847,9 @@ pre {
   border-bottom: 1px solid var(--color-border, #334);
   margin: 0 0 2rem;
 }
+.hero > * {
+  min-width: 0;
+}
 .hero-content {
   display: flex;
   flex-direction: column;

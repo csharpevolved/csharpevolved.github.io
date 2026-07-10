@@ -1,0 +1,67 @@
+{
+  "slug": "async-streams",
+  "title": "Async Streams",
+  "shortTitle": "Async Streams",
+  "versions": {
+    "csharp": "8.0",
+    "dotnet": "3.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "async-await",
+      "reason": "Start with async/await fundamentals, then move to async streams when results should flow item-by-item."
+    },
+    {
+      "slug": "using-declarations",
+      "reason": "Use using declarations alongside async streams when each item processing step owns disposable resources."
+    },
+    {
+      "slug": "pattern-matching",
+      "reason": "Combine async streams with pattern matching to branch on streamed payload types cleanly."
+    },
+    {
+      "slug": "exception-filters",
+      "reason": "Apply exception filters to keep async stream error handling specific and readable."
+    }
+  ],
+  "learnMore": {
+    "label": "Async streams (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/asynchronous-programming/generate-consume-asynchronous-stream"
+  },
+  "examples": [
+    {
+      "id": "task-list-to-async-stream",
+      "title": "From buffered lists to async streams",
+      "description": "Async streams let callers process records as soon as each result arrives instead of waiting for an entire list to finish loading.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "before": "async-streams/task-list-before.cs",
+        "after": "async-streams/async-stream-after.cs"
+      }
+    },
+    {
+      "id": "await-foreach-processing",
+      "title": "Consuming streamed updates with await foreach",
+      "description": "Use await foreach to process each asynchronous result in order while naturally composing async validation and filtering logic.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "async-streams/await-foreach-processing.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

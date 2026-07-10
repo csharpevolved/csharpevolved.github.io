@@ -1,0 +1,65 @@
+{
+  "slug": "with-expressions",
+  "title": "With expressions",
+  "shortTitle": "With expressions",
+  "versions": {
+    "csharp": "9.0",
+    "dotnet": "5.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Practical usage",
+      "path": "content/sections/practical-usage.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "records",
+      "reason": "Start with Records when you want the core building block behind with expressions."
+    },
+    {
+      "slug": "init-accessors",
+      "reason": "Explore Init accessors for another earlier stepping stone in this theme."
+    },
+    {
+      "slug": "required-members",
+      "reason": "Continue to Required Members for the next guide in this theme."
+    }
+  ],
+  "learnMore": {
+    "label": "with expression (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/operators/with-expression"
+  },
+  "examples": [
+    {
+      "id": "clone-and-update-record",
+      "title": "Clone and update immutable records",
+      "description": "Use with expressions to copy a record and change only the fields that need to move forward.",
+      "sampleLanguageVersion": "9.0",
+      "snippets": {
+        "code": "with-expressions/clone-and-update-record.cs"
+      }
+    },
+    {
+      "id": "state-transitions",
+      "title": "Represent state transitions without mutation",
+      "description": "Model workflow steps as clear transitions by producing new values instead of mutating existing instances.",
+      "sampleLanguageVersion": "9.0",
+      "snippets": {
+        "code": "with-expressions/state-transitions.cs"
+      }
+    }
+  ]
+}

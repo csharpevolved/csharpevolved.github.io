@@ -9,6 +9,7 @@ module.exports = [
       "var",
       "auto-implemented-properties",
       "named-and-optional-parameters",
+      "file-local-types",
       "string-interpolation",
       "expression-bodied-members",
       "using-static-directives",
@@ -28,6 +29,7 @@ module.exports = [
       "tuples-and-deconstruction",
       "init-accessors",
       "records",
+      "with-expressions",
       "required-members",
       "primary-constructors",
       "collection-expressions"
@@ -55,6 +57,7 @@ module.exports = [
       "Explore the features that keep branching, error handling, and asynchronous workflows more expressive and direct.",
     slugs: [
       "async-await",
+      "async-streams",
       "exception-filters",
       "pattern-matching",
       "switch-expressions",
@@ -81,6 +84,7 @@ module.exports = [
       "Browse the features that help modern C# code stay safer, cleaner, and easier to maintain over time.",
     slugs: [
       "null-coalescing-and-assignment",
+      "nameof-callerargumentexpression",
       "using-declarations",
       "nullable-reference-types"
     ]

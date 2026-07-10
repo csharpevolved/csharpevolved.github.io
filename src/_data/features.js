@@ -4,6 +4,72 @@ const featureThemes = require("./featureThemes");
 
 const featureContentRoot = path.join(__dirname, "..", "..", "features");
 const codeSampleRoot = path.join(__dirname, "..", "code-samples");
+const discoveryRelatedFeatures = {
+  "async-streams": [
+    {
+      slug: "async-await",
+      reason: "Build on async/await fundamentals before introducing `await foreach` pipelines."
+    },
+    {
+      slug: "linq",
+      reason: "Pair async iteration with LINQ-style projection patterns for end-to-end data flows."
+    }
+  ],
+  "with-expressions": [
+    {
+      slug: "records",
+      reason: "Use `with` expressions alongside records for immutable-friendly updates."
+    },
+    {
+      slug: "object-and-collection-initializers",
+      reason: "Contrast one-time object shaping with non-mutating copy updates."
+    }
+  ],
+  "file-local-types": [
+    {
+      slug: "file-scoped-namespaces",
+      reason: "Combine file-local types with lean file organization patterns."
+    },
+    {
+      slug: "top-level-statements",
+      reason: "Keep startup-focused files scoped and uncluttered with localized type declarations."
+    }
+  ],
+  "nameof-callerargumentexpression": [
+    {
+      slug: "nullable-reference-types",
+      reason: "Strengthen guard clauses with richer diagnostics and null-safety intent."
+    },
+    {
+      slug: "exception-filters",
+      reason: "Improve exception diagnostics while keeping control flow readable."
+    }
+  ],
+  "async-await": [
+    {
+      slug: "async-streams",
+      reason: "Extend async/await patterns to streamed data with `await foreach`."
+    }
+  ],
+  records: [
+    {
+      slug: "with-expressions",
+      reason: "Apply non-mutating copy updates naturally on record-based models."
+    }
+  ],
+  "file-scoped-namespaces": [
+    {
+      slug: "file-local-types",
+      reason: "Further reduce file-level surface area when helper types should stay local."
+    }
+  ],
+  "nullable-reference-types": [
+    {
+      slug: "nameof-callerargumentexpression",
+      reason: "Pair nullability annotations with argument-aware guard messages."
+    }
+  ]
+};
 const featureThemeMap = new Map(
   featureThemes.flatMap((theme, themeIndex) =>
     theme.slugs.map((slug, featureIndex) => [
@@ -265,6 +331,18 @@ function normalizeRelatedFeatures(relatedFeatures) {
     .filter(Boolean);
 }
 
+function mergeRelatedFeatures(primary, fallback) {
+  const seen = new Set();
+  return [...primary, ...fallback].filter((reference) => {
+    if (!reference?.slug || seen.has(reference.slug)) {
+      return false;
+    }
+
+    seen.add(reference.slug);
+    return true;
+  });
+}
+
 function createSearchText(feature) {
   return [
     feature.title,
@@ -325,8 +403,9 @@ const features = readFeatureManifests().map(({ manifest: entry, featureRoot }) =
       entry.newerCapabilities,
       featureRoot
     ),
-    relatedFeatureRefs: normalizeRelatedFeatures(
-      entry.relatedFeatures ?? entry.related
+    relatedFeatureRefs: mergeRelatedFeatures(
+      normalizeRelatedFeatures(entry.relatedFeatures ?? entry.related),
+      normalizeRelatedFeatures(discoveryRelatedFeatures[entry.slug])
     ),
     learnMoreUrl: entry.learnMore?.url,
     learnMore: entry.learnMore,

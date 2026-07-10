@@ -2,12 +2,14 @@ const features = require("./features");
 
 const DEFAULT_SPOTLIGHT_COUNT = 6;
 const DEFAULT_SPOTLIGHT_SLUGS = [
+  "async-streams",
+  "with-expressions",
+  "nameof-callerargumentexpression",
   "linq",
-  "async-await",
+   "async-await",
   "nullable-reference-types",
   "records",
-  "pattern-matching",
-  "collection-expressions"
+  "pattern-matching"
 ];
 const spotlightDescriptions = new Map([
   [

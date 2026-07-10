@@ -55,7 +55,8 @@ When writing a new feature, treat social-card quality as part of the content con
 1. Keep `feature.title` concise so it reads well at social-card size.
 2. Keep `content/summary.md` to one strong sentence; this becomes the card description.
 3. Ensure title and summary use concrete value language (the right-panel value stack is generated from feature metadata text).
-4. Run `npm run build` and visually spot-check `src/assets/social/features/<slug>.png` before opening a PR.
+4. Keep "Why teams use it" bullets as short action/value phrases (hard cap: 32 chars per item).
+5. Run `npm run build` and visually spot-check `src/assets/social/features/<slug>.png` before opening a PR.
 
 ## C# highlighting configuration
 

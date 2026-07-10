@@ -1,0 +1,67 @@
+{
+  "slug": "file-local-types",
+  "title": "File-local types",
+  "shortTitle": "File-local types",
+  "versions": {
+    "csharp": "11.0",
+    "dotnet": "7.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "file-scoped-namespaces",
+      "reason": "Start with file-scoped namespaces, then add file-local types when helper types should stay file-private."
+    },
+    {
+      "slug": "top-level-statements",
+      "reason": "Pair file-local types with top-level programs to keep tiny app entry files organized without exporting helper types."
+    },
+    {
+      "slug": "primary-constructors",
+      "reason": "Use primary constructors with file-local helper types when small immutable collaborators belong in one file."
+    },
+    {
+      "slug": "records",
+      "reason": "Combine file-local scoping and records to model implementation-only data without widening your public API."
+    }
+  ],
+  "learnMore": {
+    "label": "File-local types (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/file"
+  },
+  "examples": [
+    {
+      "id": "file-local-helper-type",
+      "title": "Declaring helper types with the file modifier",
+      "description": "File-local types keep implementation details in the same file while preventing those types from leaking into project-wide namespaces.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "code": "file-local-types/file-local-helper.cs"
+      }
+    },
+    {
+      "id": "nested-private-to-file-local",
+      "title": "From nested private classes to file-local collaborators",
+      "description": "Move deeply nested helper types out of containing classes while keeping them hidden from other files through the file modifier.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "before": "file-local-types/nested-helper-before.cs",
+        "after": "file-local-types/file-local-helper-after.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

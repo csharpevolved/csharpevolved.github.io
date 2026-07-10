@@ -231,3 +231,40 @@
 - All meaningful changes require team consensus.
 - Document architectural decisions here.
 - Keep history focused on work, decisions focused on direction.
+
+
+### 2026-07-10 — Next-round C# feature roadmap waves prioritize stable wins first
+**Source:** `decisions/inbox/perry_white-proposed-next-c-feature-round-focused-on-stable-hi.md`
+
+- Sequence the next feature round in three waves: Wave 1 (`partial methods`, `file-local types`, `with expressions`), Wave 2 (`UTF-8 string literals`, `generic math`), Wave 3 (`params collections`, `extension members`).
+- Favor stable, compilable, high-throughput features first; gate newest-language syntax behind confirmed toolchain readiness.
+- Ship smaller complete batches each cycle and anchor partial-method coverage to source-generator/partial-type narrative framing.
+
+### 2026-07-10 — Candidate ranking favors sample-friendly post-C# 12 features with explicit constraints
+**Source:** `decisions/inbox/clark-prioritize-sample-friendly-post-c-12-features-with.md`
+
+- Prioritize next-sprint implementation around async streams, deeper patterns, `nameof` + `CallerArgumentExpression`, file-local types, generic math, UTF-8 literals, `with`, `ref readonly`, alias-any-type, params collections, then extension members.
+- Use a four-item first subset for implementation momentum: async streams, `nameof`/`CallerArgumentExpression`, file-local types, generic math.
+- Keep snippets self-contained and compilable with explicit before/after parity, and expand validation coverage for C# 12+ before depending on automated compile checks.
+
+### 2026-07-10 — Next-round UX rollout uses existing Features IA with compare-first entry points
+**Source:** `decisions/inbox/lois-use-existing-features-ia-with-a-compare-first-entr.md`
+
+- Keep existing navigation architecture and add a round spotlight block on `/features/` that deep-links to `/features/by-version/`, `/features/by-theme/`, and `/features/timeline/`.
+- Reuse established feature card metadata patterns and add stronger “compare next” links on feature detail pages.
+- Roll out in phases: IA/copy first, then filter presets, card enrichment, and accessibility polish.
+
+### 2026-07-10 — Next-round validation gates and Definition of Done
+**Source:** `decisions/inbox/Jimmy_Olsen-next-round-feature-validation-gates-and-dod.md`
+
+- Reuse existing gates: `npm run build`, `npm run --silent check:var`, and `npm run test:e2e` (targeted subsets permitted during iteration).
+- Require snippet compile validation and manifest/snippet reference integrity using the existing `scripts/validate-p1-features.mjs` pattern.
+- For analyzer-impacting work, retain the analyzer test command path (`dotnet test analyzers/CSharpEvolved.Analyzers.Tests/CSharpEvolved.Analyzers.Tests.csproj -c Release --no-build`).
+- Definition of done requires valid manifest/content contract, compilable snippets for intended language version, green build/check/e2e gates, and no broken learn-more/internal links.
+
+### 2026-07-10 — Narrative frame emphasizes momentum, practical wins, and incremental adoption
+**Source:** `decisions/inbox/cat-grant-feature-round-narrative-centers-on-momentum-practi.md`
+
+- Position the upcoming feature round as practical progress that improves clarity, developer speed, and confidence.
+- Organize stories across expressiveness, productivity, and reliability themes.
+- Structure page copy around pain point → workflow change → incremental adoption encouragement, and prioritize guided explainers over benchmark-heavy claims.

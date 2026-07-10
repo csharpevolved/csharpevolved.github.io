@@ -39,3 +39,8 @@ Initial lead context seeded.
 
 ## 2026-07-01T17:06:15.624-04:00
 - Authored `docs/analyzer-repair-roadmap.md`, documenting the 39-feature analyzer/code-fix suitability review, proposed CSE008-CSE021 IDs, and the three-wave delivery plan.
+
+
+## 2026-07-10T13:47:53.126-04:00
+- Proposed the next-round three-wave feature roadmap (stable-first fast wins, modern depth, then latest-language stretch) with explicit toolchain-gating for C# 13/14 items.
+- Scribe merged this planning decision into `decisions.md` and logged orchestration/session synthesis artifacts.
