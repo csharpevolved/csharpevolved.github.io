@@ -5,7 +5,7 @@
 This document plans analyzer + code-fix delivery for C# Evolved features that can be modernized mechanically. In this roadmap, a feature is **repair-suitable** when we can detect an older C# pattern and safely rewrite it to the newer syntax with a Roslyn code fix. If the feature is additive, architectural, or too semantics-heavy for a reliable mechanical rewrite, it is called out separately as **not repair-suitable**.
 
 Status notes:
-- `CSE001` through `CSE007` are already reserved in the analyzer project and release tracking.
+- `CSE001` through `CSE011` (excluding the still-`Proposed` `CSE008`) are implemented in-repo as analyzer + code-fix pairs, covered by the gated **Build & Test Analyzers** CI check.
 - `Shipped` means the analyzer+repair pair is released.
 - `In progress` means an analyzer exists today, but the repair/code-fix work is still the planning gap.
 - `Proposed` means the repo does not yet have that analyzer.
@@ -14,9 +14,9 @@ Status notes:
 
 | Feature (slug) | Legacy pattern detected | Modern pattern (repair target) | C# version | Proposed analyzer ID | Repair complexity | Status | Notes |
 |---|---|---|---:|---|---|---|---|
-| String interpolation (`string-interpolation`) | `string.Format("Customer {0}", userName)` | `$"Customer {userName}"` | 6.0 | CSE001 | Low | In progress | Analyzer exists; add the code fix. |
-| Using declarations (`using-declarations`) | `using (var logger = new ScopeLogger("outer")) { Console.WriteLine("Working"); }` | `using var logger = new ScopeLogger("outer"); Console.WriteLine("Working");` | 8.0 | CSE002 | Low | In progress | Analyzer exists; code fix must preserve scope and trivia. |
-| Collection expressions (`collection-expressions`) | `new List<string> { "Alice", "Bob" }` | `["Alice", "Bob"]` | 12.0 | CSE003 | Medium | In progress | Analyzer exists; code fix needs target-typing and collection-shape checks. |
+| String interpolation (`string-interpolation`) | `string.Format("Customer {0}", userName)` | `$"Customer {userName}"` | 6.0 | CSE001 | Low | Shipped | Analyzer + repair convert literal-format `string.Format` calls to interpolated strings. |
+| Using declarations (`using-declarations`) | `using (var logger = new ScopeLogger("outer")) { Console.WriteLine("Working"); }` | `using var logger = new ScopeLogger("outer"); Console.WriteLine("Working");` | 8.0 | CSE002 | Low | Shipped | Analyzer + repair convert a `using` block to a `using` declaration while preserving scope and trivia. |
+| Collection expressions (`collection-expressions`) | `new List<string> { "Alice", "Bob" }` | `["Alice", "Bob"]` | 12.0 | CSE003 | Medium | Shipped | Analyzer + repair rewrite supported collection initializers to collection expressions with shape checks. |
 | Switch expressions (`switch-expressions`) | `switch (day) { case DayOfWeek.Saturday: case DayOfWeek.Sunday: return "Weekend"; default: return "Weekday"; }` | `day switch { DayOfWeek.Saturday or DayOfWeek.Sunday => "Weekend", _ => "Weekday" }` | 8.0 | CSE004 | Medium | Shipped | Analyzer + repair now handle return-switches and same-target assignment switches with conservative default-arm requirements. |
 | Tuples and deconstruction (`tuples-and-deconstruction`) | `Tuple.Create("Seattle", 9.5m)` | `("Seattle", 9.5m)` | 7.0 | CSE005 | Low | Shipped | Analyzer + repair convert `Tuple.Create` and `new Tuple<...>` to tuple literals when the replacement remains valid. |
 | Pattern matching (`pattern-matching`) | `if (animal is Dog) { var dog = (Dog)animal; Console.WriteLine(dog.Breed); }` | `if (animal is Dog dog) { Console.WriteLine(dog.Breed); }` | 7.0 | CSE006 | Medium | Shipped | Analyzer + repair introduce a collision-safe pattern variable and replace matching casts inside the guarded block. |
@@ -61,13 +61,12 @@ Status notes:
 
 ### Wave 1 — finish the current analyzer investments and the easiest syntax rewrites
 
-- Delivered in-repo: `CSE004`, `CSE005`, `CSE006`, `CSE007`, `CSE009`, `CSE010`, and `CSE011`.
-- Remaining low-risk follow-ups from the same wave: finish repair/code-fix work for `CSE001`, `CSE002`, `CSE003`, and later add `CSE021` (`var`).
+- Delivered in-repo (analyzer + code fix + tests): `CSE001`, `CSE002`, `CSE003`, `CSE004`, `CSE005`, `CSE006`, `CSE007`, `CSE009`, `CSE010`, and `CSE011`.
+- Remaining low-risk follow-up from the same wave: add `CSE021` (`var`).
 - Reasoning: these are high-visibility, common patterns with mostly local rewrites and low review cost.
 
 ### Wave 2 — add common modernizations that need moderate semantic checks
 
-- `CSE003` (collection expressions)
 - `CSE008` (auto-implemented properties)
 - `CSE014` (null coalescing and assignment)
 - `CSE015` (object and collection initializers)
