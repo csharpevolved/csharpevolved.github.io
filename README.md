@@ -41,6 +41,22 @@ Each feature must be fully self-contained under `features/<slug>/`:
 5. Reference snippet files from `examples[].snippets` using paths relative to `src/code-samples` (for example: `<new-slug>/example.cs`).
 6. Run `npm run build` to validate Eleventy output and repository checks (`check:var` runs as part of build).
 
+### Social card generation is part of feature authoring
+
+Feature and page social cards are generated automatically by `scripts/generate-social-images.mjs`.
+
+- The generator runs automatically before `npm run build`, `npm run dev`, and `npm run test:e2e`.
+- Feature cards are written to `src/assets/social/features/<slug>.png`.
+- Page cards are written to `src/assets/social/pages/*.png`.
+- Feature pages use `feature.image` (set by `src/_data/features.js`) for `og:image` / `twitter:image`.
+
+When writing a new feature, treat social-card quality as part of the content contract:
+
+1. Keep `feature.title` concise so it reads well at social-card size.
+2. Keep `content/summary.md` to one strong sentence; this becomes the card description.
+3. Ensure title and summary use concrete value language (the right-panel value stack is generated from feature metadata text).
+4. Run `npm run build` and visually spot-check `src/assets/social/features/<slug>.png` before opening a PR.
+
 ## C# highlighting configuration
 
 C# syntax highlighting is explicitly configured in `.eleventy.js` using Highlight.js language registration:

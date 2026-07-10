@@ -313,6 +313,7 @@ const features = readFeatureManifests().map(({ manifest: entry, featureRoot }) =
     title: entry.title,
     shortTitle: entry.shortTitle,
     url: `/features/${entry.slug}/`,
+    image: `/assets/social/features/${entry.slug}.png`,
     shuffleOrder: toDeterministicShuffleOrder(entry.slug ?? entry.title),
     versions: createVersionMeta(entry.versions.csharp, entry.versions.dotnet),
     summary: resolveMarkdownReference(entry.summary, featureRoot),
