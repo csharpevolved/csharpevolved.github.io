@@ -1,0 +1,61 @@
+{
+  "slug": "null-conditional-operator",
+  "title": "Null-conditional operator",
+  "shortTitle": "Null-conditional",
+  "versions": {
+    "csharp": "6.0",
+    "dotnet": "4.6"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Member access and null-conditional operators (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-"
+  },
+  "examples": [
+    {
+      "id": "member-access",
+      "title": "Safe property chain access",
+      "description": "Replace nested null guards with a concise `?.` chain that short-circuits to `null` at the first missing link.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "code": "null-conditional-operator/member-access.cs"
+      }
+    },
+    {
+      "id": "with-null-coalescing",
+      "title": "Default fallback with `??` and indexed access with `?[]`",
+      "description": "Combine `?.` and `?[]` with `??` to produce a safe, readable expression that yields a sensible default when any part of the chain is absent.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "code": "null-conditional-operator/with-null-coalescing.cs"
+      }
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "null-coalescing-and-assignment",
+      "reason": "Start with Null coalescing & assignment for the natural companion to null-conditional — providing fallback values when the chain returns null."
+    },
+    {
+      "slug": "nullable-reference-types",
+      "reason": "Continue to Nullable reference types to take compile-time null safety one step further."
+    },
+    {
+      "slug": "pattern-matching",
+      "reason": "Explore Pattern matching for richer null and type checks beyond simple short-circuiting."
+    }
+  ]
+}

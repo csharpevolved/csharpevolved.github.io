@@ -1,0 +1,505 @@
+[
+  {
+    "title": "Implicitly typed locals (var)",
+    "week": 1,
+    "csharpVersion": "3.0",
+    "index": 0,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/var",
+    "slug": "var",
+    "isoDate": "2026-07-14"
+  },
+  {
+    "title": "Records",
+    "week": 1,
+    "csharpVersion": "9.0",
+    "index": 1,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/records",
+    "slug": "records",
+    "isoDate": "2026-07-17"
+  },
+  {
+    "title": "Async and await",
+    "week": 2,
+    "csharpVersion": "5.0",
+    "index": 2,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/async-await",
+    "slug": "async-await",
+    "isoDate": "2026-07-21"
+  },
+  {
+    "title": "Collection expressions",
+    "week": 2,
+    "csharpVersion": "12.0",
+    "index": 3,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/collection-expressions",
+    "slug": "collection-expressions",
+    "isoDate": "2026-07-24"
+  },
+  {
+    "title": "Extension methods",
+    "week": 3,
+    "csharpVersion": "3.0",
+    "index": 4,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/extension-methods",
+    "slug": "extension-methods",
+    "isoDate": "2026-07-28"
+  },
+  {
+    "title": "Nullable reference types",
+    "week": 3,
+    "csharpVersion": "8.0",
+    "index": 5,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/nullable-reference-types",
+    "slug": "nullable-reference-types",
+    "isoDate": "2026-07-31"
+  },
+  {
+    "title": "LINQ",
+    "week": 4,
+    "csharpVersion": "3.0",
+    "index": 6,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/linq",
+    "slug": "linq",
+    "isoDate": "2026-08-03"
+  },
+  {
+    "title": "Pattern matching",
+    "week": 4,
+    "csharpVersion": "9.0",
+    "index": 7,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/pattern-matching",
+    "slug": "pattern-matching",
+    "isoDate": "2026-08-06"
+  },
+  {
+    "title": "Lambda expressions",
+    "week": 5,
+    "csharpVersion": "3.0",
+    "index": 8,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/lambda-expressions",
+    "slug": "lambda-expressions",
+    "isoDate": "2026-08-10"
+  },
+  {
+    "title": "Switch Expressions",
+    "week": 5,
+    "csharpVersion": "8.0",
+    "index": 9,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/switch-expressions",
+    "slug": "switch-expressions",
+    "isoDate": "2026-08-13"
+  },
+  {
+    "title": "Anonymous types",
+    "week": 6,
+    "csharpVersion": "3.0",
+    "index": 10,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/anonymous-types",
+    "slug": "anonymous-types",
+    "isoDate": "2026-08-17"
+  },
+  {
+    "title": "Primary constructors",
+    "week": 6,
+    "csharpVersion": "12.0",
+    "index": 11,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/primary-constructors",
+    "slug": "primary-constructors",
+    "isoDate": "2026-08-20"
+  },
+  {
+    "title": "Attributes and reflection",
+    "week": 7,
+    "csharpVersion": "1.0",
+    "index": 12,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/attributes-and-reflection",
+    "slug": "attributes-and-reflection",
+    "isoDate": "2026-08-24"
+  },
+  {
+    "title": "Async Streams",
+    "week": 7,
+    "csharpVersion": "8.0",
+    "index": 13,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/async-streams",
+    "slug": "async-streams",
+    "isoDate": "2026-08-27"
+  },
+  {
+    "title": "Named and optional parameters",
+    "week": 8,
+    "csharpVersion": "4.0",
+    "index": 14,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/named-and-optional-parameters",
+    "slug": "named-and-optional-parameters",
+    "isoDate": "2026-08-31"
+  },
+  {
+    "title": "File-local types",
+    "week": 8,
+    "csharpVersion": "11.0",
+    "index": 15,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/file-local-types",
+    "slug": "file-local-types",
+    "isoDate": "2026-09-03"
+  },
+  {
+    "title": "Tuples and Deconstruction",
+    "week": 9,
+    "csharpVersion": "7.0",
+    "index": 16,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/tuples-and-deconstruction",
+    "slug": "tuples-and-deconstruction",
+    "isoDate": "2026-09-07"
+  },
+  {
+    "title": "Init accessors",
+    "week": 9,
+    "csharpVersion": "9.0",
+    "index": 17,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/init-accessors",
+    "slug": "init-accessors",
+    "isoDate": "2026-09-10"
+  },
+  {
+    "title": "Auto-implemented properties",
+    "week": 10,
+    "csharpVersion": "3.0",
+    "index": 18,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/auto-implemented-properties",
+    "slug": "auto-implemented-properties",
+    "isoDate": "2026-09-14"
+  },
+  {
+    "title": "Default Interface Members",
+    "week": 10,
+    "csharpVersion": "8.0",
+    "index": 19,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/default-interface-members",
+    "slug": "default-interface-members",
+    "isoDate": "2026-09-17"
+  },
+  {
+    "title": "String interpolation",
+    "week": 11,
+    "csharpVersion": "6.0",
+    "index": 20,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/string-interpolation",
+    "slug": "string-interpolation",
+    "isoDate": "2026-09-21"
+  },
+  {
+    "title": "Raw String Literals",
+    "week": 11,
+    "csharpVersion": "11.0",
+    "index": 21,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/raw-string-literals",
+    "slug": "raw-string-literals",
+    "isoDate": "2026-09-24"
+  },
+  {
+    "title": "Local functions",
+    "week": 12,
+    "csharpVersion": "7.0",
+    "index": 22,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/local-functions",
+    "slug": "local-functions",
+    "isoDate": "2026-09-28"
+  },
+  {
+    "title": "With expressions",
+    "week": 12,
+    "csharpVersion": "9.0",
+    "index": 23,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/with-expressions",
+    "slug": "with-expressions",
+    "isoDate": "2026-10-01"
+  },
+  {
+    "title": "Object and collection initializers",
+    "week": 13,
+    "csharpVersion": "3.0",
+    "index": 24,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/object-and-collection-initializers",
+    "slug": "object-and-collection-initializers",
+    "isoDate": "2026-10-05"
+  },
+  {
+    "title": "Using Declarations",
+    "week": 13,
+    "csharpVersion": "8.0",
+    "index": 25,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/using-declarations",
+    "slug": "using-declarations",
+    "isoDate": "2026-10-08"
+  },
+  {
+    "title": "Exception filters",
+    "week": 14,
+    "csharpVersion": "6.0",
+    "index": 26,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/exception-filters",
+    "slug": "exception-filters",
+    "isoDate": "2026-10-12"
+  },
+  {
+    "title": "List patterns",
+    "week": 14,
+    "csharpVersion": "11.0",
+    "index": 27,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/list-patterns",
+    "slug": "list-patterns",
+    "isoDate": "2026-10-15"
+  },
+  {
+    "title": "ref returns",
+    "week": 15,
+    "csharpVersion": "7.0",
+    "index": 28,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/ref-returns",
+    "slug": "ref-returns",
+    "isoDate": "2026-10-19"
+  },
+  {
+    "title": "Top-level statements",
+    "week": 15,
+    "csharpVersion": "9.0",
+    "index": 29,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/top-level-statements",
+    "slug": "top-level-statements",
+    "isoDate": "2026-10-22"
+  },
+  {
+    "title": "Expression-bodied members",
+    "week": 16,
+    "csharpVersion": "6.0",
+    "index": 30,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/expression-bodied-members",
+    "slug": "expression-bodied-members",
+    "isoDate": "2026-10-26"
+  },
+  {
+    "title": "File-Scoped Namespaces",
+    "week": 16,
+    "csharpVersion": "10.0",
+    "index": 31,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/file-scoped-namespaces",
+    "slug": "file-scoped-namespaces",
+    "isoDate": "2026-10-29"
+  },
+  {
+    "title": "Span<T> and ReadOnlySpan<T>",
+    "week": 17,
+    "csharpVersion": "7.2",
+    "index": 32,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/span-and-readonlyspan",
+    "slug": "span-and-readonlyspan",
+    "isoDate": "2026-11-02"
+  },
+  {
+    "title": "Required Members",
+    "week": 17,
+    "csharpVersion": "11.0",
+    "index": 33,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/required-members",
+    "slug": "required-members",
+    "isoDate": "2026-11-05"
+  },
+  {
+    "title": "Func<T> and Action<T>",
+    "week": 18,
+    "csharpVersion": "3.0",
+    "index": 34,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/func-and-action-delegates",
+    "slug": "func-and-action-delegates",
+    "isoDate": "2026-11-09"
+  },
+  {
+    "title": "Global Using Directives",
+    "week": 18,
+    "csharpVersion": "10.0",
+    "index": 35,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/global-using-directives",
+    "slug": "global-using-directives",
+    "isoDate": "2026-11-12"
+  },
+  {
+    "title": "out, ref, and in Parameters",
+    "week": 19,
+    "csharpVersion": "7.2",
+    "index": 36,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/out-ref-in-parameters",
+    "slug": "out-ref-in-parameters",
+    "isoDate": "2026-11-16"
+  },
+  {
+    "title": "Range and index operators",
+    "week": 19,
+    "csharpVersion": "8.0",
+    "index": 37,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/range-and-index-operators",
+    "slug": "range-and-index-operators",
+    "isoDate": "2026-11-19"
+  },
+  {
+    "title": "Using static directives",
+    "week": 20,
+    "csharpVersion": "6.0",
+    "index": 38,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/using-static-directives",
+    "slug": "using-static-directives",
+    "isoDate": "2026-11-23"
+  },
+  {
+    "title": "Static Abstract Members in Interfaces",
+    "week": 20,
+    "csharpVersion": "11.0",
+    "index": 39,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/static-abstract-interface-members",
+    "slug": "static-abstract-interface-members",
+    "isoDate": "2026-12-03",
+    "note": "Shifted from 2026-11-26 (Thanksgiving) to 2026-12-03"
+  },
+  {
+    "title": "ref structs",
+    "week": 21,
+    "csharpVersion": "7.2",
+    "index": 40,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/ref-structs",
+    "slug": "ref-structs",
+    "isoDate": "2026-11-30"
+  },
+  {
+    "title": "Null coalescing and assignment operators",
+    "week": 21,
+    "csharpVersion": "8.0",
+    "index": 41,
+    "day": "Thursday",
+    "url": "https://csharpevolved.github.io/features/null-coalescing-and-assignment",
+    "slug": "null-coalescing-and-assignment",
+    "isoDate": "2026-12-03"
+  },
+  {
+    "title": "nameof + CallerArgumentExpression",
+    "week": 22,
+    "csharpVersion": "10.0",
+    "index": 42,
+    "day": "Monday",
+    "url": "https://csharpevolved.github.io/features/nameof-callerargumentexpression",
+    "slug": "nameof-callerargumentexpression",
+    "isoDate": "2026-12-07"
+  },
+  {
+    "index": 43,
+    "week": 23,
+    "day": "Monday",
+    "isoDate": "2026-12-21",
+    "slug": "generics",
+    "csharpVersion": "2.0",
+    "url": "https://csharpevolved.github.io/features/generics/",
+    "skip": false
+  },
+  {
+    "index": 44,
+    "week": 23,
+    "day": "Thursday",
+    "isoDate": "2026-12-24",
+    "slug": "target-typed-new",
+    "csharpVersion": "9.0",
+    "url": "https://csharpevolved.github.io/features/target-typed-new/",
+    "skip": true,
+    "note": "Christmas Eve — skip, post on 2026-12-28"
+  },
+  {
+    "index": 45,
+    "week": 23,
+    "day": "Thursday",
+    "isoDate": "2026-12-28",
+    "slug": "target-typed-new",
+    "csharpVersion": "9.0",
+    "url": "https://csharpevolved.github.io/features/target-typed-new/",
+    "skip": false,
+    "note": "Shifted from 2026-12-24 (Christmas Eve)"
+  },
+  {
+    "index": 46,
+    "week": 24,
+    "day": "Monday",
+    "isoDate": "2027-01-04",
+    "slug": "dynamic",
+    "csharpVersion": "4.0",
+    "url": "https://csharpevolved.github.io/features/dynamic/",
+    "skip": false
+  },
+  {
+    "index": 47,
+    "week": 24,
+    "day": "Thursday",
+    "isoDate": "2027-01-08",
+    "slug": "params-collections",
+    "csharpVersion": "13.0",
+    "url": "https://csharpevolved.github.io/features/params-collections/",
+    "skip": false
+  },
+  {
+    "index": 48,
+    "week": 25,
+    "day": "Monday",
+    "isoDate": "2027-01-11",
+    "slug": "new-lock-type",
+    "csharpVersion": "13.0",
+    "url": "https://csharpevolved.github.io/features/new-lock-type/",
+    "skip": false
+  },
+  {
+    "index": 49,
+    "week": 25,
+    "day": "Thursday",
+    "isoDate": "2027-01-15",
+    "slug": "extension-members",
+    "csharpVersion": "14.0",
+    "url": "https://csharpevolved.github.io/features/extension-members/",
+    "skip": false
+  }
+]

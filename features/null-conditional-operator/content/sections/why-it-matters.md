@@ -1,0 +1,3 @@
+Before C# 6.0, safely reading a deeply nested property meant stacking `if` statements or ternary expressions — one guard per level — before you could touch the value you actually wanted. A single property chain like `order.Customer.Address.City` required three intermediate null checks, and each one scattered the real intent across several lines of boilerplate.
+
+The null-conditional operator collapses that pyramid into a single expression: `order?.Customer?.Address?.City`. The compiler rewrites it into the same safe checks, but you no longer have to write them by hand, and the shape of the code mirrors the shape of the data.

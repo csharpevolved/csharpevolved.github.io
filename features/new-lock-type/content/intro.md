@@ -1,0 +1,3 @@
+`System.Threading.Lock` replaces the long-standing `lock(object)` pattern with a type that exists solely to own a mutex, removing the ambiguity of guarding shared state with a general-purpose `object`. The compiler recognizes `Lock` directly and emits optimized synchronization code, and the type's `EnterScope()` method supports RAII-style scoped entry when you need more control than the `lock` keyword provides.
+
+Reach for `Lock` any time you are writing new thread-safety code on .NET 9 or later: the call-site syntax stays familiar, the intent is unmistakable in the type system, and you get better runtime performance for free.

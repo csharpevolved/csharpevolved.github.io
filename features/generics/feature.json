@@ -1,0 +1,70 @@
+{
+  "slug": "generics",
+  "title": "Generics",
+  "shortTitle": "Generics",
+  "versions": {
+    "csharp": "2.0",
+    "dotnet": "2.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Generics in C# (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/fundamentals/types/generics"
+  },
+  "examples": [
+    {
+      "id": "collections-before-after",
+      "title": "Collections before and after generics",
+      "description": "Side-by-side comparison of `ArrayList` with its required casts and boxing against the type-safe, zero-overhead `List<int>` equivalent.",
+      "sampleLanguageVersion": "2.0",
+      "snippets": {
+        "code": "generics/collections-before-after.cs"
+      }
+    },
+    {
+      "id": "generic-method",
+      "title": "A single generic method works across all types",
+      "description": "One `Filter<T>` method replaces writing a separate version for every element type, with full compile-time type safety.",
+      "sampleLanguageVersion": "2.0",
+      "snippets": {
+        "code": "generics/generic-method.cs"
+      }
+    },
+    {
+      "id": "type-constraints",
+      "title": "Type constraints unlock meaningful generic behavior",
+      "description": "A `where T : IComparable<T>` constraint lets the compiler verify that `T` supports comparison, enabling a generic `Max` and `Clamp` that work for any comparable type.",
+      "sampleLanguageVersion": "2.0",
+      "snippets": {
+        "code": "generics/type-constraints.cs"
+      }
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "linq",
+      "reason": "Continue to LINQ to see generics at the center of the most widely used query API in .NET."
+    },
+    {
+      "slug": "lambda-expressions",
+      "reason": "Explore Lambda expressions to see how generic delegates like `Func<T>` and `Action<T>` combine with anonymous functions."
+    },
+    {
+      "slug": "extension-methods",
+      "reason": "Explore Extension methods to understand how LINQ's `IEnumerable<T>` API is built on top of generic types."
+    }
+  ]
+}

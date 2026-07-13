@@ -1,0 +1,61 @@
+{
+  "slug": "dynamic",
+  "title": "Dynamic binding",
+  "shortTitle": "dynamic",
+  "versions": {
+    "csharp": "4.0",
+    "dotnet": "4.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Using type dynamic (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/advanced-topics/interop/using-type-dynamic"
+  },
+  "examples": [
+    {
+      "id": "expando-object",
+      "title": "ExpandoObject as a flexible property bag",
+      "description": "`ExpandoObject` lets you attach properties at runtime and read them back through a `dynamic` variable — useful when shape is unknown at compile time.",
+      "sampleLanguageVersion": "4.0",
+      "snippets": {
+        "code": "dynamic/expando-object.cs"
+      }
+    },
+    {
+      "id": "vs-reflection",
+      "title": "dynamic vs. reflection",
+      "description": "Calling a method through reflection requires several lines of plumbing. `dynamic` collapses that to a single, readable call at the cost of compile-time verification.",
+      "sampleLanguageVersion": "4.0",
+      "snippets": {
+        "code": "dynamic/vs-reflection.cs"
+      }
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "named-and-optional-parameters",
+      "reason": "Named and optional parameters were introduced in the same C# 4.0 release and frequently appear alongside dynamic in COM interop scenarios."
+    },
+    {
+      "slug": "pattern-matching",
+      "reason": "Pattern matching offers a type-safe alternative for branching on unknown shapes — reach for it before resorting to dynamic."
+    },
+    {
+      "slug": "nullable-reference-types",
+      "reason": "Nullable reference types show how the compiler can track more safety information; dynamic goes the opposite direction, so understanding both clarifies the trade-off."
+    }
+  ]
+}

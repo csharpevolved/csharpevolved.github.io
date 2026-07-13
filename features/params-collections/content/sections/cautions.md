@@ -1,0 +1,3 @@
+`ReadOnlySpan<T>` is a ref struct and cannot escape the stack, so you must not store a `params ReadOnlySpan<T>` parameter in a field, return it from the method, or pass it to an `async` continuation — use `params T[]` or `params IEnumerable<T>` whenever the arguments need to outlive the call.
+
+When multiple `params` overloads exist on the same method, overload resolution picks the most specific match, which can surprise callers if an array literal resolves to the `T[]` overload instead of the span overload; keep overload sets small and add `// prefer span overload` comments where the choice matters for performance.

@@ -1,0 +1,3 @@
+Generics can encourage over-abstraction. A method that takes three type parameters and four constraints is harder to read and test than two concrete methods, and the compiler errors it produces when something goes wrong are notoriously difficult to parse. Reach for a generic only when the reuse across types is genuine, not as a way to make a design look more sophisticated.
+
+Variance in C# is also limited: a `List<Dog>` is not a `List<Animal>` even when `Dog` inherits from `Animal`, because `List<T>` is invariant. Covariance (`out T`) and contravariance (`in T`) are available on interfaces and delegates but not on classes, which can surprise developers coming from languages with more permissive type systems and lead to defensive copying or unnecessary conversions.

@@ -1,0 +1,61 @@
+{
+  "slug": "target-typed-new",
+  "title": "Target-typed new expressions",
+  "shortTitle": "Target-typed new",
+  "versions": {
+    "csharp": "9.0",
+    "dotnet": "5.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "new operator — target-typed new (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/operators/new-operator#target-typed-new"
+  },
+  "examples": [
+    {
+      "id": "declarations",
+      "title": "Dropping the repeated type name",
+      "description": "When the type is already declared on the left-hand side, `new()` removes the redundant repetition from fields, locals, and parameter defaults.",
+      "sampleLanguageVersion": "9.0",
+      "snippets": {
+        "code": "target-typed-new/declarations.cs"
+      }
+    },
+    {
+      "id": "collections-and-constructors",
+      "title": "new() inside collections and constructor calls",
+      "description": "Collection initializers and method arguments already carry the element type, so `new()` keeps the signal-to-noise ratio high where it matters most.",
+      "sampleLanguageVersion": "9.0",
+      "snippets": {
+        "code": "target-typed-new/collections-and-constructors.cs"
+      }
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "records",
+      "reason": "Start with Records when you want an earlier building block for Target-typed new."
+    },
+    {
+      "slug": "primary-constructors",
+      "reason": "Continue to Primary constructors for the next guide in this theme."
+    },
+    {
+      "slug": "init-accessors",
+      "reason": "Explore Init accessors to take the same theme one step further."
+    }
+  ]
+}
