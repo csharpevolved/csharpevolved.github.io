@@ -1,0 +1,70 @@
+{
+  "slug": "extension-members",
+  "title": "Extension members",
+  "shortTitle": "Extension members",
+  "versions": {
+    "csharp": "14.0",
+    "dotnet": "10.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Extension members (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/extension-methods"
+  },
+  "examples": [
+    {
+      "id": "extension-property",
+      "title": "Adding a computed property to an interface you don't own",
+      "description": "The new `extension` block lets you declare a real property on `IEnumerable<T>` — no helper class, no method call syntax required at the call site.",
+      "sampleLanguageVersion": "14.0",
+      "snippets": {
+        "code": "extension-members/extension-property.cs"
+      }
+    },
+    {
+      "id": "extension-static",
+      "title": "Adding a static factory member to an existing type",
+      "description": "Extension members aren't limited to instance members — you can attach static properties and methods so callers use `DateTime.Yesterday` as if it shipped in the BCL.",
+      "sampleLanguageVersion": "14.0",
+      "snippets": {
+        "code": "extension-members/extension-static.cs"
+      }
+    },
+    {
+      "id": "fluent-api",
+      "title": "Building a fluent extension block for a domain type",
+      "description": "Group multiple extension properties and methods in a single `extension` declaration to create a cohesive, discoverable surface on a type you don't control.",
+      "sampleLanguageVersion": "14.0",
+      "snippets": {
+        "code": "extension-members/fluent-api.cs"
+      }
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "extension-methods",
+      "reason": "Start with Extension methods to understand the C# 3.0 pattern that extension members supersede and extend."
+    },
+    {
+      "slug": "static-abstract-interface-members",
+      "reason": "Explore Static abstract interface members to see how static members on interfaces complement extension members in library design."
+    },
+    {
+      "slug": "linq",
+      "reason": "Continue to LINQ for the most influential example of the extension-method pattern that extension members now elevate."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+C# 13 extends `params` beyond arrays to `Span<T>`, `ReadOnlySpan<T>`, `IEnumerable<T>`, and any collection-builder type, letting hot-path APIs accept variable arguments without a hidden heap allocation on every call.

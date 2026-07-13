@@ -1,0 +1,61 @@
+{
+  "slug": "params-collections",
+  "title": "params collections",
+  "shortTitle": "params collections",
+  "versions": {
+    "csharp": "13.0",
+    "dotnet": "9.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "params collections (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/method-parameters#params-collections"
+  },
+  "examples": [
+    {
+      "id": "span-params",
+      "title": "Zero-allocation params with ReadOnlySpan<T>",
+      "description": "Switching from `params string[]` to `params ReadOnlySpan<string>` keeps call-site arguments on the stack and eliminates the hidden heap allocation on every invocation.",
+      "sampleLanguageVersion": "13.0",
+      "snippets": {
+        "code": "params-collections/span-params.cs"
+      }
+    },
+    {
+      "id": "ienumerable-params",
+      "title": "Flexible aggregation with params IEnumerable<T>",
+      "description": "A `params IEnumerable<int>` helper accepts arrays, lists, and collection expressions at the call site without requiring callers to convert their data first.",
+      "sampleLanguageVersion": "13.0",
+      "snippets": {
+        "code": "params-collections/ienumerable-params.cs"
+      }
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "span-and-readonlyspan",
+      "reason": "Start with Span and ReadOnlySpan to understand the stack-based types that make allocation-free params possible."
+    },
+    {
+      "slug": "collection-expressions",
+      "reason": "Continue to Collection expressions to see how C# 12 collection literals compose naturally with params collection parameters."
+    },
+    {
+      "slug": "ref-structs",
+      "reason": "Explore Ref structs to understand the stack-only constraint that governs ReadOnlySpan<T> and Span<T> params parameters."
+    }
+  ]
+}

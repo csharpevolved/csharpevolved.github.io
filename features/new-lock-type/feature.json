@@ -1,0 +1,61 @@
+{
+  "slug": "new-lock-type",
+  "title": "The Lock type",
+  "shortTitle": "Lock type",
+  "versions": {
+    "csharp": "13.0",
+    "dotnet": "9.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "System.Threading.Lock (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/api/system.threading.lock"
+  },
+  "examples": [
+    {
+      "id": "basic-lock",
+      "title": "Upgrade from object to Lock",
+      "description": "Swapping a plain `object` sentinel for `System.Threading.Lock` keeps the familiar `lock` call-site syntax while giving the runtime and compiler a richer type to optimize against.",
+      "sampleLanguageVersion": "13.0",
+      "snippets": {
+        "code": "new-lock-type/basic-lock.cs"
+      }
+    },
+    {
+      "id": "enter-scope",
+      "title": "RAII-style scoped entry with EnterScope",
+      "description": "`Lock.EnterScope()` returns a disposable scope, so you can protect a multi-step transaction with a `using` statement and guarantee release even when exceptions occur.",
+      "sampleLanguageVersion": "13.0",
+      "snippets": {
+        "code": "new-lock-type/enter-scope.cs"
+      }
+    }
+  ],
+  "relatedFeatures": [
+    {
+      "slug": "async-await",
+      "reason": "Start with Async and await for foundational async patterns before reaching for Lock in concurrent code."
+    },
+    {
+      "slug": "async-streams",
+      "reason": "Continue to Async Streams when you need safe producer/consumer pipelines alongside locking."
+    },
+    {
+      "slug": "ref-structs",
+      "reason": "Explore Ref Structs to understand the stack-allocated value that EnterScope() returns under the hood."
+    }
+  ]
+}
