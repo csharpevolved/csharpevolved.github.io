@@ -429,5 +429,77 @@
     "url": "https://csharpevolved.github.io/features/nameof-callerargumentexpression",
     "slug": "nameof-callerargumentexpression",
     "isoDate": "2026-12-07"
+  },
+  {
+    "index": 43,
+    "week": 23,
+    "day": "Monday",
+    "isoDate": "2026-12-21",
+    "slug": "generics",
+    "csharpVersion": "2.0",
+    "url": "https://csharpevolved.github.io/features/generics/",
+    "skip": false
+  },
+  {
+    "index": 44,
+    "week": 23,
+    "day": "Thursday",
+    "isoDate": "2026-12-24",
+    "slug": "target-typed-new",
+    "csharpVersion": "9.0",
+    "url": "https://csharpevolved.github.io/features/target-typed-new/",
+    "skip": true,
+    "note": "Christmas Eve — skip, post on 2026-12-28"
+  },
+  {
+    "index": 45,
+    "week": 23,
+    "day": "Thursday",
+    "isoDate": "2026-12-28",
+    "slug": "target-typed-new",
+    "csharpVersion": "9.0",
+    "url": "https://csharpevolved.github.io/features/target-typed-new/",
+    "skip": false,
+    "note": "Shifted from 2026-12-24 (Christmas Eve)"
+  },
+  {
+    "index": 46,
+    "week": 24,
+    "day": "Monday",
+    "isoDate": "2027-01-04",
+    "slug": "dynamic",
+    "csharpVersion": "4.0",
+    "url": "https://csharpevolved.github.io/features/dynamic/",
+    "skip": false
+  },
+  {
+    "index": 47,
+    "week": 24,
+    "day": "Thursday",
+    "isoDate": "2027-01-08",
+    "slug": "params-collections",
+    "csharpVersion": "13.0",
+    "url": "https://csharpevolved.github.io/features/params-collections/",
+    "skip": false
+  },
+  {
+    "index": 48,
+    "week": 25,
+    "day": "Monday",
+    "isoDate": "2027-01-11",
+    "slug": "new-lock-type",
+    "csharpVersion": "13.0",
+    "url": "https://csharpevolved.github.io/features/new-lock-type/",
+    "skip": false
+  },
+  {
+    "index": 49,
+    "week": 25,
+    "day": "Thursday",
+    "isoDate": "2027-01-15",
+    "slug": "extension-members",
+    "csharpVersion": "14.0",
+    "url": "https://csharpevolved.github.io/features/extension-members/",
+    "skip": false
   }
 ]

@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "ScheduleJsonUrl": "https://csharpevolved.github.io/social/social-schedule.json",
+    "KeyVaultUrl": "https://YOUR-KEYVAULT.vault.azure.net/",
+    "OpenAIEndpoint": "https://YOUR-OPENAI.openai.azure.com/",
+    "OpenAIDeployment": "gpt-4o",
+    "LinkedInOrgUrn": "urn:li:organization:YOUR-ORG-ID",
+    "TableStorageAccountName": "YOUR-STORAGE-ACCOUNT"
+  }
+}
