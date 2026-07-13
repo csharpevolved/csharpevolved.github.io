@@ -10,7 +10,7 @@ Scheduled Azure Function that auto-posts C# feature promotions to LinkedIn and X
   - Azure OpenAI resource (gpt-4o deployment)
   - Azure Key Vault
   - Azure Storage Account (Table Storage)
-  - LinkedIn app with Marketing API access
+  - Buffer account with connected LinkedIn and X channels
 
 ## Local Development Setup
 
@@ -22,7 +22,10 @@ Scheduled Azure Function that auto-posts C# feature promotions to LinkedIn and X
    - `KeyVaultUrl` — your Key Vault URI
    - `OpenAIEndpoint` — your Azure OpenAI endpoint
    - `OpenAIDeployment` — model deployment name (default: `gpt-4o`)
-   - `LinkedInOrgUrn` — your LinkedIn org URN (`urn:li:organization:XXXXXX`)
+   - `BufferApiUrl` — Buffer GraphQL endpoint (default: `https://api.buffer.com/graphql`)
+   - `BufferLinkedInChannelId` — Buffer channel ID for LinkedIn
+   - `BufferXChannelId` — Buffer channel ID for X/Twitter
+   - `BufferScheduleDelayMinutes` — queue lead time in minutes (default: `5`)
    - `TableStorageAccountName` — your storage account name
 
 3. Authenticate locally:
@@ -41,9 +44,8 @@ Scheduled Azure Function that auto-posts C# feature promotions to LinkedIn and X
 
 | Secret Name          | Description                              |
 |----------------------|------------------------------------------|
-| `LinkedInAccessToken` | LinkedIn OAuth 2.0 access token         |
+| `BufferApiToken`      | Buffer API token for GraphQL requests   |
 | `OpenAIApiKey`        | Azure OpenAI API key (if not using MI)  |
-| `TwitterBearerToken`  | Twitter API v2 Bearer Token (future use)|
 
 Grant your Azure Function's managed identity `Key Vault Secrets User` role on the Key Vault.
 
@@ -92,4 +94,4 @@ Set `"skip": true` to skip a scheduled post without removing the entry.
 - All secrets are fetched from Key Vault via `DefaultAzureCredential` and cached in-memory per service instance — no hot-path secret reads.
 - `HttpClient` instances are registered as singletons via DI to avoid socket exhaustion.
 - All promotion events are logged to Azure Table Storage (`PromotionAudit` table) for audit trail.
-- Twitter/X posting is stubbed — wire up `TwitterService.cs` when credentials are available.
+- Buffer handles the final LinkedIn and X/Twitter queueing; the function only generates copy and hands off to Buffer.

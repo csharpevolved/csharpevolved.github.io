@@ -38,11 +38,10 @@ var host = new HostBuilder()
 
         // HttpClients registered as singletons to avoid socket exhaustion
         services.AddHttpClient<ScheduleService>();
-        services.AddHttpClient<LinkedInService>();
+        services.AddHttpClient<BufferService>();
 
         // Application services
         services.AddSingleton<PostGeneratorService>();
-        services.AddSingleton<TwitterService>();
         services.AddSingleton<AuditService>();
     })
     .Build();

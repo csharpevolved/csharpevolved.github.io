@@ -7,7 +7,10 @@
     "KeyVaultUrl": "https://YOUR-KEYVAULT.vault.azure.net/",
     "OpenAIEndpoint": "https://YOUR-OPENAI.openai.azure.com/",
     "OpenAIDeployment": "gpt-4o",
-    "LinkedInOrgUrn": "urn:li:organization:YOUR-ORG-ID",
+    "BufferApiUrl": "https://api.buffer.com/graphql",
+    "BufferLinkedInChannelId": "YOUR-BUFFER-LINKEDIN-CHANNEL-ID",
+    "BufferXChannelId": "YOUR-BUFFER-X-CHANNEL-ID",
+    "BufferScheduleDelayMinutes": "5",
     "TableStorageAccountName": "YOUR-STORAGE-ACCOUNT"
   }
 }

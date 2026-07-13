@@ -8,21 +8,18 @@ public class PromoteFeatureFunction
 {
     private readonly ScheduleService _scheduleService;
     private readonly PostGeneratorService _postGeneratorService;
-    private readonly LinkedInService _linkedInService;
-    private readonly TwitterService _twitterService;
+    private readonly BufferService _bufferService;
     private readonly AuditService _auditService;
 
     public PromoteFeatureFunction(
         ScheduleService scheduleService,
         PostGeneratorService postGeneratorService,
-        LinkedInService linkedInService,
-        TwitterService twitterService,
+        BufferService bufferService,
         AuditService auditService)
     {
         _scheduleService = scheduleService;
         _postGeneratorService = postGeneratorService;
-        _linkedInService = linkedInService;
-        _twitterService = twitterService;
+        _bufferService = bufferService;
         _auditService = auditService;
     }
 
@@ -62,43 +59,43 @@ public class PromoteFeatureFunction
         // 3. Generate posts
         var generatedPost = await _postGeneratorService.GeneratePostsAsync(entry, featureSummary);
 
-        // 4. Post to LinkedIn
+        // 4. Queue to Buffer for LinkedIn
         string linkedInPostId = string.Empty;
         bool linkedInSuccess = false;
         string? linkedInError = null;
         try
         {
-            linkedInPostId = await _linkedInService.PostAsync(generatedPost, entry);
+            linkedInPostId = await _bufferService.ScheduleLinkedInAsync(entry, generatedPost.LinkedInPost);
             linkedInSuccess = true;
-            logger.LogInformation("LinkedIn post created for slug '{Slug}', postId: {PostId}", entry.Slug, linkedInPostId);
+            logger.LogInformation("Buffer queued LinkedIn post for slug '{Slug}', postId: {PostId}", entry.Slug, linkedInPostId);
         }
         catch (Exception ex)
         {
             linkedInError = ex.Message;
-            logger.LogError(ex, "Failed to post to LinkedIn for slug '{Slug}'", entry.Slug);
+            logger.LogError(ex, "Failed to queue LinkedIn post via Buffer for slug '{Slug}'", entry.Slug);
         }
-        await _auditService.LogAsync(entry, "LinkedIn", generatedPost.LinkedInPost, linkedInPostId, linkedInSuccess, linkedInError);
+        await _auditService.LogAsync(entry, "Buffer/LinkedIn", generatedPost.LinkedInPost, linkedInPostId, linkedInSuccess, linkedInError);
 
-        // 5. Post to X/Twitter (stub)
+        // 5. Queue to Buffer for X/Twitter
         string twitterPostId = string.Empty;
         bool twitterSuccess = false;
         string? twitterError = null;
         try
         {
-            twitterPostId = await _twitterService.PostAsync(generatedPost, entry);
+            twitterPostId = await _bufferService.ScheduleXAsync(entry, generatedPost.TwitterPost);
             twitterSuccess = true;
-            logger.LogInformation("Twitter/X step completed for slug '{Slug}'", entry.Slug);
+            logger.LogInformation("Buffer queued X post for slug '{Slug}', postId: {PostId}", entry.Slug, twitterPostId);
         }
         catch (Exception ex)
         {
             twitterError = ex.Message;
-            logger.LogError(ex, "Failed to post to Twitter/X for slug '{Slug}'", entry.Slug);
+            logger.LogError(ex, "Failed to queue X post via Buffer for slug '{Slug}'", entry.Slug);
         }
-        await _auditService.LogAsync(entry, "Twitter", generatedPost.TwitterPost, twitterPostId, twitterSuccess, twitterError);
+        await _auditService.LogAsync(entry, "Buffer/X", generatedPost.TwitterPost, twitterPostId, twitterSuccess, twitterError);
 
         // 6. Final success log
         logger.LogInformation(
-            "PromoteFeature completed for slug '{Slug}'. LinkedIn postId: '{LinkedInId}', Twitter postId: '{TwitterId}'",
+            "PromoteFeature completed for slug '{Slug}'. Buffer LinkedIn postId: '{LinkedInId}', Buffer X postId: '{TwitterId}'",
             entry.Slug, linkedInPostId, twitterPostId);
     }
 }
